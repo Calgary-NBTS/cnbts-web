@@ -13,8 +13,8 @@ export default function Home() {
         <Image
           src="/BlackLogo.jpeg"
           alt="Calgary Non-Binary and Transgender Society Logo - Trans Flag and Transgender Symbol Wrapped with Dragon"
-          width={1000} 
-          height={1000}
+          width={800} 
+          height={800}
           />
           <p className="flex items-center justify-center">Coming Soon</p>
         </div>
