@@ -6,7 +6,7 @@ import { schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'Calgary Non-Binary and Transgender Society',
-  projectId: '2l7yx8ng',
+  projectId: '9108qgzh',
   dataset: 'production',
   basePath: '/admin',
   //apiVersion: "2024-02-13",
