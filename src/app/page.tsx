@@ -9,6 +9,7 @@ export default function Home() {
           alt="Calgary Non-Binary and Transgender Society Logo - Trans Flag and Transgender Symbol Wrapped with Dragon"
           width={800} 
           height={800}
+          priority
           />
           <p className="flex items-center justify-center">Coming Soon</p>
         </div>
