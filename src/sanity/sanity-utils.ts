@@ -1,5 +1,5 @@
 import { createClient, groq } from "next-sanity";
-import { Event } from "@/types/Event";
+import { Event } from '../types/Event'
 
 export async function getEvents(): Promise<Event[]> {
     const client = createClient({
