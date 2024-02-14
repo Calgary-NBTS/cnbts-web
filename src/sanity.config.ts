@@ -5,12 +5,12 @@ import { visionTool} from '@sanity/vision'
 import schemas from './sanity/schemas';
 
 export default defineConfig({
-  name: 'default',
+  name: 'calgary-nbts',
   title: 'Calgary Non-Binary and Transgender Society',
   projectId: '9108qgzh',
   dataset: 'production',
   basePath: '/admin',
-  //apiVersion: "2024-02-13",
+  apiVersion: "2024-02-14",
   plugins: [structureTool(), visionTool()],
   // schema: {
   //   types: schemaTypes,
