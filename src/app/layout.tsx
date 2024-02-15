@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
+import Header from "../components/Header";
 
 export const metadata: Metadata = {
   title: "Calgary Non-Binary and Transgender Society",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
       {
         url: '/favicon-16x16.png',
         sizes: '16x16'
-      },
+      }, 
     ],
     apple: [
       { url: './apple-touch-icon.png' },
