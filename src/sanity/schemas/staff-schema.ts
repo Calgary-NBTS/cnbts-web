@@ -20,6 +20,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'joined',
+      title: 'Joined',
+      type: 'datetime'
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -28,22 +33,36 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'role',
-      title: 'Role',
+      name: 'bio',
+      title: 'Bio',
+      type: 'blockContent'
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number'
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email',
       type: 'string'
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
+      name: 'active',
+      title: 'Active',
+      type: 'boolean'
+    }),
+    defineField({
+      name: 'categories',
+      title: 'Categories',
       type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      of: [{type: 'reference', to: {type: 'staffcategory'}}],
+    }),
+    defineField({
+      name: 'pronouns',
+      title: 'Pronouns',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'pronoun'}}],
     }),
   ],
   preview: {
