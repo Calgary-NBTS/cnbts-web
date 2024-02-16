@@ -1,11 +1,10 @@
 // import blockContent from './blockContent'
 // import category from './category'
 // import post from './post'
-// import author from './author'
-
 import event from './event-schema';
+import staff from './staff-schema'
 
-const schemas = [event]
+const schemas = [event,staff]
 
 export default schemas;
 
