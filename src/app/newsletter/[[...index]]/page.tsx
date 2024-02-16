@@ -1,3 +1,5 @@
-export default function About() {
-    return <div>About page</div>
+import NewsletterPage from "@/components/NewsletterPage"
+
+export default function Newsletter() {
+    return <NewsletterPage />
 }
