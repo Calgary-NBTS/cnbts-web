@@ -14,6 +14,7 @@ function Button({children}:Props) {
 export default function Header() {
     return (
         <div className="flex w-full bg-purple-700 text-black">
+            <Link href="/"><Button>Home</Button></Link>
             <Link href="/events"><Button>Events</Button></Link>
             <Link href="/newsletter"><Button>Newsletter</Button></Link>
             <Link href="/resources"><Button>Resources</Button></Link>
