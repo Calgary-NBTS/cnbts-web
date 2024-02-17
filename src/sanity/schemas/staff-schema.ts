@@ -62,8 +62,7 @@ export default defineType({
     defineField({
       name: 'pronouns',
       title: 'Pronouns',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'pronoun'}}],
+      type: 'string',
     }),
   ],
   preview: {

@@ -15,7 +15,7 @@ const schemas = [
     resource, 
     resourceCategory, 
     newsletter,
-    pronoun,
+    //pronoun,
 ]
 
 export default schemas;
