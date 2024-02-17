@@ -2,9 +2,9 @@ import StaffList from './StaffList';
 
 const AboutPage = () => {
 return <div>
+    <p>The Team</p>
     <StaffList />
 
-    <p>About us and the team</p>
     </div>
 }
 
