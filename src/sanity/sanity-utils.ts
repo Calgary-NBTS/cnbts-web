@@ -1,5 +1,5 @@
 import { createClient, groq } from "next-sanity";
-import { Event } from '../types/Event'
+import { Event, Staff } from '../types/SanityReturns'
 
 export async function getEvents(): Promise<Event[]> {
     const client = createClient({
@@ -24,7 +24,7 @@ export async function getEvents(): Promise<Event[]> {
     )
 }
 
-export async function getStaff(): Promise<Event[]> {
+export async function getStaff(): Promise<Staff[]> {
     const client = createClient({
         projectId: '9108qgzh',
         dataset: 'production',
@@ -39,10 +39,10 @@ export async function getStaff(): Promise<Event[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
-            url,
-            time,
-            timeend,
-            content
+            joined,
+            bio, 
+            "pronouns": pronouns[]->title,
+            order,
         }`
     )
 }

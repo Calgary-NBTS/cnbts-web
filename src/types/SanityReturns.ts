@@ -11,3 +11,14 @@ export type Event = {
     url: string;
     content: PortableTextBlock[];
 }
+
+export type Staff = {
+    _id: string;
+    _createdAt: Date;
+    name: string;
+    slug: string;
+    image: string;
+    joined: Date;
+    bio: PortableTextBlock[];
+    pronouns: string[];
+}

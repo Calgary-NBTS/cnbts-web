@@ -50,7 +50,8 @@ export default defineType({
     defineField({
       name: 'active',
       title: 'Active',
-      type: 'boolean'
+      type: 'boolean',
+      initialValue: true,
     }),
     defineField({
       name: 'categories',
