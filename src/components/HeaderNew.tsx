@@ -73,7 +73,7 @@ export default function Header() {
                     <div onClick={toggleMenu} className="text-3xl">
                         {isOpen ? <IoClose /> : <IoMenu />}
                     </div>
-                    <div><p><Link href="/">Calgary NBTS</Link></p></div>
+                    <div><p>Calgary NBTS</p></div>
                 </div>
             
                 

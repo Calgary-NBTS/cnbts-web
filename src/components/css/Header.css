@@ -1,0 +1,13 @@
+.hide {
+    display: none
+}
+
+@media screen and (min-width: 1150px) {
+.mobileBar {
+    display: none;
+}
+}
+
+@media screen and (min-width: 1150px) {
+
+}
