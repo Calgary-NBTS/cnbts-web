@@ -1,7 +1,8 @@
-import client from 'src/sanity/sanityClient';
+import client from '@/sanity/sanityClient';
 import Image from "next/image";
 import { PortableTextBlock } from "sanity";
-import RainbowHeart from 'public/images/RainbowHeart.svg'
+// import RainbowHeart from '@/public/images/RainbowHeart.svg'
+import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 import imageUrlBuilder from '@sanity/image-url';
 import {PortableText} from '@portabletext/react'
 
