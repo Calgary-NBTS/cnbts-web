@@ -22,7 +22,7 @@
 body {
   /* background: black; */
   background-size:cover;
-  background-image: url("/images/pride/flags/TransgenderFlag.svg");
+  /* background-image: url("/images/pride/flags/TransgenderFlag.svg"); */
   background-attachment: fixed;
   color: lavenderblush;
 }
