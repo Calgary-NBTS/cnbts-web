@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "Calgary Non-Binary and Transgender Society",
@@ -33,12 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="">
-      <body className="flex flex-col content-between h-dvh">
-        <Header />
-        <div className="bg-fuchsia-300 pt-12 h-dvh">
+      <body className="bg-fuchsia-200">
+        <div className="flex flex-col">
+          <Header />
+          <div className="h-12">&nbsp;</div>
           {children}
+          <Footer />
         </div>
-        <Footer />
       </body>
     </html>
   );
