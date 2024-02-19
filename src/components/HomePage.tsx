@@ -1,5 +1,5 @@
 import Image from "next/image";
-import EnbyLogoNoBg from 'public/images/logos/EnbyLogoNoBG.png';
+import EnbyLogoNoBg from '@/../public/images/logos/EnbyLogoNoBG.png';
 
 const HomePage = () => {
     return (
