@@ -6,7 +6,7 @@ import resource from './resource-schema';
 import resourceCategory from './resource-category-schema';
 import newsletter from './newsletter-schema'
 
-const schemas = [
+const schemaTypes = [
     blockContent, 
     event, 
     staff, 
@@ -16,4 +16,4 @@ const schemas = [
     newsletter,
 ]
 
-export default schemas;
+export default schemaTypes;
