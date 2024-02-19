@@ -35,7 +35,7 @@ export async function getStaff(): Promise<Staff[]> {
             "image": image.asset->url,
             joined,
             bio, 
-            "pronouns": pronouns[]->title,
+            pronouns,
             order,
         }`
     )
