@@ -1,7 +1,7 @@
 import StaffList from './StaffList';
 
 const AboutPage = () => {
-return <div>
+return <div className="m-4">
     <p>The Team</p>
     <StaffList />
 
