@@ -32,10 +32,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="">
+      <body className="flex flex-col content-between h-dvh">
         <Header />
-        {children}
+        <div className="bg-fuchsia-300 pt-12 h-dvh">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );
