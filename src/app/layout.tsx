@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import "./globals.css";
-// import Header from "@/components/Header";
-import Header from "../components/Header";
+import type { Metadata } from 'next';
+import './globals.css';
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
 
 export const metadata: Metadata = {
   title: "Calgary Non-Binary and Transgender Society",

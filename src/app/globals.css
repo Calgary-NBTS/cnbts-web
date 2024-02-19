@@ -14,20 +14,6 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
-    --maya-blue: #55cdfc;
-    --maya-blue: hsla(197, 97%, 66%, 1);
-    --maya-blue-light: hsla(197, 97%, 85%, 1);
-    --maya-blue-alpha: #55cdfcaa;
-    --amaranth-pink: #f7a8b8;
-    --pink: #F5A9B8;
-    --amaranth-pink: hsl(348, 83%, 81%);
-    --amaranth-pink-alpha: #070606cc;
-    --amaranth-pink-alpha: hsla(348, 83%, 81%,0.8);
-    --amaranth-pink-light-alpha: hsla(348, 83%, 90%,0.8);
-    --trans-pride: linear-gradient(0deg, var(--maya-blue) 0%, var(--maya-blue) 8%, var(--pink) 25%, var(--pink) 35%, white 45%, white 55%, var(--pink) 65%, var(--pink) 75%, var(--maya-blue) 92%, var(--maya-blue) 100%);
-    --lgbt-pride: linear-gradient(0deg, #86007d 0%,#86007d 16.65%, #0000f9 16.65%, #0000f9 33.3%,#008018 33.3%, #008018 50%, #ffff41 50%, #ffff41 66.6%, #ffa52c 66.6%, #ffa52c 83.3%, #ff0018 83.3%, #ff0018 100%);
-    --box-background: rgba(255,255,255,0.5);
-    
     --use-radius: 20px;
   }
 }
