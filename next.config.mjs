@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
+const __dirname = import.meta.dirname;
+import path from 'path';
+
 const nextConfig = {
+    webpack: (config, {isServer}) => {
+        config.resolve.alias['@'] = path.join(__dirname, 'src');
+        return config;
+    },
     images: {
         remotePatterns: [
             {
