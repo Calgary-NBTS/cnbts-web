@@ -2,7 +2,7 @@ import { FaFacebook, FaDiscord, FaSquareInstagram } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="p-4 bg-sky-400">
+        <div className="p-4 bg-gradient-to-b from-sky-300 to-sky-400">
             <div className="m-2">
                 <p>Come join us at any or all of the below platorms.</p>
             </div>

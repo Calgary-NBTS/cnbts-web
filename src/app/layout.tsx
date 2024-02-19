@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className="bg-fuchsia-200">
         <div className="flex flex-col">
           <Header />
-          <div className="h-12">&nbsp;</div>
+          <div className="h-10">&nbsp;</div>
           {children}
           <Footer />
         </div>

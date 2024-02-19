@@ -67,16 +67,13 @@ export default function Header() {
     }
 
     return (
-        <header className="fixed w-full bg-sky-400">
-
-                <div className="mobileBar p-2 flex justify-between">
-                    <div onClick={toggleMenu} className="text-3xl">
-                        {isOpen ? <IoClose /> : <IoMenu />}
-                    </div>
-                    <div><p><Link href="/" onClick={closeMenu}>Calgary NBTS</Link></p></div>
+        <header className="fixed w-full bg-gradient-to-b from-sky-300 to-sky-400">
+            <div className="mobileBar p-2 flex justify-between">
+                <div onClick={toggleMenu} className="text-3xl">
+                    {isOpen ? <IoClose /> : <IoMenu />}
                 </div>
-            
-                
+                <div><p className="font-bold"><Link href="/" onClick={closeMenu}>Calgary NBTS</Link></p></div>
+            </div>
             
             {(!isMobile || (isMobile && isOpen)) &&
                 <RenderNav mobile={isMobile} />
