@@ -20,5 +20,5 @@ export type Staff = {
     image: string;
     joined: Date;
     bio: PortableTextBlock[];
-    pronouns: string[];
+    pronouns: string;
 }
