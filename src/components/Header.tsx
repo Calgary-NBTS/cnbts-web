@@ -26,7 +26,7 @@ export default function Header() {
 
     const RenderNav = ({mobile}: renderNavProps) => {
         return (
-                <nav className={isMobile ? 'pt-4 w-3/6 bg-green-500' : ''}> 
+                <nav className={isMobile ? 'pt-4 w-4/5' : ''}> 
                     <ul className={`flex ${isMobile ? 'flex-col' : 'flex-row'}`}>
                         {!isMobile && (
                             <li>
