@@ -1,5 +1,5 @@
 import client from './sanityClient'
-import { createClient, groq } from "next-sanity";
+import { groq } from "next-sanity";
 import { Event, Staff } from '../types/SanityReturns'
 
 export async function getEvents(): Promise<Event[]> {
@@ -19,13 +19,6 @@ export async function getEvents(): Promise<Event[]> {
 }
 
 export async function getStaff(): Promise<Staff[]> {
-    const client = createClient({
-        projectId: '9108qgzh',
-        dataset: 'production',
-        apiVersion: "2024-02-14",
-        useCdn: true
-    });
-
     return client.fetch(
         groq`*[_type=="staff"]{
             _id,
