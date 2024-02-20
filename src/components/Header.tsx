@@ -26,9 +26,9 @@ export default function Header() {
 
     const RenderNav = ({mobile}: renderNavProps) => {
         return (
-                <nav className={isMobile ? 'pt-4 w-4/5' : ''}> 
-                    <ul className={`flex ${mobile ? 'flex-col' : 'flex-row'}`}>
-                        {!mobile && (
+                <nav className={isMobile ? 'pt-4 w-3/6 bg-green-500' : ''}> 
+                    <ul className={`flex ${isMobile ? 'flex-col' : 'flex-row'}`}>
+                        {!isMobile && (
                             <li>
                                 <Link href="/" onClick={closeMenu}>
                                     <Button>Home</Button>
@@ -72,7 +72,9 @@ export default function Header() {
                 <div onClick={toggleMenu} className="text-3xl">
                     {isOpen ? <IoClose /> : <IoMenu />}
                 </div>
-                <div><p className="font-bold"><Link href="/" onClick={closeMenu}>Calgary NBTS</Link></p></div>
+                <div>
+                    <Link href="/" onClick={closeMenu}>Calgary NBTS</Link>
+                </div>
             </div>
             
             {(!isMobile || (isMobile && isOpen)) &&
