@@ -2,7 +2,7 @@ import { FaFacebook, FaDiscord, FaSquareInstagram } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className="p-4 bg-gradient-to-b from-sky-300 to-sky-400">
+        <footer className="p-4 bg-gradient-to-b from-sky-300 to-sky-400">
             <div className="m-2">
                 <p>Come join us at any or all of the below platorms.</p>
             </div>
@@ -11,7 +11,7 @@ const Footer = () => {
                 <div><a href="https://discord.gg/t7a9xFmfcA" rel="noopener noreferrer"><FaDiscord /></a></div>
                 <div><a href="https://www.instagram.com/calgary_enby_trans_society?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" rel="noopener noreferrer"><FaSquareInstagram /></a></div>
             </div>
-        </div>
+        </footer>
     );
 }
     
