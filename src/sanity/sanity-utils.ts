@@ -1,6 +1,6 @@
 import client from './sanityClient'
 import { groq } from "next-sanity";
-import { Event, Staff } from '../types/SanityReturns'
+import { Event, Staff } from '@/types/SanityReturns'
 
 export async function getEvents(): Promise<Event[]> {
     return client.fetch(
