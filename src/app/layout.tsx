@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-// import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import dynamic from 'next/dynamic'
 
@@ -35,14 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-screen">
-      <body className="bg-fuchsia-200 h-screen">
-        <div className="flex flex-col h-full">
+    <html lang="en" className="h-full">
+      <body className="bg-fuchsia-200 min-h-full flex flex-col">
           <Header />
-          <div className="h-10">&nbsp;</div>
-          {children}
+          <div className="h-12">&nbsp;</div>
+          <main className="w-full h-full text-black">
+            {children}
+          </main>
           <Footer />
-        </div>
       </body>
     </html>
   );
