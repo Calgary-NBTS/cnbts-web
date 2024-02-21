@@ -1,13 +1,13 @@
-import {getEvents} from '../sanity/sanity-utils' // docker loses the @
+import { getEvents } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 
 const  Events = async () => {
     const events = await getEvents();
 
-    return <div className="max-w-5xl mx-auto">
-        <EventsCalendar />
-
+    return <div className="m-auto w-full">
+        <EventsCalendar events={events} />
+{/* 
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {events.map((event) => (
                 <div key={event._id} className="border border-purple-500 rounded-lg p-3">
@@ -25,7 +25,7 @@ const  Events = async () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </div> */}
     </div>
 }
 

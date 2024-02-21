@@ -3,7 +3,7 @@ import EnbyLogoNoBg from '@/../public/images/logos/EnbyLogoNoBG.png';
 
 const HomePage = () => {
     return (
-        <main className="flex flex-col items-center justify-between bg-fuschia-300">
+        <main className="flex flex-col items-center justify-between bg-fuschia-300 h-full">
             <div>
                 <Image
                     src={EnbyLogoNoBg}
