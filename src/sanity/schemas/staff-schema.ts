@@ -24,6 +24,7 @@ export default defineType({
       title: 'Joined',
       type: 'datetime'
     }),
+
     defineField({
       name: 'image',
       title: 'Image',
@@ -36,6 +37,11 @@ export default defineType({
       name: 'bio',
       title: 'Bio',
       type: 'blockContent'
+    }),
+    defineField({
+      name: 'birthday',
+      title: 'Birthday',
+      type: 'date'
     }),
     defineField({
       name: 'order',

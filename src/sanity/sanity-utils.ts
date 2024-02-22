@@ -27,7 +27,8 @@ export async function getStaff(): Promise<Staff[]> {
             "slug": slug.current,
             "image": image.asset->url,
             joined,
-            bio, 
+            bio,
+            birthday,
             pronouns,
             order,
         }`

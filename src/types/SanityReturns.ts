@@ -20,5 +20,6 @@ export type Staff = {
     image: string;
     joined: Date;
     bio: PortableTextBlock[];
+    birthday: Date;  
     pronouns: string;
 }
