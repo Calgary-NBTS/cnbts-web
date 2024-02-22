@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .react-calendar {
   margin: auto;
   /* width: 600px; */
@@ -49,6 +51,14 @@
   display: flex;
   height: 44px;
   margin-bottom: 1em;
+}
+
+.react-calendar__navigation__label {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: white;
 }
 
 .react-calendar__navigation button {

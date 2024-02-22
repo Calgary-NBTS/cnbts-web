@@ -32,6 +32,14 @@ export default function EventsCalendar({events}:EventsCalType) {
             </div>
         );
     }
+    const months=['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    const formatMonthYear = (date: Date) => {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+
+        return `${months[month]} ${year}`
+    }
 
     return (
             <Calendar 
@@ -40,6 +48,7 @@ export default function EventsCalendar({events}:EventsCalType) {
                 value={value} 
                 tileContent={tileContent} 
                 formatDay={(locale,date) => ''}
+                formatMonthYear={(locale,date) => formatMonthYear(date)}
             />
     )
 }
