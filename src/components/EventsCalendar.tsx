@@ -37,13 +37,14 @@ export default function EventsCalendar({events}:EventsCalType) {
     const formatMonthYear = (date: Date) => {
         const year = date.getFullYear();
         const month = date.getMonth();
-
         return `${months[month]} ${year}`
     }
 
     return (
             <Calendar 
                 calendarType='gregory' 
+                defaultView='month'
+                showNeighboringMonth={false}
                 onChange={onChange} 
                 value={value} 
                 tileContent={tileContent} 
