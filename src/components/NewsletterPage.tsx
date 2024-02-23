@@ -1,4 +1,4 @@
-const NewsletterPage = ({slug}: {slug: string}) => {
+const NewsletterPage = ({slug}: {slug: string | undefined}) => {
     return (
         <div>
             <h1>Newsletter page</h1>

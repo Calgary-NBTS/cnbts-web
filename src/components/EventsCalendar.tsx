@@ -12,7 +12,7 @@ type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 type EventsCalType = {
-    events: Event[];
+    events?: Event[];
 }
 
 export default function EventsCalendar({events}:EventsCalType) {
