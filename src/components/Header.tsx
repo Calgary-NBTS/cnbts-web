@@ -37,8 +37,8 @@ export default function Header() {
                         )}
                         
                         <li>
-                            <Link href="/events" onClick={closeMenu}>
-                                <Button>Events</Button>
+                            <Link href="/calendar" onClick={closeMenu}>
+                                <Button>Calendar</Button>
                             </Link>
                         </li>
                         <li>

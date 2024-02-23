@@ -2,11 +2,10 @@ import { getEvents } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 
-const  Events = async () => {
-    const events = await getEvents();
+const  CalendarPage = () => {
 
-    return <div className="m-auto w-full">
-        <EventsCalendar events={events} />
+    return <div className="my-6 mx-auto w-full">
+        <EventsCalendar />
 {/* 
         <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {events.map((event) => (
@@ -29,4 +28,4 @@ const  Events = async () => {
     </div>
 }
 
-export default Events;
+export default CalendarPage;
