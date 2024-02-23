@@ -2,7 +2,7 @@ import { getEvents } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 
-const  CalendarPage = () => {
+const  CalendarPage = ({year,month,day}:{year?: Number; month?: Number; day?: Number;}) => {
 
     return <div className="my-6 mx-auto w-full">
         <EventsCalendar />
