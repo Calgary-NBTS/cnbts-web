@@ -23,9 +23,11 @@ export const metadata: Metadata = {
     apple: [
       { url: './apple-touch-icon.png' },
     ],
-    
   },
   manifest: 'https://calgarynbts.ca/manifest.json',
+  robots: {
+    index: false,
+  }
 };
 
 export default function RootLayout({
