@@ -9,8 +9,6 @@ const  CalendarPage = async ({year,month,day}:{year?: Number; month?: Number; da
     const first = new Date(Math.min(...eventDays));
     const last = new Date(Math.max(...eventDays));
 
-    console.log(first,last);
-
     return <div className="my-6 mx-auto w-full">
         <EventsCalendar events={events} />
 {/* 

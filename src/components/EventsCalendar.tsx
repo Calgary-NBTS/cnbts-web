@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
+import Image from 'next/image';
 
 import { FaDiscord } from "react-icons/fa6";
 
@@ -22,19 +23,33 @@ export default function EventsCalendar({events}:{events: Event[]}) {
     const first = new Date(Math.min(...eventDays));
     const last = new Date(Math.max(...eventDays));
     
-    
-    // console.log(first,last);
-
-
     const tileContent = ({date, view}: TileArgs) => {
         if(view !=='month') return;
-        const dateString = date.getDay();
+
         const day = date.getDate();
-        
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        const todays = events.filter((event) => {
+            const day = new Date(event.time)
+            return date.getTime() == new Date (day.getFullYear(), day.getMonth(), day.getDate()).getTime()
+        })
+
         return (
-            <div className="h-28">
-                <div className="w-10/12 bg-white m-auto h-ninty-percent">
+            <div className="h-28 flex flex-col bg-white/85 rounded-2xl">
+                <div className="w-10/12 m-auto h-ninty-percent">
                     {day}
+                </div>
+                <div>
+                    {todays && todays[0] &&
+                        <Image 
+                            className="rounded-lg m-auto my-2"
+                            src={todays[0].image} 
+                            width={70}
+                            height={80}
+                            alt={todays[0].name}
+                        />
+                    }
                 </div>
             </div>
         );
@@ -47,7 +62,6 @@ export default function EventsCalendar({events}:{events: Event[]}) {
     }
 
     const handleActiveStartDateChanged = ({ action, activeStartDate, value, view }: OnArgs) => {
-        // console.log(action, activeStartDate,value,view)
         if (!activeStartDate) return;
         switch (action) {
             case 'prev':
@@ -61,7 +75,6 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                 break;
             default:
                 throw new Error('bad action');
-
         }
     }
 
