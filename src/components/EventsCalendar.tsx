@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { Event } from '@/types/SanityReturns';
+import { Event } from '@/sanity/types/queryTypes';
 
 import { FaDiscord } from "react-icons/fa6";
 

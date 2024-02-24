@@ -20,6 +20,17 @@ export type Staff = {
     image: string;
     joined: Date;
     bio: PortableTextBlock[];
-    birthday: Date;  
+    birthday: Date;
     pronouns: string;
+}
+
+export type Newsletter = {
+    _id: string;
+    _createdAt: Date;
+    title: string;
+    slug: string;
+    author: string;
+    image: string;
+    publishedAt: Date;
+    body: PortableTextBlock[];
 }
