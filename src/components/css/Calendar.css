@@ -11,7 +11,7 @@
   border: 1px solid #a0a096;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
-  color: black;
+  color: white;
 }
 
 .react-calendar--doubleView {
@@ -101,6 +101,10 @@
   font: inherit;
   font-size: 0.75em;
   font-weight: bold;
+}
+
+.react-calendar__month-view__days__day {
+  color: black
 }
 
 .react-calendar__month-view__days__day--weekend {
