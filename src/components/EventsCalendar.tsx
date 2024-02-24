@@ -1,8 +1,12 @@
 "use client";
+import { renderToStaticMarkup } from 'react-dom/server';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
 import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
+
+import { Tooltip } from 'react-tooltip'
 
 import { FaDiscord } from "react-icons/fa6";
 
@@ -22,6 +26,18 @@ export default function EventsCalendar({events}:{events: Event[]}) {
     const eventDays = events.map(event=>new Date(event.time).getTime());
     const first = new Date(Math.min(...eventDays));
     const last = new Date(Math.max(...eventDays));
+
+    const TooltipContent = ({eventId}: {eventId: string}) => {
+        const current = events.filter(event=>event._id===eventId);
+        if (!current || !current[0]) return;
+        return (
+            <div>
+                <h3 className="text-xl">{current[0].name}</h3>
+                <p>From: {new Date(current[0].time).toLocaleTimeString()} to {new Date(current[0].timeend).toLocaleTimeString()}</p>
+                <p><PortableText value={current[0].content} /></p>
+            </div>
+        )
+    }
     
     const tileContent = ({date, view}: TileArgs) => {
         if(view !=='month') return;
@@ -43,6 +59,8 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                 <div>
                     {todays && todays[0] &&
                         <Image 
+                            data-tooltip-id="event_id"
+                            data-tooltip-html={renderToStaticMarkup(<TooltipContent eventId={todays[0]._id} />)}
                             className="rounded-lg m-auto my-2"
                             src={todays[0].image} 
                             width={70}
@@ -79,6 +97,8 @@ export default function EventsCalendar({events}:{events: Event[]}) {
     }
 
     return (
+        <>
+        <Tooltip id="event_id" />
         <Calendar 
             calendarType='gregory' 
             defaultView='month'
@@ -92,5 +112,6 @@ export default function EventsCalendar({events}:{events: Event[]}) {
             formatMonthYear={(locale,date) => formatMonthYear(date)}
             onActiveStartDateChange={handleActiveStartDateChanged}
         />
+        </>
     )
 }

@@ -5,6 +5,7 @@ export type Event = {
     _createdAt: Date;
     name: string;
     slug: string;
+    location: string;
     time: Date;
     timeend: Date;
     image: string;
