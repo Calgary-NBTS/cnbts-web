@@ -52,8 +52,8 @@ export default function EventsCalendar({events}:{events: Event[]}) {
         })
 
         return (
-            <div className="min-h-24 md:min-h-28 flex flex-col content-start bg-white/85 rounded-2xl">
-                <div className="h-min w-10/12 m-auto">
+            <div className="react-calendar__tile__tileContent">
+                <div className="mx-auto my-1">
                     {day}
                 </div>
                 <div>
@@ -61,7 +61,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                         <Image 
                             data-tooltip-id="event_id"
                             data-tooltip-html={renderToStaticMarkup(<TooltipContent eventId={todays[0]._id} />)}
-                            className="rounded-lg m-auto my-2"
+                            className="rounded-lg m-auto my-1 mx-auto"
                             src={todays[0].image} 
                             width={70}
                             height={80}
