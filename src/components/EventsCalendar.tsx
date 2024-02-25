@@ -52,8 +52,8 @@ export default function EventsCalendar({events}:{events: Event[]}) {
         })
 
         return (
-            <div className="h-28 flex flex-col bg-white/85 rounded-2xl">
-                <div className="w-10/12 m-auto h-ninty-percent">
+            <div className="min-h-24 md:min-h-28 flex flex-col content-start bg-white/85 rounded-2xl">
+                <div className="h-min w-10/12 m-auto">
                     {day}
                 </div>
                 <div>
