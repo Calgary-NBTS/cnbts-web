@@ -11,5 +11,5 @@ export default defineConfig({
   basePath: '/admin',
   apiVersion: "2024-02-14",
   plugins: [structureTool(), visionTool()],
-  schema: { types: schemaTypes }
+  schema: { types: schemaTypes },
 })
