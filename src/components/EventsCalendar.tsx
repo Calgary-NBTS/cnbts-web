@@ -1,18 +1,15 @@
 "use client";
-import { renderToStaticMarkup } from 'react-dom/server';
 import Link from 'next/link';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 
+
 import { Tooltip } from 'react-tooltip'
-
-import { FaDiscord } from "react-icons/fa6";
-
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
-import { act } from 'react-dom/test-utils';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];

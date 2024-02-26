@@ -1,6 +1,6 @@
 import client from './sanityClient';
 import { groq } from "next-sanity";
-import { Event, Staff } from '@/sanity/types/queryTypes';
+import { PageType, Event, Staff } from '@/sanity/types/queryTypes';
 
 type eventsProps = {
     year?: string;
@@ -26,6 +26,7 @@ export async function getEvents({year,month,day}: eventsProps={}): Promise<Event
             _createAt,
             name,
             "slug": slug.current,
+            location,
             "image": image.asset->url,
             "imgAlt": image.alt,
             url,

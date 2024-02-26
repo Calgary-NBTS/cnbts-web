@@ -1,5 +1,23 @@
 import { PortableTextBlock } from "sanity";
 
+
+
+export type PageType = {
+    _id: string;
+    _createdAt: Date; 
+    title: string;
+    slug: string;
+    pageBuilder: [Hero]
+}
+
+export type PageQuery = {
+    pages: PageType[];
+}
+
+export type PageBuilder = {
+
+}
+
 export type Event = {
     _id: string;
     _createdAt: Date;
@@ -34,4 +52,19 @@ export type Newsletter = {
     image: string;
     publishedAt: Date;
     body: PortableTextBlock[];
+}
+
+export type Hero = {
+    _id: string;
+    _type: string;
+    heading: string;
+    tagline: string;
+    image: string;
+    imgAlt: string;
+}
+
+export type ImageGallery = {
+    _id: string;
+    _type: string;
+    images: string[];
 }

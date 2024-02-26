@@ -37,3 +37,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.header-height {
+  height: 40px;
+}

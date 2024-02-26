@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   manifest: 'https://calgarynbts.ca/manifest.json',
   robots: {
     index: false,
-  }
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    }
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +46,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="bg-fuchsia-200 min-h-full flex flex-col">
           <Header />
-          <div className="h-12">&nbsp;</div>
+          <div className="header-height h-12">&nbsp;</div>
           <main className="w-full h-full text-black">
             {children}
           </main>

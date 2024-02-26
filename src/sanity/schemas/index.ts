@@ -1,3 +1,4 @@
+import settingsSchema from './settings-schema';
 import blockContent from './blockContent';
 import event from './event-schema';
 import staff from './staff-schema';
@@ -12,8 +13,10 @@ import pageType from './pageType';
 import promotionType from './promotionType';
 import textWithIllustrationType from './textWithIllustration';
 import videoType from './videoType';
+import textBlockType from './textBlockType';
 
 const schemaTypes = [
+    settingsSchema,
     blockContent, 
     event, 
     staff, 
@@ -26,6 +29,7 @@ const schemaTypes = [
     imageGalleryType,
     pageType,
     promotionType,
+    textBlockType,
     textWithIllustrationType,
     videoType,
 ]

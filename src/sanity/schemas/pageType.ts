@@ -33,6 +33,10 @@ export default defineType({
                     type: 'gallery',
                 }),
                 defineArrayMember({
+                    name: 'textblock',
+                    type: 'textblock',
+                }),
+                defineArrayMember({
                     name: 'form',
                     type: 'form',
                 }),

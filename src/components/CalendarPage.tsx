@@ -4,7 +4,6 @@ import EventsCalendar from './EventsCalendar';
 
 const  CalendarPage = async ({year,month,day}:{year?: Number; month?: Number; day?: Number;}) => {
     const events = await getEvents();
-
     const eventDays = events.map(event=>new Date(event.time).getTime());
     const first = new Date(Math.min(...eventDays));
     const last = new Date(Math.max(...eventDays));

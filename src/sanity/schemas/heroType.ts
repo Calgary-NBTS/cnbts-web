@@ -15,6 +15,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'backgroundcolor',
+            title: 'Background Color',
+            type: 'color',
+        }),
+        defineField({
             name: 'image',
             type: 'image',
             options: { hotspot: true },

@@ -45,6 +45,19 @@ export default defineType({
             ]
         }),
         defineField({
+            name: 'posterImage',
+            title: 'Poster Image',
+            type: 'image',
+            options: { hotspot: true },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ]
+        }),
+        defineField({
             name: 'url',
             title: 'URL',
             type: 'url'

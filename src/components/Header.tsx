@@ -26,7 +26,7 @@ export default function Header() {
 
     const RenderNav = ({mobile}: renderNavProps) => {
         return (
-                <nav className={isMobile ? 'pt-4 w-4/5' : ''}> 
+                <nav className={`header-height ${isMobile ? 'pt-4 w-4/5' : ''}`}> 
                     <ul className={`flex ${isMobile ? 'flex-col' : 'flex-row'}`}>
                         {!isMobile && (
                             <li>
@@ -57,7 +57,7 @@ export default function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin" onClick={closeMenu}>
+                            <Link href="/admin" onClick={closeMenu} target="_blank">
                                 <Button>Admin</Button>
                             </Link>
                         </li>
