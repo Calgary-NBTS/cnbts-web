@@ -23,7 +23,6 @@ const Gallery = ({title, images}: {title: string; images: ImageData[]}) => {
         slidesToShow: 1,
         slidesToScroll: 1,
     }
-    console.log(images)
     return (
         <div></div>
             // <Slider className="m-auto w-10/12 lg:w-9/12" {...settings}>
