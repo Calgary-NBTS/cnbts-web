@@ -1,4 +1,4 @@
-import { getStaff } from "@/sanity/sanity-utils";
+import { getStaff } from "@/sanity/queries";
 import StaffListing from "./StaffListing";
 
 const StaffList = async() => {

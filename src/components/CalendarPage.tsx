@@ -1,4 +1,4 @@
-import { getEvents } from '@/sanity/sanity-utils';
+import { getEvents } from '@/sanity/queries';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 

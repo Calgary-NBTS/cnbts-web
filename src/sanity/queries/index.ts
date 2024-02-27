@@ -1,3 +1,5 @@
 import getPage from "./getPage";
+import getEvents from "./getEvents";
+import getStaff from "./getStaff";
 
-export {getPage};
+export {getPage, getEvents, getStaff};
