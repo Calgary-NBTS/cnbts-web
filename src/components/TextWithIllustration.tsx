@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PortableTextBlock } from "sanity";
 import PortableTextComponent from "./PortableTextCompoent";
+import Heart from '@/../public/images/RainbowHeart.svg';
 
 type TextWithIllustrationProps = {
     heading: string;
@@ -12,10 +13,11 @@ type TextWithIllustrationProps = {
 
 const TextWithIllustration = ({heading, tagline, excerpt, image, alt}: TextWithIllustrationProps) => {
 
+    const pic = image? image: Heart;
     return (
         <section className='flex'>
             <div>
-                <Image src={image}
+                <Image src={pic}
                     width={200}
                     height={200}
                     alt={alt}

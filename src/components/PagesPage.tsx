@@ -2,7 +2,8 @@ import { getPage } from "@/sanity/queries";
 import Hero from "./Hero";
 import TextBlock from "./TextBlock";
 import Gallery from './Gallery';
-import { HeroType, TextBlockType, ImageGalleryType } from "@/sanity/types/queryTypes";
+import TextWithIllustration from "./TextWithIllustration";
+import { HeroType, TextBlockType, ImageGalleryType, TextWithIllustrationType } from "@/sanity/types/queryTypes";
 
 const PagesPage = async ({slug}: {slug: string;}) => {
     const data = await getPage({slug});
@@ -22,7 +23,7 @@ const PagesPage = async ({slug}: {slug: string;}) => {
                                     image={hb.image}
                                     alt={hb.imgAlt}
                                 />
-                            )
+                            );
                         case 'textblock':
                             const tb = block as TextBlockType;
                             return (
@@ -31,7 +32,7 @@ const PagesPage = async ({slug}: {slug: string;}) => {
                                     title={tb.title}
                                     body={tb.body}
                                 />
-                            )
+                            );
                         case 'gallery':
                             const gb = block as ImageGalleryType;
                             return (
@@ -40,7 +41,19 @@ const PagesPage = async ({slug}: {slug: string;}) => {
                                     title={gb.title}
                                     images={gb.images}
                                 />
-                            )
+                            );
+                        case 'textWithIllustration':
+                            const wb = block as TextWithIllustrationType;
+                            return (
+                                <TextWithIllustration 
+                                    key={wb.heading}
+                                    heading={wb.heading}
+                                    tagline={wb.tagline}
+                                    excerpt={wb.excerpt}
+                                    image={wb.image}
+                                    alt={wb.alt}
+                                />
+                            );
                         default:
                             return '';
                             }

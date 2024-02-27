@@ -13,7 +13,7 @@ const TextBlock = ({title,body}: TextBlockProps) => {
         ? <PortableTextComponent value={body} /> 
         : 'Nothing here yet.';
     return (
-        <section>
+        <section className='sm:ml-2 md:ml-4 lg:ml-10 lg:w-8/12 xl:ml-20 xl:w-8/12'>
             {bodyText}
         </section>
     )
