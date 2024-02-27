@@ -6,7 +6,11 @@ export default defineType({
   type: 'object',
   title: 'Gallery',
   fields: [
-    {
+    defineField({
+      name: 'title',
+      type: 'string',
+    }),
+    defineField({
       name: 'images',
       type: 'array',
       of: [
@@ -26,7 +30,7 @@ export default defineType({
       options: {
         layout: 'grid',
       },
-    },
+    }),
   ],
   icon: ImagesIcon,
   preview: {

@@ -7,7 +7,7 @@ export type PageType = {
     _createdAt: Date; 
     title: string;
     slug: string;
-    pageBuilder: [Hero]
+    pageBuilder: [HeroType | TextBlockType | ImageGalleryType]
 }
 
 export type PageQuery = {
@@ -54,8 +54,7 @@ export type Newsletter = {
     body: PortableTextBlock[];
 }
 
-export type Hero = {
-    _id: string;
+export type HeroType = {
     _type: string;
     heading: string;
     tagline: string;
@@ -63,8 +62,23 @@ export type Hero = {
     imgAlt: string;
 }
 
-export type ImageGallery = {
-    _id: string;
+export type TextBlockType = {
     _type: string;
-    images: string[];
+    title: string;
+    body: PortableTextBlock[];
+}
+
+export type ImageData = {
+    _key: string;
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption?: string;
+}
+
+export type ImageGalleryType = {
+    _type: string;
+    title: string;
+    images: ImageData[];
 }

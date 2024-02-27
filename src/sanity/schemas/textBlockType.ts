@@ -4,7 +4,7 @@ import {defineField, defineType} from 'sanity'
 export default defineType({
   name: 'textblock',
   title: 'Text Block',
-  type: 'document',
+  type: 'object',
   fields: [
     defineField({
       name: 'title',
