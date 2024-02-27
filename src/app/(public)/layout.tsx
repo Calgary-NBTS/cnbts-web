@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@/app/globals.css';
 import Footer from '@/components/Footer';
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react';
 
 const Header = dynamic(() => import('@/components/Header'), {ssr: false})
 
@@ -45,12 +46,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="bg-fuchsia-200 min-h-full flex flex-col">
-          <Header />
+            <Header />
           <div className="header-height h-12">&nbsp;</div>
           <main className="w-full h-full text-black">
             {children}
           </main>
-          <Footer />
+          <Suspense>
+            <Footer />
+          </Suspense>
       </body>
     </html>
   );
