@@ -1,4 +1,7 @@
 import settingsSchema from './settings-schema';
+import navigation from './navigation';
+import navigationLink from './objects/navigationLink';
+import navigationSection from './objects/navigationSection';
 import blockContent from './blockContent';
 import event from './event-schema';
 import staff from './staff-schema';
@@ -17,6 +20,9 @@ import textBlockType from './textBlockType';
 
 const schemaTypes = [
     settingsSchema,
+    navigation,
+    navigationLink,
+    navigationSection,
     blockContent, 
     event, 
     staff, 

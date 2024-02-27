@@ -1,10 +1,32 @@
 import Image from "next/image";
+import { PortableTextBlock } from "sanity";
+import PortableTextComponent from "./PortableTextCompoent";
 
-const TextWithIllustration = () => {
+type TextWithIllustrationProps = {
+    heading: string;
+    tagline: string;
+    excerpt: PortableTextBlock[];
+    image: string;
+    alt: string;
+}
+
+const TextWithIllustration = ({heading, tagline, excerpt, image, alt}: TextWithIllustrationProps) => {
 
     return (
-        <section>
-            <h1>Text With Illustration Section</h1>
+        <section className='flex'>
+            <div>
+                <Image src={image}
+                    width={200}
+                    height={200}
+                    alt={alt}
+                />
+            </div>
+            <div>
+                <h2 className='text-4xl font-semibold'>{heading}</h2>
+                <p className='text-xl'>{tagline}</p>
+                <PortableTextComponent value={excerpt} />
+            </div>
+
         </section>
     )
 }

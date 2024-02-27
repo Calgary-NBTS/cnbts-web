@@ -12,7 +12,7 @@ const Hero = ({heading, tagline, image, alt}: HeroProps) => {
     return (
         <section className='w-full flex justify-around bg-purple-500'>
             <div className="m-4">
-                <h1 className="my-3 text-4xl">{heading}</h1>
+                <h1 className="my-3 text-4xl font-bold">{heading}</h1>
                 <p>{tagline}</p>
             </div>
             <div className="text-right">

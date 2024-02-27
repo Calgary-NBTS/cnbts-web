@@ -16,7 +16,7 @@ export default defineType({
     }),
     defineField({
       name: 'excerpt',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'image',

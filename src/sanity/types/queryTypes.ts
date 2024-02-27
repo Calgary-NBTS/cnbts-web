@@ -7,15 +7,16 @@ export type PageType = {
     _createdAt: Date; 
     title: string;
     slug: string;
-    pageBuilder: [HeroType | TextBlockType | ImageGalleryType]
+    pageBuilder: [
+        HeroType | 
+        TextBlockType | 
+        ImageGalleryType | 
+        TextWithIllustrationType
+    ];
 }
 
 export type PageQuery = {
     pages: PageType[];
-}
-
-export type PageBuilder = {
-
 }
 
 export type Event = {
@@ -81,4 +82,13 @@ export type ImageGalleryType = {
     _type: string;
     title: string;
     images: ImageData[];
+}
+
+export type TextWithIllustrationType = {
+    _type: string;
+    heading: string;
+    tagline: string;
+    excerpt: PortableTextBlock[];
+    image: string;
+    alt: string;    
 }

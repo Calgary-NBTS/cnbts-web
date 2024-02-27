@@ -1,6 +1,6 @@
 
-import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "sanity";
+import PortableTextComponent from "./PortableTextCompoent";
 
 type TextBlockProps = {
     title?: string;
@@ -9,7 +9,9 @@ type TextBlockProps = {
 
 const TextBlock = ({title,body}: TextBlockProps) => {
 
-    const bodyText = body ? <PortableText value={body} /> : 'Nothing here yet.';
+    const bodyText = body 
+        ? <PortableTextComponent value={body} /> 
+        : 'Nothing here yet.';
     return (
         <section>
             {bodyText}
