@@ -1,5 +1,6 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { PortableTextBlock } from "sanity";
+import Link from "next/link";
 
 const components: PortableTextComponents = {
     types: {
@@ -7,7 +8,15 @@ const components: PortableTextComponents = {
     },
     marks: {
         em: ({children}) => <em className='italic'>{children}</em>,
-        strong: ({children}) => <strong className='font-semibold'>{children}</strong>
+        strong: ({children}) => <strong className='font-semibold'>{children}</strong>,
+        link: ({children, value}) => {
+            const rel = !value.href.startsWith('/') ? 'noreferer noopener' : undefined;
+
+            if (rel)
+                return <a className='text-blue-600 hover:text-blue-400' href={value.href} rel={rel}>{children}</a>
+            else
+                return <Link className='text-blue-600 hover:text-blue-400' href={value.href}>{children}</Link>
+        }
     },
     block: {
         h1: ({children}) => <h1 className='text-4xl'>{children}</h1>,
@@ -32,8 +41,8 @@ const components: PortableTextComponents = {
     }
 }
 
-const PortableTextComponent = ({value}: {value: PortableTextBlock[];}) => {
+const FormattedText = ({value}: {value: PortableTextBlock[];}) => {
     return <PortableText value={value} components={components}/>
 }
 
-export default PortableTextComponent;
+export default FormattedText;

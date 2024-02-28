@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PortableTextBlock } from "sanity";
-import PortableTextComponent from "./PortableTextCompoent";
+import FormattedText from "./FormattedText";
 import Heart from '@/../public/images/RainbowHeart.svg';
 
 type TextWithIllustrationProps = {
@@ -26,7 +26,7 @@ const TextWithIllustration = ({heading, tagline, excerpt, image, alt}: TextWithI
             <div>
                 <h2 className='text-4xl font-semibold'>{heading}</h2>
                 <p className='text-xl'>{tagline}</p>
-                <PortableTextComponent value={excerpt} />
+                <FormattedText value={excerpt} />
             </div>
 
         </section>

@@ -5,7 +5,7 @@ import { PortableTextBlock } from "sanity";
 import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 import imageUrlBuilder from '@sanity/image-url';
 import {PortableText} from '@portabletext/react'
-import PortableTextComponent from './PortableTextCompoent';
+import FormattedText from './FormattedText';
 
 type StaffListingProps = {
     name?: string;
@@ -23,7 +23,7 @@ const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
       }
     
       const avatar = image ? urlFor(image).height(400).width(300).url() : RainbowHeart;
-      const bioText = bio ? <PortableTextComponent value={bio} /> : "Nothing Here Yet";
+      const bioText = bio ? <FormattedText value={bio} /> : "Nothing Here Yet";
 
     return (
         <div className="border flex-col bg-sky-50/75 text-black">
