@@ -24,17 +24,17 @@ export default defineConfig({
         .items([
            // Our singleton type has a list item with a custom child
           S.listItem()
-            .title("Settings")
-            .id("settings")
+            .title("Site Settings")
+            .id("sitesettings")
             .child(
               // Instead of rendering a list of documents, we render a single
               // document, specifying the `documentId` manually to ensure
               // that we're editing the single instance of the document
               S.document()
-                .schemaType("settings")
-                .documentId("settings")
+                .schemaType("sitesettings")
+                .documentId("sitesettings")
               ),
-              ...S.documentTypeListItems().filter(listItem => !['settings'].includes(listItem.getId() || '')),
+              ...S.documentTypeListItems().filter(listItem => !['sitesettings'].includes(listItem.getId() || '')),
         ])
     }
   ), visionTool(), colorInput()],

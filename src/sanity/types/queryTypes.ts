@@ -1,3 +1,4 @@
+import { ColorValue } from "@sanity/color-input";
 import { PortableTextBlock } from "sanity";
 
 
@@ -91,4 +92,12 @@ export type TextWithIllustrationType = {
     excerpt: PortableTextBlock[];
     image: string;
     alt: string;    
+}
+
+export type SiteSettingsType = {
+    title: string;
+    description: string;
+    domainname: string;
+    bglight: ColorValue;
+    bgdark: ColorValue;
 }

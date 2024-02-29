@@ -2,7 +2,7 @@ import { CogIcon } from '@sanity/icons';
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-    name: 'settings',
+    name: 'sitesettings',
     title: 'Site Settings',
     type: 'document',
     fields: [
@@ -17,7 +17,12 @@ export default defineType({
             type: 'text'
         }),
         defineField({
-            name: 'lightBackgroundColor',
+            name: 'domainname',
+            title: 'Domain Name',
+            type: 'string'
+        }),
+        defineField({
+            name: 'bglight',
             title: 'Light Background Color',
             type: 'color',
             options: {
@@ -25,7 +30,7 @@ export default defineType({
             },
         }),
         defineField({
-            name: 'darkBackgroundColor',
+            name: 'bgdark',
             title: 'Dark Background Color',
             type: 'color',
             options: {
