@@ -11,11 +11,10 @@ export default async function getPage({slug}: {slug:string}): Promise<PageType[]
             pageBuilder[]{
                 _type == "hero" => {
                     _type,
-                    _id,
-                    _createdAt,
                     heading,
                     tagline,
                     "image": image.asset->url,
+                    "alt": image.alt,
                     "bgcolor": backgroundcolor.rgb,
                 },
                 _type == "textblock" => {
@@ -47,7 +46,8 @@ export default async function getPage({slug}: {slug:string}): Promise<PageType[]
                     heading,
                     tagline,
                     excerpt,
-                    image,
+                    "image": image.asset->url,
+                    "alt": image.alt,
                 },
                 _type == "video" => {
                     _type,
