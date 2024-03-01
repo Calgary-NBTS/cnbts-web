@@ -1,4 +1,5 @@
-import { getPage } from "@/sanity/queries";
+import { getAllPages } from "@/sanity/queries";
+import {getPage} from '@/sanity/queries';
 import Hero from "./Hero";
 import TextBlock from "./TextBlock";
 import Gallery from './Gallery';

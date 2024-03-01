@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {Box} from '@mui/material'
 
 type HeroProps = {
     heading: string;
@@ -10,7 +11,7 @@ type HeroProps = {
 const Hero = ({heading, tagline, image, alt}: HeroProps) => {
 
     return (
-        <section className='w-full flex justify-around bg-purple-500'>
+        <Box component="section" sx={{display: 'flex'}}>
             <div className="m-4">
                 <h1 className="my-3 text-4xl font-bold">{heading}</h1>
                 <p>{tagline}</p>
@@ -23,7 +24,7 @@ const Hero = ({heading, tagline, image, alt}: HeroProps) => {
                     alt={alt}
                 />
             </div>
-        </section>
+        </Box>
     )
 }
 

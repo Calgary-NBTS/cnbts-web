@@ -1,10 +1,8 @@
-// import TestPage from '@/components/TestPage'
+import TestPage from '@/components/TestPage'
 
 const Test = () => {
     return (
-        <div>
-            Page here
-        </div>
+        <TestPage />
     )
 }
 
