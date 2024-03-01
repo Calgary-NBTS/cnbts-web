@@ -1,12 +1,12 @@
-
-import {Menu, MenuButton, MenuItem, SubMenu} from '@szhsin/react-menu'
-import '@szhsin/react-menu/dist/index.css';
-import '@szhsin/react-menu/dist/transitions/slide.css';
+'use client'
+import { Menu, MenuItem } from '@mui/material';
+import { useState } from 'react';
 
 const Menubar = () => {
+    const [isOpen, setIsOpen] = useState(false);
 return (
-    <Menu initialMounted menuButton={<MenuButton>Resources</MenuButton>}>
-        <MenuItem>Us</MenuItem>
+    <Menu open={isOpen}>
+
     </Menu>
 )
 }

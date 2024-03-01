@@ -1,10 +1,12 @@
-
+import Image from "next/image";
 
 const TestPage = () => {
     return (
-        <div>
-            Test
-        </div>
+        <main>
+            <div>
+                Test
+            </div>
+        </main>
     )
 }
 

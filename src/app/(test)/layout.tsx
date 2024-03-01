@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import '@/app/globals.css';
 import Footer from '@/components/Footer';
-import { Suspense } from 'react';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
 import Menubar from '@/components/Menubar';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import {ThemeProvider} from '@mui/material/styles';
+import theme from '../theme';
 
 let siteData;
 
@@ -51,9 +53,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="bg-fuchsia-200 min-h-full">
-        <Menubar />
-            {children}
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <div className="siteWrap">
+              <Menubar />
+              {children}
+            </div>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
