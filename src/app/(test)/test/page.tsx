@@ -1,7 +1,9 @@
 import TestPage from '@/components/TestPage'
 
 const Test = () => {
-    return <TestPage />
+    return (
+        <TestPage />
+    )
 }
 
 export default Test;

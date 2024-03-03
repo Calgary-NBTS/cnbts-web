@@ -1,11 +1,13 @@
 import StaffList from './StaffList';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 const AboutPage = () => {
-return <div className="m-4">
-    <p>The Team</p>
+return <Box component='section'>
+
     <StaffList />
 
-    </div>
+    </Box>
 }
 
 export default AboutPage;

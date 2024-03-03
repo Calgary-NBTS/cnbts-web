@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material-nextjs": "^5.15.11",
     "@portabletext/react": "^3.0.11",
     "@sanity/color-input": "^3.1.1",
     "@sanity/icons": "^2.10.3",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.29.0",
-    "@szhsin/react-menu": "^4.1.0",
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.0.1",
     "next": "14.1.0",

@@ -1,16 +1,19 @@
 import Image from "next/image";
 import EnbyLogoNoBg from '@/../public/images/logos/EnbyLogoNoBG.png';
 import Hero from "./Hero";
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 const HomePage = () => {
     return (
-        <main className="flex flex-col items-center justify-between bg-fuschia-300 h-full">
+        <>
             <Hero heading="Hello World"
                 tagline="This is a weird tagliney thing idk what to do with"
                 image="https://cdn.sanity.io/images/9108qgzh/production/80f1b0543f9c3cc1ca15685593f6bcff75ab9a1b-2560x2560.png"
                 alt="Some Alt text for the image here"
             />
-            <div>
+            <Container component='section'>
+                <Box sx={{margin: 'auto', textAlign: 'center'}}>
                 <Image
                     src={EnbyLogoNoBg}
                     alt="Calgary Non-Binary and Transgender Society Logo - Trans Flag and Transgender Symbol Wrapped with Dragon"
@@ -19,8 +22,9 @@ const HomePage = () => {
                     priority
                 />
                 <p className="flex items-center justify-center">Coming Soon</p>
-            </div>
-        </main>
+                </Box>
+            </Container>
+        </>
     )
 }
     

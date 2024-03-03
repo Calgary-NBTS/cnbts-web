@@ -4,8 +4,11 @@ import { PortableTextBlock } from "sanity";
 // import RainbowHeart from '@/public/images/RainbowHeart.svg'
 import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 import imageUrlBuilder from '@sanity/image-url';
-import {PortableText} from '@portabletext/react'
 import FormattedText from './FormattedText';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 
 type StaffListingProps = {
     name?: string;
@@ -20,25 +23,25 @@ const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
 
     function urlFor(source: string) {
         return builder.image(source)
-      }
+    }
     
-      const avatar = image ? urlFor(image).height(400).width(300).url() : RainbowHeart;
+
+      const avatar = image ? urlFor(image).height(800).width(600).url() : RainbowHeart;
       const bioText = bio ? <FormattedText value={bio} /> : "Nothing Here Yet";
 
     return (
-        <div className="border flex-col bg-sky-50/75 text-black">
-            <div className="p-1 bg-sky-100">
-                <span className="mx-1">{name}</span><span className="mx-1">{pronouns}</span>
-            </div>
-            <div className="flex">
-                <div>
-                    <Image src={avatar} width={200} height={300} alt={`Picture of ${name}`} />
-                </div>
-                <div>
+        <Paper component='article' elevation={6}>
+            <Box paddingX={2} paddingY={1} className="p-1 bg-sky-100">
+                <Typography sx={{display: 'inline-block'}} variant='h5' component='h3' className="mx-1">{name}</Typography>
+                <Typography paddingX={1} sx={{display: 'inline-block'}} className="mx-1">{pronouns}</Typography>
+            </Box>
+            <Box>
+                <Image src={avatar} width={400} height={600} alt={`Picture of ${name}`} style={{borderRadius: '0.5rem'}} />
+            </Box>
+            <Typography component='div' paddingLeft={2}>
                     {bioText}
-                </div>
-            </div>
-        </div>
+            </Typography>
+        </Paper>
     )
 }
 

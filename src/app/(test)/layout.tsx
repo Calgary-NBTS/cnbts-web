@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
-import '@/app/globals.css';
+// import '@/app/globals.css';
+import Header from '@/components/HeaderNew';
 import Footer from '@/components/Footer';
-import { Suspense } from 'react';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
 import Menubar from '@/components/Menubar';
-
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from '../theme';
 let siteData;
 
 async function getData() {
@@ -49,11 +52,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className="h-full">
-      <body className="bg-fuchsia-200 min-h-full">
-        <Menubar />
-            {children}
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <div className="siteWrap">
+              <Header />
+              {children}
+            </div>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
