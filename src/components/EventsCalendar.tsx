@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
-
-
-import { Tooltip } from 'react-tooltip'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+// import { Tooltip } from 'react-tooltip'
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
+
+import {styled} from '@mui/material/styles';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -17,6 +19,7 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 export default function EventsCalendar({events}:{events: Event[]}) {
     const [activeStartDate, onActiveStartDate] = useState<Date>(new Date());
     const [value, onChange] = useState<Value>(new Date());
+    
 
     const months=['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -36,6 +39,18 @@ export default function EventsCalendar({events}:{events: Event[]}) {
             </div>
         )
     }
+
+    const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
+        <Tooltip enterTouchDelay={200} {...props} classes={{ popper: className }} />
+      ))(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+          backgroundColor: '#f5f5f9',
+          color: 'rgba(0, 0, 0, 0.87)',
+          maxWidth: 220,
+          fontSize: theme.typography.pxToRem(12),
+          border: '1px solid #dadde9',
+        },
+      }));
     
     const tileContent = ({date, view}: TileArgs) => {
         if(view !=='month') return;
@@ -50,12 +65,14 @@ export default function EventsCalendar({events}:{events: Event[]}) {
         })
 
         return (
+            
             <div className="react-calendar__tile__tileContent">
                 <div className="mx-auto my-1">
                     {day}
                 </div>
                 <div>
                     {todays && todays[0] &&
+                    <HtmlTooltip title={<TooltipContent eventId={todays[0]._id} />}>
                         <Image 
                             data-tooltip-id="event_id"
                             data-tooltip-html={renderToStaticMarkup(<TooltipContent eventId={todays[0]._id} />)}
@@ -65,6 +82,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                             height={80}
                             alt={todays[0].name}
                         />
+                        </HtmlTooltip>
                     }
                 </div>
             </div>
@@ -96,7 +114,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
 
     return (
         <>
-        <Tooltip id="event_id" />
+        {/* <Tooltip id="event_id" /> */}
         <Calendar 
             calendarType='gregory' 
             defaultView='month'

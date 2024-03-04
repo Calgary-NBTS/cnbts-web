@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 const AboutPage = () => {
     return (
-        <Box component='section'>
+        <Box paddingY={2} component='section'>
             <StaffList />
         </Box>
     )
