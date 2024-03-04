@@ -11,6 +11,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../theme';
 // const Header = dynamic(() => import('@/components/Header'), {ssr: false})
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export const metadata: Metadata = {
   title: "Calgary Non-Binary and Transgender Society",
   description: "Calgary Non-Binary and Transgender Societies official homepage",
