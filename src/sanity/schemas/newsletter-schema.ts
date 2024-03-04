@@ -32,17 +32,31 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+        },
+      ]
     }),
     defineField({
-      name: 'publishedAt',
+      name: 'published',
       title: 'Published at',
       type: 'datetime',
+      initialValue: new Date().toString(),
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'active',
+      title: 'Active',
+      type: 'boolean',
+      initialValue: true,
+    })
   ],
 
   preview: {

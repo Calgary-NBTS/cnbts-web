@@ -4,16 +4,20 @@ import Hero from "./Hero";
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import UpcomingEvents from "./UpcomingEvents";
+import getLatestNewsletter from "@/sanity/queries/getLatestNewsletter";
+import Newsletter from "./Newsletter";
 
-const HomePage = () => {
+const HomePage = async () => {
+    const latestNewsletter = await getLatestNewsletter();
     return (
         <>
-            <Hero heading="Hello World"
-                tagline="This is a weird tagliney thing idk what to do with"
+            <Hero heading="Hi Friends!"
+                tagline=""
                 image="https://cdn.sanity.io/images/9108qgzh/production/80f1b0543f9c3cc1ca15685593f6bcff75ab9a1b-2560x2560.png"
                 alt="Some Alt text for the image here"
             />
             <UpcomingEvents />
+            <Newsletter title={latestNewsletter.title} content={latestNewsletter.body} />
             <Container component='section'>
                 <Box sx={{margin: 'auto', textAlign: 'center'}}>
                 <Image

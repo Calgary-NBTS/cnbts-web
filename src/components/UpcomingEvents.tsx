@@ -7,6 +7,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import MaterialLink from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
 import { MdExpandMore } from "react-icons/md";
 
 import FormattedText from "./FormattedText";

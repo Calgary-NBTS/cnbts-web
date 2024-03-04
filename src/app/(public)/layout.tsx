@@ -12,11 +12,7 @@ import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
 export const revalidate = 3600; // revalidate at most every hour
 
-type metadataProps = {
-  params: { id: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-export async function generateMetadata({params, searchParams}: metadataProps, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     // read rout params
     // const id = params.id;
     const siteSettings = await getSiteSettings();

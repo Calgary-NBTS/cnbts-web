@@ -13,7 +13,7 @@ const components: PortableTextComponents = {
             const rel = !value.href.startsWith('/') ? 'noreferer noopener' : undefined;
 
             if (rel)
-                return <a className='text-blue-600 hover:text-blue-400' href={value.href} rel={rel}>{children}</a>
+                return <a className='text-blue-600 hover:text-blue-400' href={value.href} target='_blank' rel={rel}>{children}</a>
             else
                 return <Link className='text-blue-600 hover:text-blue-400' href={value.href}>{children}</Link>
         }

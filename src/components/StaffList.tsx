@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 export const revalidate = 3600;
 
-const StaffList = async() => {
+const StaffList = async () => {
     const staff = await getStaff();
 return (
         <Container maxWidth='xl'>

@@ -8,5 +8,4 @@ export default async function getAllPageSlugs(): Promise<PageType[]> {
             "slug": slug.current,
         }`
     )
-
 }

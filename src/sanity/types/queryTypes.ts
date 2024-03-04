@@ -49,11 +49,13 @@ export type Staff = {
 export type Newsletter = {
     _id: string;
     _createdAt: Date;
+    active: boolean;
     title: string;
     slug: string;
     author: string;
     image: string;
-    publishedAt: Date;
+    imgAlt: string;
+    published: Date;
     body: PortableTextBlock[];
 }
 

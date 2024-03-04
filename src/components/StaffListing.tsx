@@ -27,7 +27,7 @@ const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
         return urlFor(src).width(width).url();
     }
 
-      const avatar = image ? urlFor(image).height(700).width(700).url() : RainbowHeart;
+      const avatar = image ? urlFor(image).height(700).width(700).fit('crop').url() : RainbowHeart;
       const avatar2 = image ? image : RainbowHeart;
       const bioText = bio ? <FormattedText value={bio} /> : "Nothing Here Yet";
 
@@ -49,7 +49,7 @@ const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
                     // fill={true}
                 />
             </Box>
-            <Typography component='div' paddingLeft={2}>
+            <Typography component='div' paddingX={2} paddingBottom={1}>
                     {bioText}
             </Typography>
         </Paper>
