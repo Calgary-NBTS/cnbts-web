@@ -17,6 +17,11 @@ export default defineType({
             options: { source: 'name' }
         }),
         defineField({
+            name: 'locationname',
+            title: 'Location Name',
+            type: 'string'
+        }),
+        defineField({
             name: 'location',
             title: 'Location',
             type: 'string'

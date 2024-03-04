@@ -25,6 +25,7 @@ export type Event = {
     _createdAt: Date;
     name: string;
     slug: string;
+    locationname: string;
     location: string;
     time: Date;
     timeend: Date;

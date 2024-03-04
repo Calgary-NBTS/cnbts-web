@@ -8,7 +8,7 @@ type eventsProps = {
     day?: string
 }
 
-export default async function getEvents({year,month,day}: eventsProps={}): Promise<Event[]> {
+export default async function getUpcomingEvents({year,month,day}: eventsProps={}): Promise<Event[]> {
     const now = new Date();
     const yearNow = now.getFullYear();
     const monthNow = now.getMonth();
@@ -21,7 +21,7 @@ export default async function getEvents({year,month,day}: eventsProps={}): Promi
     
 
     return client.fetch(
-        groq`*[_type=="event"]{
+        groq`*[_type=="event" && dateTime(time) > dateTime(now())] | order(time asc) [0...4] {
             _id,
             _createAt,
             name,

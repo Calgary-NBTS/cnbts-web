@@ -45,6 +45,7 @@ const navItems = [
     {
         title: 'Admin',
         link: '/admin',
+        target: '_blank',
     }
 ]
 
@@ -67,7 +68,7 @@ const Menubar = () => {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.title} disablePadding>
-                        <ListItemButton component={Link} href={item.link} sx={{textAlign: 'center'}}>
+                        <ListItemButton component={Link} target={item.target ? item.target : '_self'} href={item.link} sx={{textAlign: 'center'}}>
                             <ListItemText primary={item.title} />
                         </ListItemButton>
                     </ListItem>
@@ -99,7 +100,7 @@ return (
                 </Typography>
                 <Box sx={{display: { xs: 'none', sm: 'none', md: 'block'}}}>
                     {navItems.map((item) => (
-                        <Button component={Link} href={item.link} key={item.title} sx={{ color: '#fff' }}>
+                        <Button component={Link} href={item.link} key={item.title} target={item.target ? item.target : '_self'} sx={{ color: '#fff' }}>
                             {item.title}
                         </Button>
                     ))}

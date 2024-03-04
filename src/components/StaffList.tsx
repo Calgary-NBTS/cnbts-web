@@ -11,9 +11,9 @@ const StaffList = async() => {
 return (
         <Container maxWidth='xl'>
             <Typography paddingY={2} variant='h2' component='h1'>Our Amazing Team</Typography>
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
             {staff.map((member) => (
-                <Grid key={member._id} xs={12} lg={6}>
+                <Grid key={member._id} xs={12} lg={6} xl={4}>
                 <StaffListing
                     name={member.name} 
                     image={member.image} 
