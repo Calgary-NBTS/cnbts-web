@@ -1,14 +1,15 @@
 import client from '@/sanity/sanityClient';
 import { groq } from "next-sanity";
 import { Event } from '@/sanity/types/queryTypes';
+import { cache } from 'react';
 
-type eventsProps = {
+type Props = {
     year?: string;
     month?: string;
     day?: string
 }
 
-export default async function getEvents({year,month,day}: eventsProps={}): Promise<Event[]> {
+async function _getEvents({year,month,day}: Props={}): Promise<Event[]> {
     const now = new Date();
     const yearNow = now.getFullYear();
     const monthNow = now.getMonth();
@@ -37,3 +38,11 @@ export default async function getEvents({year,month,day}: eventsProps={}): Promi
         }`
     )
 }
+
+const getEvents = cache(async () => {
+    const item = await _getEvents();
+    return item;
+})
+
+export default getEvents;
+

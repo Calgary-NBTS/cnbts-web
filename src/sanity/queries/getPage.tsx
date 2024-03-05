@@ -1,8 +1,13 @@
 import client from '@/sanity/sanityClient';
 import { groq } from "next-sanity";
 import { PageType } from '@/sanity/types/queryTypes';
+import { cache } from 'react';
 
-export default async function getPage({slug}: {slug:string}): Promise<PageType[]> {
+type Props = {
+    slug: string;
+}
+
+async function _getPage({slug}: Props): Promise<PageType[]> {
     return client.fetch(
         groq`*[_type=="page" && slug.current=="${slug}"]{
             _id,
@@ -56,8 +61,13 @@ export default async function getPage({slug}: {slug:string}): Promise<PageType[]
                     url,
                 }
             }
-
         }`
     )
-
 }
+
+const getPage = cache(async (props:Props) => {
+    return await _getPage({...props});
+})
+
+export default getPage;
+

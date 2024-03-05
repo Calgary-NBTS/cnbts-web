@@ -1,9 +1,9 @@
 import client from '@/sanity/sanityClient';
 import { groq } from "next-sanity";
 import { Staff } from '@/sanity/types/queryTypes';
-import {cache } from 'react';
+import { cache } from 'react';
 
-export async function getStaffI(): Promise<Staff[]> {
+async function _getStaff(): Promise<Staff[]> {
     return client.fetch(
         groq`*[_type=="staff"] | order(order asc) {
             _id,
@@ -22,8 +22,7 @@ export async function getStaffI(): Promise<Staff[]> {
 }
 
 const getStaff = cache(async () => {
-    const item = await getStaffI();
-    return item;
+    return await _getStaff();
 })
 
 export default getStaff;
