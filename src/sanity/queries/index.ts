@@ -11,6 +11,7 @@ import getNewsletter from './getNewsletter';
 import getAllNewsletters from './getAllNewsletters';
 import getAllNewsletterSlugs from './getAllNewsletterSlugs';
 import getLatestNewsletter from './getLatestNewsletter';
+import getAllNewsletterHeadings from './getAllNewsletterHeadings';
 
 export {
     getAllPages, 
@@ -23,4 +24,5 @@ export {
     getAllNewsletters,
     getAllNewsletterSlugs,
     getLatestNewsletter,
+    getAllNewsletterHeadings,
 };
