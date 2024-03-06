@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Calgary Non-Binary and Transgender Society
 
-## Getting Started
+## Welcome to the website souce code
 
-First, run the development server:
+### Environment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I've build this using VSCode.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Using the Next.js framework with Typescript. Using Material UI for the React UI components. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Site is deployed to Google Run using Github actions.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+There are two Github action scripts, one for the beta and one for the main site based on branch, main or beta.
 
-## Learn More
+### TODO
 
-To learn more about Next.js, take a look at the following resources:
+There are many things left to do in this project. The list will probably always be incomplete and not updated, but I will try.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Calendar page needs to be turned static,it's currently dynamic rendering
+- Image optimization. Use the sizes prop. Pull the image size data from Sanity. (If needed because of:), Figure that image-url hotspot shit, Get it figured!!
+- Break down the above multi task mess now, lol
+- Resources section
+- Find some environment/build variable with the github actions to enable/disable the admin link in the menubar based on if it's built to the beta/staging or production site Obviously we want to disable the admin link for the production site.
+- 
