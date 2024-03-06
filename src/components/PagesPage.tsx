@@ -4,16 +4,18 @@ import Hero from "./Hero";
 import TextBlock from "./TextBlock";
 import Gallery from './Gallery';
 import TextWithIllustration from "./TextWithIllustration";
-import { HeroType, TextBlockType, ImageGalleryType, TextWithIllustrationType } from "@/sanity/types/queryTypes";
+import { HeroType, TextBlockType, ImageGalleryType, TextWithIllustrationType, PageType } from "@/sanity/types/queryTypes";
+import { notFound } from "next/navigation";
 
-export const revalidate = 3600;
-const PagesPage = async ({slug}: {slug: string;}) => {
-    const data = await getPage({slug});
+type BuildPageProps = {
+    data: PageType;
+}
 
-    return (
-        <main>
+const BuildPage = ({data}:BuildPageProps ) => {
+return (
+    <main>
             {
-                data[0].pageBuilder.map(block => {
+                data.pageBuilder.map(block => {
                     switch(block._type) {
                         case 'hero':
                             const hb = block as HeroType;
@@ -63,7 +65,15 @@ const PagesPage = async ({slug}: {slug: string;}) => {
                 )
             }
         </main>
-    )
+)
+}
+
+
+export const revalidate = 3600;
+const PagesPage = async ({slug}: {slug: string;}) => {
+    const data = await getPage({slug});
+    if (!data) return notFound();
+    else  return <BuildPage data={data} />
 }
 
 export default PagesPage;
