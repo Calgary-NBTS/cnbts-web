@@ -18,6 +18,7 @@ export default defineType({
         source: 'name',
         maxLength: 96,
       },
+      description: 'This field is the unique identifier for the record. It must not contain any spaces or special characters except -  Use the "Generate" button to create one based on your name.',
     }),
     defineField({
       name: 'joined',
