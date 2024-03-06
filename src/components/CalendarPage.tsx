@@ -2,6 +2,7 @@ import { getEvents } from '@/sanity/queries';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 
+export const revalidate = 3600;
 const  CalendarPage = async ({year,month,day}:{year?: Number; month?: Number; day?: Number;}) => {
     const events = await getEvents();
     const eventDays = events.map(event=>new Date(event.time).getTime());

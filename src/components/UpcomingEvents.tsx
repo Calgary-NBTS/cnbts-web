@@ -12,6 +12,7 @@ import { MdExpandMore } from "react-icons/md";
 
 import FormattedText from "./FormattedText";
 
+export const revalidate = 3600;
 const UpcomingEvents = async () => {
     const events = await getUpcomingEvents();
 

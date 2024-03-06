@@ -10,7 +10,8 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
-export const revalidate = 3600; // revalidate at most every hour
+
+export const revalidate = 3600 * 24; // revalidate at most every day
 
 export async function generateMetadata(): Promise<Metadata> {
     // read rout params

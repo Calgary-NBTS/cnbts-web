@@ -7,6 +7,7 @@ import UpcomingEvents from "./UpcomingEvents";
 import getLatestNewsletter from "@/sanity/queries/getLatestNewsletter";
 import Newsletter from "./Newsletter";
 
+export const revalidate = 3600;
 const HomePage = async () => {
     const latestNewsletter = await getLatestNewsletter();
     return (

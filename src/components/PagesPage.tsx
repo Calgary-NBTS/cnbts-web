@@ -6,6 +6,7 @@ import Gallery from './Gallery';
 import TextWithIllustration from "./TextWithIllustration";
 import { HeroType, TextBlockType, ImageGalleryType, TextWithIllustrationType } from "@/sanity/types/queryTypes";
 
+export const revalidate = 3600;
 const PagesPage = async ({slug}: {slug: string;}) => {
     const data = await getPage({slug});
 
