@@ -7,7 +7,7 @@ async function _getAllNewsletterSlugs(): Promise<Newsletter[]> {
     return client.fetch(
         groq`*[_type=="newsletter" && active && dateTime(now()) > dateTime(published)] {
             "slug": slug.current,
-        }}`
+        }`
     )
 }
 

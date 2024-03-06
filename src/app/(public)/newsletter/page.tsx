@@ -1,5 +1,5 @@
-import NewsletterCurrentPage from "@/components/NewsletterCurrentPage"
+import NewsletterPage from '@/components/NewsletterPage';
 
 export default function Newsletter() {
-    return <NewsletterCurrentPage />
+    return <NewsletterPage />
 }

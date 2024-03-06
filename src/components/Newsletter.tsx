@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 const Newsletter = ({title, content}: {title: string; content: PortableTextBlock[]}) => {
 
     return (
-        <Box>
+        <Box paddingY={2}>
             <Container>
                 <Paper elevation={2}>
                     <Box padding={2}>

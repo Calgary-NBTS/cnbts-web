@@ -63,7 +63,7 @@ export default function RootLayout({
             <CssBaseline />
             <Header />
             {/* <div className="header-height">&nbsp;</div> */}
-            <main className="w-full h-full text-black">
+            <main>
               {children}
             </main>
             <Suspense>
