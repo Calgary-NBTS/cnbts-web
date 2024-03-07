@@ -19,6 +19,7 @@ export default function CalendarBackground() {
                 borderRadius: '2em'
 
             }}
+            priority
         />
 
     )
