@@ -14,15 +14,17 @@ return (
         <Container maxWidth='xl'>
             <Typography paddingY={2} variant='h4' component='h2'>Our Amazing Team</Typography>
             <Grid container spacing={2}>
-            {staff.map((member) => (
+            {staff.map((member, i) => (
                 <Grid key={member._id} xs={12} md={6} lg={4} xl={3}>
                 <StaffListing
                     name={member.name}
                     image={member.image} 
                     bio={member.bio} 
                     pronouns={member.pronouns}
+                    first={!Boolean(i)}
                 />
                 </Grid>
+                
             ))}
             </Grid>
         </Container>

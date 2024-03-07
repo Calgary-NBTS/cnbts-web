@@ -13,9 +13,10 @@ type StaffListingProps = {
     image?: string;
     bio: PortableTextBlock[];
     pronouns: string | undefined;
+    first?: boolean;
 }
 
-const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
+const StaffListing = ({name, image, bio, pronouns, first}: StaffListingProps) => {
 
     const builder = imageUrlBuilder(client);
 
@@ -45,7 +46,8 @@ const StaffListing = ({name, image, bio, pronouns}: StaffListingProps) => {
                     height={700} 
                     alt={`Picture of ${name}`} 
                     style={{borderRadius: '0.5rem', width: '100%', height: 'auto'}} 
-                    sizes=''
+                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 24vw'
+                    priority={Boolean(first)}
                     // fill={true}
                 />
             </Box>

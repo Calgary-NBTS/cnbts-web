@@ -12,6 +12,7 @@ import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
 
 import {styled} from '@mui/material/styles';
+import CalendarBackground from './CalendarBackground';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -65,6 +66,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
         })
 
         return (
+            <>
             
             <div className="react-calendar__tile__tileContent">
                 <div className="mx-auto my-1">
@@ -76,7 +78,6 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                         <Image 
                             data-tooltip-id="event_id"
                             data-tooltip-html={renderToStaticMarkup(<TooltipContent eventId={todays[0]._id} />)}
-                            className="rounded-lg m-auto my-1 mx-auto"
                             src={todays[0].image} 
                             width={70}
                             height={80}
@@ -86,6 +87,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                     }
                 </div>
             </div>
+            </>
         );
     }
     
@@ -114,6 +116,8 @@ export default function EventsCalendar({events}:{events: Event[]}) {
 
     return (
         <>
+        <div style={{position: 'relative'}}>
+        <CalendarBackground />
         {/* <Tooltip id="event_id" /> */}
         <Calendar 
             calendarType='gregory' 
@@ -128,6 +132,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
             formatMonthYear={(locale,date) => formatMonthYear(date)}
             onActiveStartDateChange={handleActiveStartDateChanged}
         />
+        </div>
         </>
     )
 }
