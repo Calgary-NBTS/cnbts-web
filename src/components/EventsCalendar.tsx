@@ -40,9 +40,9 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
         return (
             <div>
                 <h3 className="text-xl">{current[0].name}</h3>
-                <p>From: {new Date(current[0].time).toLocaleTimeString()} to {new Date(current[0].timeend).toLocaleTimeString()}</p>
+                <p>From: {new Date(current[0].time).toLocaleTimeString('en-CA')} to {new Date(current[0].timeend).toLocaleTimeString('en-CA')}</p>
                 <p>Location: {current[0].location || 'Unknown'}</p>
-                <p><PortableText value={current[0].content} /></p>
+                <div><PortableText value={current[0].content} /></div>
             </div>
         )
     }
