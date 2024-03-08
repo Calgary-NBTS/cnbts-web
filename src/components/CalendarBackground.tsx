@@ -10,7 +10,7 @@ export default function CalendarBackground() {
             placeholder='blur'
             quality={75}
             fill
-            // objectFit='cover'
+            objectFit='cover'
             sizes='(max-width: 768px) 100vs, (max-width: 1200px) 50vw, 33vw'
             style={{
                 // width: '100%',
