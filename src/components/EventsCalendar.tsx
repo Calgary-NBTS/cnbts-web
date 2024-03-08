@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
@@ -17,16 +18,19 @@ import CalendarBackground from './CalendarBackground';
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-export default function EventsCalendar({events}:{events: Event[]}) {
-    const [activeStartDate, onActiveStartDate] = useState<Date>(new Date());
+type Props = {
+    events: Event[];
+    activeMonth: number;
+    activeYear: number;
+}
+
+export default function EventsCalendar({events, activeMonth, activeYear}:Props) {
+    const router = useRouter();
+    // const [activeStartDate, onActiveStartDate] = useState<Date>(new Date());
+    const [activeStartDate, onActiveStartDate] = useState<Date>(new Date(activeYear,activeMonth,1));
     const [value, onChange] = useState<Value>(new Date());
-    
 
     const months=['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-    const eventDays = events.map(event=>new Date(event.time).getTime());
-    const first = new Date(Math.min(...eventDays));
-    const last = new Date(Math.max(...eventDays));
 
     const TooltipContent = ({eventId}: {eventId: string}) => {
         const current = events.filter(event=>event._id===eventId);
@@ -82,6 +86,7 @@ export default function EventsCalendar({events}:{events: Event[]}) {
                             width={70}
                             height={80}
                             alt={todays[0].name}
+                            sizes=''
                         />
                         </HtmlTooltip>
                     }
@@ -107,7 +112,10 @@ export default function EventsCalendar({events}:{events: Event[]}) {
             case 'drillUp':
             case 'drillDown':
             case 'onChange':
-                if (activeStartDate <= last && activeStartDate >= new Date(first.getFullYear(), first.getMonth())) onActiveStartDate(activeStartDate);
+                router.push(`/calendar/${activeStartDate.getFullYear()}/${activeStartDate.getMonth()}`)
+                // if (activeStartDate <= last && activeStartDate >= new Date(first.getFullYear(), first.getMonth())) { 
+                //     onActiveStartDate(activeStartDate);
+                // }
                 break;
             default:
                 throw new Error('bad action');

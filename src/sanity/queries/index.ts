@@ -1,11 +1,14 @@
-import getPage from "./getPage";
+import getPage from './getPage';
 import getAllPages from './getAllPages';
 import getAllPageSlugs from './getAllPageSlugs';
 
-import getEvents from "./getEvents";
+import getAllEvents from './getAllEvents';
+import getAllEventsByMonth from './getAllEventsByMonth';
+import getFirstEventTime from './getFirstEventTime';
+import getLastEventTime from './getLastEventTime';
 import getUpcomingEvents from './getUpcomingEvents';
 
-import getStaff from "./getStaff";
+import getStaff from './getStaff';
 
 import getNewsletter from './getNewsletter';
 import getAllNewsletters from './getAllNewsletters';
@@ -14,11 +17,16 @@ import getLatestNewsletter from './getLatestNewsletter';
 import getAllNewsletterHeadings from './getAllNewsletterHeadings';
 
 export {
+    getPage, 
     getAllPages, 
     getAllPageSlugs, 
-    getPage, 
-    getEvents, 
+
+    getAllEvents,
+    getAllEventsByMonth,
+    getFirstEventTime,
+    getLastEventTime,
     getUpcomingEvents, 
+    
     getStaff,
     getNewsletter,
     getAllNewsletters,

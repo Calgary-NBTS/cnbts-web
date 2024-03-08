@@ -9,7 +9,7 @@ type Props = {
     day?: string
 }
 
-async function _getEvents({year,month,day}: Props={}): Promise<Event[]> {
+async function _getAllEvents({year,month,day}: Props={}): Promise<Event[]> {
     const now = new Date();
     const yearNow = now.getFullYear();
     const monthNow = now.getMonth();
@@ -20,7 +20,6 @@ async function _getEvents({year,month,day}: Props={}): Promise<Event[]> {
         when = new Date(Number(year), Number(month), day ? Number(day) : undefined)
     }
     
-
     return client.fetch(
         groq`*[_type=="event"]{
             _id,
@@ -39,10 +38,10 @@ async function _getEvents({year,month,day}: Props={}): Promise<Event[]> {
     )
 }
 
-const getEvents = cache(async () => {
-    const item = await _getEvents();
+const getAllEvents = cache(async () => {
+    const item = await _getAllEvents();
     return item;
 })
 
-export default getEvents;
+export default getAllEvents;
 
