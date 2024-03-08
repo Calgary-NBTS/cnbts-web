@@ -88,7 +88,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                             width={70}
                             height={80}
                             alt={todays[0].name}
-                            sizes=''
+                            sizes='(max-width: 1200px) 15vw, 10vw'
                         />
                         </HtmlTooltip>
                     }

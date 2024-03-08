@@ -26,6 +26,7 @@ const Hero = ({heading, tagline, image, alt}: HeroProps) => {
                         height={200}
                         alt={alt}
                         priority
+                        sizes='(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 25vw'
                     />
                 </Box>
             </Container>
