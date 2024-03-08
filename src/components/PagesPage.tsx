@@ -25,6 +25,8 @@ return (
                                     heading={hb.heading}
                                     tagline={hb.tagline}
                                     image={hb.image}
+                                    imageHeight={200}
+                                    imageWidth={200}
                                     alt={hb.imgAlt}
                                 />
                             );
