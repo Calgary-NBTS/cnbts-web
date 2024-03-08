@@ -26,8 +26,33 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
         >
             <Container sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flex:'1 1 0px'}}>
                 <Box sx={{flexGrow: 1, width:0}}>
-                    <Typography variant='h4' component='h1' className="my-3 text-4xl font-bold">{heading}</Typography>
-                    <Typography>{tagline}</Typography>
+                    <Typography
+                        variant='h4' 
+                        component='h1' 
+                        sx={{
+                            typography: {
+                                xs: 'h4',
+                                sm: 'h3',
+                                md: 'h2',
+                                lg: 'h1'
+                            }
+                        }}
+                    >
+                        {heading}
+                    </Typography>
+                    <Typography
+                        variant='h2'
+                        component='h2'
+                        sx={{
+                            typography: {
+                                xs: 'subtitle1',
+                                sm: 'h6',
+                                md: 'h5'
+                            }
+                        }}
+                    >
+                        {tagline}
+                    </Typography>
                 </Box>
                 <Box sx={{flexGrow: 1, width: 0}}>
                     <Image

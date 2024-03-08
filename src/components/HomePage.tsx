@@ -13,7 +13,7 @@ const HomePage = async () => {
     return (
         <>
             <Hero heading="Hi Friends!"
-                tagline=""
+                tagline="We welcome everyone! Come join us!"
                 image="https://cdn.sanity.io/images/9108qgzh/production/144b671ca681020a20dade9a753d311cde816620-1738x1846.png"
                 imageWidth={1738}
                 imageHeight={1846}
@@ -21,18 +21,6 @@ const HomePage = async () => {
             />
             <UpcomingEvents />
             <Newsletter title={latestNewsletter.title} content={latestNewsletter.body} />
-            <Container component='section'>
-                <Box sx={{margin: 'auto', textAlign: 'center'}}>
-                <Image
-                    src={EnbyLogoNoBg}
-                    alt="Calgary Non-Binary and Transgender Society Logo - Trans Flag and Transgender Symbol Wrapped with Dragon"
-                    width={300} 
-                    height={300}
-                    priority
-                />
-                <p className="flex items-center justify-center">Coming Soon</p>
-                </Box>
-            </Container>
         </>
     )
 }

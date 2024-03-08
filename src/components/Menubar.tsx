@@ -94,9 +94,13 @@ return (
                 <Typography
                     variant="h6"
                     component="div"
-                    sx={{flexGrow: 1, display: { xs: 'none', sm: 'block', md: 'block'}}}
+                    sx={{
+                        flexGrow: 1,
+                        // display: { xs: 'none', sm: 'block', md: 'block'},
+                        typography: {xs: 'subtitle2', sm: 'h6', lg: 'h4', xl: 'h4'}
+                    }}
                 >
-                    Calgary Non-Binary &amp; Transgender Society
+                    Calgary Non-Binary and Transgender Society
                 </Typography>
                 <Box sx={{display: { xs: 'none', sm: 'none', md: 'block'}}}>
                     {navItems.map((item) => (
