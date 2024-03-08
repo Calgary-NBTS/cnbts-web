@@ -8,25 +8,31 @@ type HeroProps = {
     tagline: string;
     image: string;
     alt: string;
+    imageWidth: number;
+    imageHeight: number;
 }
 
-const Hero = ({heading, tagline, image, alt}: HeroProps) => {
+const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps) => {
 
     return (
-        <Box component="section" sx={{backgroundColor: '#BA68C8'}} padding={2}>
-            <Container sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <Box>
+        <Box component="section" sx={{backgroundColor: '#BA68C8'}} padding={1}>
+            <Container sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flex:'1 1 0px'}}>
+                <Box sx={{flexGrow: 1, width:0}}>
                     <Typography variant='h4' component='h1' className="my-3 text-4xl font-bold">{heading}</Typography>
                     <Typography>{tagline}</Typography>
                 </Box>
-                <Box>
+                <Box sx={{flexGrow: 1, width: 0}}>
                     <Image
                         src={image}
-                        width={200}
-                        height={200}
+                        width={imageWidth}
+                        height={imageHeight}
                         alt={alt}
                         priority
-                        sizes='(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 25vw'
+                        style={{
+                            width: '100%',
+                            height: 'auto'
+                        }}
+                        // sizes='(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 25vw'
                     />
                 </Box>
             </Container>

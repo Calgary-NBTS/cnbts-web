@@ -14,8 +14,10 @@ const HomePage = async () => {
         <>
             <Hero heading="Hi Friends!"
                 tagline=""
-                image="https://cdn.sanity.io/images/9108qgzh/production/80f1b0543f9c3cc1ca15685593f6bcff75ab9a1b-2560x2560.png"
-                alt="Some Alt text for the image here"
+                image="https://cdn.sanity.io/images/9108qgzh/production/144b671ca681020a20dade9a753d311cde816620-1738x1846.png"
+                imageWidth={1738}
+                imageHeight={1846}
+                alt="Purple, yellow, green and white dragon wrapped around non-binary symbol - large circle with a smaller asterisk connected on top"
             />
             <UpcomingEvents />
             <Newsletter title={latestNewsletter.title} content={latestNewsletter.body} />
