@@ -7,7 +7,8 @@ import getLastEventTime from '@/sanity/queries/getLastEventTime';
 
 export type Params = {
     params: {
-        index: string[] | undefined;
+        year: string;
+        month: string;
     }
 }
 
@@ -26,12 +27,7 @@ export const generateStaticParams = async () => {
     const last = new Date(lastData.time);
     
     
-    type EventMonth = {
-        year: number;
-        month: number;
-    }
-    
-    let months = [];
+     let months = [];
 
     const firstYear = first.getFullYear();
     const firstMonth = first.getMonth();
@@ -42,7 +38,7 @@ export const generateStaticParams = async () => {
         for (let month = firstMonth; month < 12; month++) {
             if (year > lastYear) break;
             if (year === lastYear && month > lastMonth) break;
-            months.push({year,month} as EventMonth);
+            months.push({year: String(year),month: String(month)});
         }
     }
 

@@ -1,12 +1,15 @@
 import getAllEventsByMonth from '@/sanity/queries/getAllEventsByMonth';
+import getFirstEventTime from '@/sanity/queries/getFirstEventTime';
+import getLastEventTime from '@/sanity/queries/getLastEventTime';
 import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 export type Params = {
-    params: {
-        index: string[] | undefined;
+    params?: {
+        month: string;
+        year: string;
     }
 }
 
@@ -18,16 +21,16 @@ const  CalendarPage = async ({params}:Params) => {
     let activeYear = currentDay.getFullYear();
 
     if (params) {
-        const values = params?.index;
-        
-        if (values && values[0] && values[1]) {
-            activeYear = Number(values[0]);
-            activeMonth = Number(values[1]);
-        }
+            activeYear = Number(params.year);
+            activeMonth = Number(params.month);
     }
     else console.log('no params')
     
-    const events = await getAllEventsByMonth({year: activeYear, month: activeMonth});
+    const _events = getAllEventsByMonth({year: activeYear, month: activeMonth});
+    const _last = getLastEventTime();
+    const _first = getFirstEventTime();
+
+    const [events,last,first] = await Promise.all([_events, _last, _first]);
 
     return (
         <Box paddingY={2}>
@@ -36,6 +39,8 @@ const  CalendarPage = async ({params}:Params) => {
                     events={events} 
                     activeMonth={activeMonth} 
                     activeYear={activeYear} 
+                    first={new Date(first.time)}
+                    last={new Date(last.time)}
                 />
             </Container>
         </Box>

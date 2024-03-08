@@ -22,9 +22,11 @@ type Props = {
     events: Event[];
     activeMonth: number;
     activeYear: number;
+    first: Date;
+    last: Date;
 }
 
-export default function EventsCalendar({events, activeMonth, activeYear}:Props) {
+export default function EventsCalendar({events, activeMonth, activeYear, first, last}:Props) {
     const router = useRouter();
     // const [activeStartDate, onActiveStartDate] = useState<Date>(new Date());
     const [activeStartDate, onActiveStartDate] = useState<Date>(new Date(activeYear,activeMonth,1));
@@ -112,10 +114,10 @@ export default function EventsCalendar({events, activeMonth, activeYear}:Props) 
             case 'drillUp':
             case 'drillDown':
             case 'onChange':
-                router.push(`/calendar/${activeStartDate.getFullYear()}/${activeStartDate.getMonth()}`)
-                // if (activeStartDate <= last && activeStartDate >= new Date(first.getFullYear(), first.getMonth())) { 
+                if (activeStartDate <= last && activeStartDate >= new Date(first.getFullYear(), first.getMonth())) { 
+                    router.push(`/calendar/${activeStartDate.getFullYear()}/${activeStartDate.getMonth()}`)
                 //     onActiveStartDate(activeStartDate);
-                // }
+                }
                 break;
             default:
                 throw new Error('bad action');
