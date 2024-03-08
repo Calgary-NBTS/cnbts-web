@@ -25,6 +25,7 @@ const Hero = ({heading, tagline, image, alt}: HeroProps) => {
                         width={200}
                         height={200}
                         alt={alt}
+                        priority
                     />
                 </Box>
             </Container>

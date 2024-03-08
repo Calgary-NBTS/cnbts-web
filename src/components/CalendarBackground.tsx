@@ -11,7 +11,7 @@ export default function CalendarBackground() {
             quality={75}
             fill
             objectFit='cover'
-            sizes='(max-width: 768px) 100vs, (max-width: 1200px) 50vw, 33vw'
+            sizes='(max-width: 768px) 100vs, (max-width: 1200px) 100vw, 50vw'
             style={{
                 // width: '100%',
                 // height: 'auto',

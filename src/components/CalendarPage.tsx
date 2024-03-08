@@ -24,7 +24,6 @@ const  CalendarPage = async ({params}:Params) => {
             activeYear = Number(params.year);
             activeMonth = Number(params.month);
     }
-    else console.log('no params')
     
     const _events = getAllEventsByMonth({year: activeYear, month: activeMonth});
     const _last = getLastEventTime();
