@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 // import dynamic from 'next/dynamic'
 import { Suspense } from 'react';
 import Header from '@/components/HeaderNew'
+import BackgroundImage from '@/components/BackgroundGradiant';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -58,10 +59,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body>
+      <body style={{position: 'relative'}}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <BackgroundImage />
             <Header />
             {/* <div className="header-height">&nbsp;</div> */}
             <main>
