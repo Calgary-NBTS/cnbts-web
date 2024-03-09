@@ -35,7 +35,8 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
                                 sm: 'h3',
                                 md: 'h2',
                                 lg: 'h1'
-                            }
+                            },
+                            textShadow: '2px 2px 2px #ffcccc',
                         }}
                     >
                         {heading}
@@ -45,6 +46,7 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
                         component='h2'
                         sx={{
                             typography: {
+                                xxs: 'subtitle1',
                                 xs: 'subtitle1',
                                 sm: 'h6',
                                 md: 'h5'

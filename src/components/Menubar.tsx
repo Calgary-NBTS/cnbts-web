@@ -80,7 +80,16 @@ const Menubar = () => {
 
 return (
     <>
-        <AppBar component="nav" position="sticky">
+        <AppBar 
+            component="nav" 
+            position="sticky"
+            sx={{
+                bgcolor: 'primary.main', 
+                color: 'primary.contrastText',
+                // backgroundColor: '#DFDBE5',
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23999999' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
+            }}
+        >
             <Toolbar>
                 <IconButton 
                     color="inherit"
@@ -97,14 +106,15 @@ return (
                     sx={{
                         flexGrow: 1,
                         // display: { xs: 'none', sm: 'block', md: 'block'},
-                        typography: {xs: 'subtitle2', sm: 'h6', lg: 'h4', xl: 'h4'}
+                        typography: {xxs: 'subtitle2', xs: 'subtitle1', sm: 'h6', lg: 'h4', xl: 'h4'},
+                        
                     }}
                 >
                     Calgary Non-Binary and Transgender Society
                 </Typography>
-                <Box sx={{display: { xs: 'none', sm: 'none', md: 'block'}}}>
+                <Box sx={{  display: { xxs: 'none', xs: 'none', sm: 'none', md: 'block'}}}>
                     {navItems.map((item) => (
-                        <Button component={Link} href={item.link} key={item.title} target={item.target ? item.target : '_self'} sx={{ color: '#fff' }}>
+                        <Button component={Link} href={item.link} key={item.title} target={item.target ? item.target : '_self'} sx={{ color: 'primary.contrastText' }}>
                             {item.title}
                         </Button>
                     ))}
