@@ -75,14 +75,17 @@ const UpcomingEvents = async () => {
                                 {`${niceDay(event.time)}`}
                             </Grid>
                             <Grid xxs={3}>
-                                <MaterialLink href={event.url} target='_blank' color='primary'>
+                                <MaterialLink href={event.url} target='_blank' color='primary'
+                                >
                                     <Image
                                     src={event.image}
-                                    width={60}
-                                    height={60}
+                                    width={event.imageWidth}
+                                    height={event.imageHeight}
                                     alt={event.imgAlt}
                                     style={{
                                         borderRadius: '0.5em',
+                                        height: '60px',
+                                        width: 'auto',
                                     }}
                                 />
                                 </MaterialLink>

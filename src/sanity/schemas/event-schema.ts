@@ -71,6 +71,12 @@ export default defineType({
             name: 'content',
             title: 'Content',
             type: 'blockContent'
+        }),
+        defineField({
+            name: 'active',
+            title: 'Active',
+            type: 'boolean',
+            initialValue: true
         })
     ]
 })

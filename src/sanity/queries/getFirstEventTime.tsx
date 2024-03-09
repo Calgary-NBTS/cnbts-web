@@ -5,7 +5,7 @@ import { cache } from 'react';
 
 async function _getFirstEventTime(): Promise<Event> {
     return client.fetch(
-        groq`*[_type=="event"] | order(time asc) [0] {
+        groq`*[_type=="event" && active==true] | order(time asc) [0] {
             time,
         }`
     )

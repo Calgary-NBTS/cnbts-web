@@ -12,6 +12,8 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
 
+import Box from '@mui/material/Box';
+
 import {styled} from '@mui/material/styles';
 import CalendarBackground from './CalendarBackground';
 
@@ -75,24 +77,28 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
             <>
             
             <div className="react-calendar__tile__tileContent">
-                <div className="mx-auto my-1">
+                <Box>
                     {day}
-                </div>
-                <div>
+                </Box>
+                <Box>
                     {todays && todays[0] &&
                     <HtmlTooltip title={<TooltipContent eventId={todays[0]._id} />}>
                         <Image 
                             data-tooltip-id="event_id"
                             data-tooltip-html={renderToStaticMarkup(<TooltipContent eventId={todays[0]._id} />)}
                             src={todays[0].image} 
-                            width={70}
-                            height={80}
+                            width={todays[0].imageWidth}
+                            height={todays[0].imageHeight}
                             alt={todays[0].name}
                             sizes='(max-width: 1200px) 15vw, 10vw'
+                            style={{
+                                maxHeight: 60,
+                                width: 'auto',
+                            }}
                         />
                         </HtmlTooltip>
                     }
-                </div>
+                </Box>
             </div>
             </>
         );

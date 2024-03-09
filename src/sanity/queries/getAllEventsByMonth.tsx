@@ -16,7 +16,7 @@ async function _getAllEventsByMonth({year,month}: Props): Promise<Event[]> {
     
 
     return client.fetch(
-        groq`*[_type=="event" && dateTime(time) >= dateTime("${start.toISOString()}") && dateTime(time) <= dateTime("${end.toISOString()}")]{
+        groq`*[_type=="event" && active==true && dateTime(time) >= dateTime("${start.toISOString()}") && dateTime(time) <= dateTime("${end.toISOString()}")]{
             _id,
             _createAt,
             name,
@@ -24,6 +24,8 @@ async function _getAllEventsByMonth({year,month}: Props): Promise<Event[]> {
             locationname,
             location,
             "image": image.asset->url,
+            "imageWidth": image.asset->metadata.dimensions.width,
+            "imageHeight": image.asset->metadata.dimensions.height,
             "imgAlt": image.alt,
             url,
             time,
