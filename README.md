@@ -18,11 +18,11 @@ There are many things left to do in this project. The list will probably always 
 
 - **DONE** Calendar page needs to be turned static,it's currently dynamic rendering 
 - **IN PROGRESS** Image optimization. Use the sizes prop.
-- Image optimizations: Pull the image size data from Sanity. (If needed because of:),
+- **IN PROGRESS** Image optimizations: Pull the image size data from Sanity. (If needed because of:),
 - Figure that image-url hotspot shit, Get it figured!!
 - Resources section
 - Find some environment/build variable with the github actions to enable/disable the admin link in the menubar based on if it's built to the beta/staging or production site Obviously we want to disable the admin link for the production site.
-- FIX  PAGEBUILDER IMAGE FOR HERO AND ELSEWHERE. MUST GET PROPER IMAGE DIMENSIONS FROM SANITY
 - Upcoming Events: Style nicer, or complete makeover
 - Remove headings from secions (I think they speak for themselves)
-- 
+- Live editor page builder/editor
+- More admin pane QOL, groupings, sort order, better previews
