@@ -9,7 +9,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import MaterialLink from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import { MdExpandMore } from "react-icons/md";
-
+import Image from "next/image";
 import FormattedText from "./FormattedText";
 
 export const revalidate = 3600;
@@ -63,16 +63,29 @@ const UpcomingEvents = async () => {
                         expandIcon={<MdExpandMore />}
                         aria-controls={`${event.slug}-content`}
                         id={`${event.slug}-header`}
+                        sx={{
+                            backgroundImage: "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(255,255,255,1) 65%, rgba(215,215,215,1) 100%)",
+                        }}
                     >
-                        <Grid container width='100%'>
-                            <Grid xs={4}>
+                        <Grid container width='100%' alignItems='center'>
+                            <Grid xxs={5}>
                                 {event.name}
                             </Grid>
-                            <Grid xs={4}>
+                            <Grid xxs={4}>
                                 {`${niceDay(event.time)}`}
                             </Grid>
-                            <Grid xs={4}>
-                                <MaterialLink href={event.url} target='_blank' color='primary'>{event.locationname}</MaterialLink>
+                            <Grid xxs={3}>
+                                <MaterialLink href={event.url} target='_blank' color='primary'>
+                                    <Image
+                                    src={event.image}
+                                    width={60}
+                                    height={60}
+                                    alt={event.locationname}
+                                    style={{
+                                        borderRadius: '0.5em',
+                                    }}
+                                />
+                                </MaterialLink>
                             </Grid>
                         </Grid>
                         
