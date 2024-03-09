@@ -77,7 +77,38 @@ export default defineType({
             title: 'Active',
             type: 'boolean',
             initialValue: true
-        })
+        }),
+    ],
+    preview: {
+        select: {
+            title: 'name',
+            date: 'time',
+            image: 'image'
+        },
+        prepare(selection) {
+            const {title, date, image} = selection;
+            return {
+                title: title,
+                subtitle: new Date(date).toDateString(),
+                media: image
+            };
+        },
+    },
+    orderings: [
+        {
+            title: 'When Asc',
+            name: 'whenAsc',
+            by: [
+                {field: 'time', direction: 'asc'}
+            ]
+        },
+        {
+            title: 'When Desc',
+            name: 'whenDesc',
+            by: [
+                {field: 'time', direction: 'desc'}
+            ]
+        },
     ]
-})
+});
 
