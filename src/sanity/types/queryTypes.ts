@@ -30,6 +30,7 @@ export type Event = {
     time: Date;
     timeend: Date;
     image: string;
+    imgAlt: string;
     url: string;
     content: PortableTextBlock[];
 }

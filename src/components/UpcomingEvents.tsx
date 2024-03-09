@@ -80,7 +80,7 @@ const UpcomingEvents = async () => {
                                     src={event.image}
                                     width={60}
                                     height={60}
-                                    alt={event.locationname}
+                                    alt={event.imgAlt}
                                     style={{
                                         borderRadius: '0.5em',
                                     }}
