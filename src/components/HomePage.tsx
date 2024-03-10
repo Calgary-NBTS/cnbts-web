@@ -1,13 +1,9 @@
-import Image from "next/image";
-import EnbyLogoNoBg from '@/../public/images/logos/EnbyLogoNoBG.png';
 import Hero from "./Hero";
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import UpcomingEvents from "./UpcomingEvents";
 import getLatestNewsletter from "@/sanity/queries/getLatestNewsletter";
 import Newsletter from "./Newsletter";
 
-export const revalidate = 3600 * 24;
+export const revalidate = 3600;
 const HomePage = async () => {
     const latestNewsletter = await getLatestNewsletter();
     return (

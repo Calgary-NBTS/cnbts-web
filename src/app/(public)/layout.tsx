@@ -1,8 +1,6 @@
 
 import type { Metadata, ResolvingMetadata } from 'next';
-// import '@/app/globals.css';
 import Footer from '@/components/Footer';
-// import dynamic from 'next/dynamic'
 import { Suspense } from 'react';
 import Header from '@/components/HeaderNew'
 import BackgroundImage from '@/components/BackgroundGradiant';
@@ -12,8 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
 
-export const revalidate = 3600 * 24; // revalidate at most every day
-
+export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
     // read rout params
     // const id = params.id;

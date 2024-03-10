@@ -2,12 +2,10 @@ import { getStaff } from "@/sanity/queries";
 import StaffListing from "./StaffListing";
 
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-export const revalidate = 3600 * 24;
-
+export const revalidate = 3600;
 const StaffList = async () => {
     const staff = await getStaff();
 return (

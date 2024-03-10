@@ -7,12 +7,11 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import MaterialLink from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
 import { MdExpandMore } from "react-icons/md";
 import Image from "next/image";
 import FormattedText from "./FormattedText";
 
-export const revalidate = 3600 * 24;
+export const revalidate = 3600;
 const UpcomingEvents = async () => {
     const events = await getUpcomingEvents();
 

@@ -71,7 +71,7 @@ return (
 }
 
 
-export const revalidate = 3600 * 24;
+export const revalidate = 3600;
 const PagesPage = async ({slug}: {slug: string;}) => {
     const data = await getPage({slug});
     if (!data) return notFound();
