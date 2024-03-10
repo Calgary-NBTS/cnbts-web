@@ -93,7 +93,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                     }}
                 >
                     {todays && todays[0] &&
-                    <HtmlTooltip title={<TooltipContent eventId={todays[0]._id} />}>
+                        <Tooltip title={<TooltipContent eventId={todays[0]._id} />}>
                             <Box sx={{maxHeight:'60px', maxWidth: '60px', position: 'relative'}}>
                                 <Image 
                                     src={todays[0].image} 
@@ -107,7 +107,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                                     }}
                                 />
                             </Box>
-                        </HtmlTooltip>
+                        </Tooltip>
                     }
                 </Box>
             </Box>
