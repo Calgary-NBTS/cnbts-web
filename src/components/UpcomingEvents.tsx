@@ -54,7 +54,7 @@ const UpcomingEvents = async () => {
     return (
         <Box paddingY={4}>
         <Container>
-            <Typography variant='h4' component='h3'>Upcoming Events</Typography>
+            {/* <Typography variant='h4' component='h3'>Upcoming Events</Typography> */}
             <Box paddingTop={2}>
             {events.map(event => (
                 <Accordion key={event._id}>
@@ -73,7 +73,7 @@ const UpcomingEvents = async () => {
                             <Grid xxs={4}>
                                 {`${niceDay(event.time)}`}
                             </Grid>
-                            <Grid xxs={3}>
+                            <Grid xxs={3} sx={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
                                 <MaterialLink href={event.url} target='_blank' color='primary'
                                 >
                                     <Image
@@ -81,6 +81,7 @@ const UpcomingEvents = async () => {
                                     width={event.imageWidth}
                                     height={event.imageHeight}
                                     alt={event.imgAlt}
+                                    sizes='(max-width: 600px) 25vw, (max-width: 1200px) 12vw, 10vw'
                                     style={{
                                         borderRadius: '0.5em',
                                         height: '60px',

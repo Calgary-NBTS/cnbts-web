@@ -87,7 +87,7 @@ return (
                 bgcolor: 'primary.main', 
                 color: 'primary.contrastText',
                 // backgroundColor: '#DFDBE5',
-                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23999999' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
             }}
         >
             <Toolbar>
@@ -106,18 +106,29 @@ return (
                     sx={{
                         flexGrow: 1,
                         // display: { xs: 'none', sm: 'block', md: 'block'},
-                        typography: {xxs: 'subtitle2', xs: 'subtitle1', sm: 'h6', lg: 'h4', xl: 'h4'},
+                        typography: {xxs: 'subtitle2', xs: 'subtitle1', sm: 'h6', lg: 'h5', xl: 'h4'},
                         
                     }}
                 >
                     Calgary Non-Binary and Transgender Society
                 </Typography>
                 <Box sx={{  display: { xxs: 'none', xs: 'none', sm: 'none', md: 'block'}}}>
-                    {navItems.map((item) => (
-                        <Button component={Link} href={item.link} key={item.title} target={item.target ? item.target : '_self'} sx={{ color: 'primary.contrastText' }}>
+
+                    { navItems.map((item) => (
+                        <Button 
+                            component={Link} 
+                            href={item.link} 
+                            key={item.title} 
+                            target={item.target ? item.target : '_self'} 
+                            sx={{ 
+                                color: 'primary.contrastText',
+                                
+                            }}
+                        >
                             {item.title}
                         </Button>
                     ))}
+
                 </Box>
             </Toolbar>
         </AppBar>
@@ -130,8 +141,9 @@ return (
                 ModalProps={{
                     keepMounted: true, //better open performance on mobile
                 }}
-                sx={{display: { sm: 'block', md: 'none'},
-                '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
+                sx={{
+                    display: { sm: 'block', md: 'none'},
+                    '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
             }}
             >
                 {drawer}

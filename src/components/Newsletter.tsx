@@ -14,7 +14,7 @@ const Newsletter = ({title, content}: {title: string; content: PortableTextBlock
             <Container>
                 <Paper elevation={2}>
                     <Box padding={2}>
-                        <Typography variant='h4' component='h3'>{title}</Typography>
+                        {/* <Typography variant='h4' component='h3'>{title}</Typography> */}
                         <FormattedText value={content} />
                     </Box>
                 </Paper>

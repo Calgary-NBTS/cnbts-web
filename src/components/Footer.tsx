@@ -15,7 +15,7 @@ const Footer = () => {
                 bgcolor: 'primary.main', 
                 color: 'primary.contrastText',
                 // backgroundColor: '#DFDBE5',
-                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23999999' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
                 
                 }}
             >

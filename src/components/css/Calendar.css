@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width:900px) {
+  .react-calendar__tile {
+    padding: 0.5rem 0.12rem;
+    min-height: 6.75rem;
+  }
+}
+@media screen and (min-width:900px) {
+  .react-calendar__tile {
+    padding: 10px 6.6667px;
+    min-height: 9rem;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
   .react-calendar {
     width: 98%;
   }
@@ -14,16 +28,12 @@
   .react-calendar__month-view__weekdays__weekday {
     font-size:1rem;
   }
-  .react-calendar__tile {
-    padding: 0.5rem 0.12rem;
-    min-height: 7rem;
-  }
   .react-calendar__navigation__label__labelText {
     font-size: 2rem;
   }
 }
   
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1200px) {
   .react-calendar {
     width: 85%;
   }
@@ -36,10 +46,6 @@
   }
   .react-calendar__month-view__weekdays__weekday {
     font-size:2rem;
-  }
-  .react-calendar__tile {
-    padding: 10px 6.6667px;
-    min-height: 9rem;
   }
   .react-calendar__navigation__label__labelText {
     font-size: 4rem;
@@ -55,7 +61,7 @@
   /* background-image: url('/images/backgrounds/ales-krivec-x4Jc4HKEHKg-unsplash.jpg'); */
   /* background-size: cover; */
   /* border: 1px solid #a0a096; */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   line-height: 1.125em;
   color: white;
 }
@@ -111,7 +117,7 @@
 
 
 .react-calendar__navigation__label__labelText {
-  font-family: "Lobster", sans-serif;
+  /* font-family: "Lobster", sans-serif; */
   font-weight: 400;
   font-style: normal;
   color: black;
@@ -137,7 +143,7 @@
   text-transform: uppercase;
   font: inherit;
   font-size: 0.75em;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -241,6 +247,6 @@
   flex-direction: column;
   align-content: flex-start;
   background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   padding: 0 0.2rem;
 }
