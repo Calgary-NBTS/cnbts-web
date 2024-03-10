@@ -14,8 +14,9 @@ const nextConfig = {
                 hostname: 'cdn.sanity.io',
                 port: '',
                 pathname: '**'
-            }
-        ]
+            },
+        ],
+        minimumCacheTTL: 60*60*24, // 1 day
     }
 };
 //http://localhost:3000/(https://cdn.sanity.io/images/9108qgzh/production/252678266721c7565a418909d8ea259f9dc389fb-3300x5100.png)
