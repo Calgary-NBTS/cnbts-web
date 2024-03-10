@@ -1,7 +1,6 @@
 import getAllEventsByMonth from '@/sanity/queries/getAllEventsByMonth';
 import getFirstEventTime from '@/sanity/queries/getFirstEventTime';
 import getLastEventTime from '@/sanity/queries/getLastEventTime';
-import Image from 'next/image';
 import EventsCalendar from './EventsCalendar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -15,8 +14,7 @@ export type Params = {
 
 export const revalidate = 3600;
 const  CalendarPage = async ({params}:Params) => {
-    //const  CalendarPage = async ({year,month,day}:{year?: Number; month?: Number; day?: Number;}) => {
-    let currentDay = new Date();
+    const currentDay = new Date();
     let activeMonth = currentDay.getMonth();
     let activeYear = currentDay.getFullYear();
 
