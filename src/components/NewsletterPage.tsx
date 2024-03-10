@@ -10,7 +10,7 @@ type Props = {
     slug?: string;
 }
 
-export const revalidate = 3600;
+export const revalidate = 3600 * 24;
 const NewsletterPage = async ({slug}: Props) => {
     const newsletterData = slug ? getNewsletter({slug}) : getLatestNewsletter();
     const newsHeadingsData = getAllNewsletterHeadings();

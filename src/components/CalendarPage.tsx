@@ -13,7 +13,7 @@ export type Params = {
     }
 }
 
-export const revalidate = 3600;
+export const revalidate = 3600 * 24;
 const  CalendarPage = async ({params}:Params) => {
     //const  CalendarPage = async ({year,month,day}:{year?: Number; month?: Number; day?: Number;}) => {
     let currentDay = new Date();
