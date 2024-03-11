@@ -20,8 +20,8 @@ const nextConfig = {
         ],
         minimumCacheTTL: 60*60*24, // 1 day
     },
-    assetPrefix: isProd ? 'https://calgarynbts.b-cdn.net' : undefined,
+    assetPrefix: isProd ? 'https://cdn.calgarynbts.ca' : undefined,
     
 };
-//http://localhost:3000/(https://cdn.sanity.io/images/9108qgzh/production/252678266721c7565a418909d8ea259f9dc389fb-3300x5100.png)
+
 export default nextConfig;
