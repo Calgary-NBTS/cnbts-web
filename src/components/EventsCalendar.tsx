@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
 import { Event } from '@/sanity/types/queryTypes';
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
@@ -12,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from '@mui/material/styles';
+import FormattedText from './FormattedText';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -34,12 +34,12 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
     const TooltipContent = ({event}: {event: Event}) => {
         if (!event) return;
         return (
-            <div>
-                <h3 className="text-xl">{event.name}</h3>
+            <Box>
+                <Typography className="text-xl">{event.name}</Typography>
                 <p>From: {new Date(event.time).toLocaleTimeString('en-CA')} to {new Date(event.timeend).toLocaleTimeString('en-CA')}</p>
                 <p>Location: {event.location || 'Unknown'}</p>
-                <div><PortableText value={event.content} /></div>
-            </div>
+                <div><FormattedText value={event.content} /></div>
+            </Box>
         )
     }
 
