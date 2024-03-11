@@ -93,7 +93,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                     }}
                 >
                     {todays && todays[0] &&
-                        <Tooltip title={<TooltipContent eventId={todays[0]._id} />}>
+                        <Tooltip title={'Well hello there'}>
                             <Box sx={{maxHeight:'60px', maxWidth: '60px', position: 'relative'}}>
                                 <Image 
                                     src={todays[0].image} 
