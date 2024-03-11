@@ -31,15 +31,14 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
 
     const months=['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    const TooltipContent = ({eventId}: {eventId: string}) => {
-        const current = events.filter(event=>event._id===eventId);
-        if (!current || !current[0]) return;
+    const TooltipContent = ({event}: {event: Event}) => {
+        if (!event) return;
         return (
             <div>
-                <h3 className="text-xl">{current[0].name}</h3>
-                <p>From: {new Date(current[0].time).toLocaleTimeString('en-CA')} to {new Date(current[0].timeend).toLocaleTimeString('en-CA')}</p>
-                <p>Location: {current[0].location || 'Unknown'}</p>
-                <div><PortableText value={current[0].content} /></div>
+                <h3 className="text-xl">{event.name}</h3>
+                <p>From: {new Date(event.time).toLocaleTimeString('en-CA')} to {new Date(event.timeend).toLocaleTimeString('en-CA')}</p>
+                <p>Location: {event.location || 'Unknown'}</p>
+                <div><PortableText value={event.content} /></div>
             </div>
         )
     }
@@ -93,7 +92,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                     }}
                 >
                     {todays && todays[0] &&
-                        <Tooltip title={'Well hello there'}>
+                        <Tooltip title={<TooltipContent event={todays[0]} />}>
                             <Box sx={{maxHeight:'60px', maxWidth: '60px', position: 'relative'}}>
                                 <Image 
                                     src={todays[0].image} 
