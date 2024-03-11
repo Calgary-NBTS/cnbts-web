@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Admin Panel - Calgary Non-Binary and Transgender Society",
   description: "Calgary Non-Binary and Transgender Societies Administration Panel",
-  metadataBase: new URL('https://calgarynbts.ca'),
+  metadataBase: new URL('https://beta.calgarynbts.ca'),
   icons: {
     icon: [
       {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       { url: './apple-touch-icon.png' },
     ],
   },
-  manifest: 'https://calgarynbts.ca/manifest.json',
+  manifest: 'https://beta.calgarynbts.ca/manifest.json',
   robots: {
     index: false,
     follow: false,

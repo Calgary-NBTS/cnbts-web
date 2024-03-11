@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: siteSettings.title,
       description: siteSettings.description,
-      metadataBase: new URL('https://calgarynbts.ca'),
+      metadataBase: new URL('https://beta.calgarynbts.ca'),
       icons: {
         icon: [
           {
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
           { url: './apple-touch-icon.png' },
         ],
       },
-      manifest: 'https://calgarynbts.ca/manifest.json',
+      manifest: 'https://beta.calgarynbts.ca/manifest.json',
       robots: {
         index: false,
         follow: false,
