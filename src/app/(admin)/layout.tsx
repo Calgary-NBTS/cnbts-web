@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       { url: './apple-touch-icon.png' },
     ],
   },
-  manifest: 'https://beta.calgarynbts.ca/manifest.json',
+  // manifest: 'https://beta.calgarynbts.ca/manifest.json',
   robots: {
     index: false,
     follow: false,
