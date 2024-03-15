@@ -3,11 +3,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import BackgroundImage2 from "./BackgroundGradiant2";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type HeroProps = {
     heading: string;
     tagline: string;
-    image: string;
+    image: string | StaticImport;
     alt: string;
     imageWidth: number;
     imageHeight: number;
