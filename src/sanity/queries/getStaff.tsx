@@ -11,6 +11,8 @@ async function _getStaff(): Promise<Staff[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
+            "imageWidth": image.asset->metadata.dimensions.width,
+            "imageHeight": image.asset->metadata.dimensions.height,
             "imgAlt": image.alt,
             joined,
             bio,

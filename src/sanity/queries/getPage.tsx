@@ -19,6 +19,8 @@ async function _getPage({slug}: Props): Promise<PageType> {
                     heading,
                     tagline,
                     "image": image.asset->url,
+                    "imageWidth": image.asset->metadata.dimensions.width,
+                    "imageHeight": image.asset->metadata.dimensions.height,
                     "alt": image.alt,
                     "bgcolor": backgroundcolor.rgb,
                 },
@@ -52,6 +54,8 @@ async function _getPage({slug}: Props): Promise<PageType> {
                     tagline,
                     excerpt,
                     "image": image.asset->url,
+                    "imageWidth": image.asset->metadata.dimensions.width,
+                    "imageHeight": image.asset->metadata.dimensions.height,
                     "alt": image.alt,
                 },
                 _type == "video" => {

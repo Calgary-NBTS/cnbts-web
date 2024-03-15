@@ -10,6 +10,8 @@ async function _getAllNewsletterHeadings(): Promise<Newsletter[]> {
             title,
             "slug": slug.current,
             "image": image.asset->url,
+            "imageWidth": image.asset->metadata.dimensions.width,
+            "imageHeight": image.asset->metadata.dimensions.height,
             "imgAlt": image.alt,
             published,
         }`

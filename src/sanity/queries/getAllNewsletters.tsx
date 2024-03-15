@@ -13,6 +13,8 @@ async function _getAllNewsletters(): Promise<Newsletter[]> {
             "slug": slug.current,
             "author": author->name,
             "image": image.asset->url,
+            "imageWidth": image.asset->metadata.dimensions.width,
+            "imageHeight": image.asset->metadata.dimensions.height,
             "imgAlt": image.alt,
             published,
             body

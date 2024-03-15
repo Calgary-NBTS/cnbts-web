@@ -43,6 +43,8 @@ export type Staff = {
     name: string;
     slug: string;
     image: string;
+    imageWidth: number;
+    imageHeight: number;
     joined: Date;
     bio: PortableTextBlock[];
     birthday: Date;
@@ -57,6 +59,8 @@ export type Newsletter = {
     slug: string;
     author: string;
     image: string;
+    imageWidth: number;
+    imageHeight: number;
     imgAlt: string;
     published: Date;
     body: PortableTextBlock[];
@@ -67,6 +71,8 @@ export type HeroType = {
     heading: string;
     tagline: string;
     image: string;
+    imageWidth: number;
+    imageHeight: number;
     imgAlt: string;
 }
 
@@ -77,7 +83,7 @@ export type TextBlockType = {
 }
 
 export type ImageData = {
-    _key: string;
+    _key?: string;
     url: string;
     alt: string;
     width: number;
@@ -97,6 +103,8 @@ export type TextWithIllustrationType = {
     tagline: string;
     excerpt: PortableTextBlock[];
     image: string;
+    imageWidth: number;
+    imageHeight: number;
     alt: string;    
 }
 

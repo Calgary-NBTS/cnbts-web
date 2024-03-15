@@ -16,4 +16,3 @@ const getAllNewsLetterSlugs = cache(async () => {
 })
 
 export default getAllNewsLetterSlugs;
-
