@@ -9,9 +9,13 @@ import './css/Calendar.css';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Popover from '@mui/material/Popover';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from '@mui/material/styles';
 import FormattedText from './FormattedText';
+import EventPoster from './EventPoster';
+import TileContent from './TileContent';
+
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -31,36 +35,8 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
 
     const months=['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    const TooltipContent = ({event}: {event: Event}) => {
-        if (!event) return;
-        return (
-            <Box>
-                <Typography className="text-xl">{event.name}</Typography>
-                <p>From: {new Date(event.time).toLocaleTimeString('en-CA')} to {new Date(event.timeend).toLocaleTimeString('en-CA')}</p>
-                <p>Location: {event.location || 'Unknown'}</p>
-                <div><FormattedText value={event.content} /></div>
-            </Box>
-        )
-    }
-
-    const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
-        <Tooltip enterTouchDelay={200} {...props} classes={{ popper: className }} />
-      ))(({ theme }) => ({
-        [`& .${tooltipClasses.tooltip}`]: {
-          backgroundColor: '#f5f5f9',
-          color: 'rgba(0, 0, 0, 0.87)',
-          maxWidth: 220,
-          fontSize: theme.typography.pxToRem(12),
-          border: '1px solid #dadde9',
-        },
-      }));
-    
     const tileContent = ({date, view}: TileArgs) => {
         if(view !=='month') return;
-
-        const day = date.getDate();
-        const month = date.getMonth();
-        const year = date.getFullYear();
 
         const todays = events.filter((event) => {
             const day = new Date(event.time)
@@ -68,48 +44,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
         })
 
         return (
-            <Box className="react-calendar__tile__tileContent"
-                sx={{position:'relative'}}>
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        top:0,
-                        left:0,
-                        right:0
-                    }}
-                >
-                    <Typography variant='body1' component='h4'>
-                        {day}
-                    </Typography>
-                </Box>
-                <Box 
-                    sx={{
-                        height: '100%', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center',
-                        paddingTop: {xxs: '1rem', xs: '1rem', sm: '1rem', md: '0'}
-                    }}
-                >
-                    {todays && todays[0] &&
-                        <Tooltip title={<TooltipContent event={todays[0]} />}>
-                            <Box sx={{maxHeight:'60px', maxWidth: '60px', position: 'relative'}}>
-                                <Image 
-                                    src={todays[0].image} 
-                                    width={todays[0].imageWidth}
-                                    height={todays[0].imageHeight}
-                                    alt={todays[0].name}
-                                    sizes='(max-width: 1200px) 15vw, 10vw'
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                    }}
-                                />
-                            </Box>
-                        </Tooltip>
-                    }
-                </Box>
-            </Box>
+            <TileContent date={date} event={todays[0]} /> // TODO: What if there's more than one event in the day? This should be a swiper card then
         );
     }
     
