@@ -19,10 +19,11 @@ const BackgroundImage = () => {
                 </linearGradient>
             </defs>
             <pattern id='b'  width='20' height='20' patternUnits='userSpaceOnUse'>
-                <circle  fill='#ffffff' cx='10' cy='10' r='10'/>
+                {/* <circle  fill='#ffffff' cx='10' cy='10' r='10'/> */}
+                <path cx='20' cy='20' d="M12 20a1 1 0 0 1-.437-.1C11.214 19.73 3 15.671 3 9a5 5 0 0 1 8.535-3.536l.465.465.465-.465A5 5 0 0 1 21 9c0 6.646-8.212 10.728-8.562 10.9A1 1 0 0 1 12 20z"/>
             </pattern>
             <rect width='100%' height='100%' fill='url(#a)'/>
-            <rect width='100%' height='100%' fill='url(#b)' fillOpacity='0.07'/>
+            <rect width='100%' height='100%' fill='url(#b)' fillOpacity='0.03'/>
         </svg>
     )
 }
