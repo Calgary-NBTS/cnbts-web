@@ -1,21 +1,15 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import Image from 'next/image';
 import { Event } from '@/sanity/types/queryTypes';
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
 
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Popover from '@mui/material/Popover';
-import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import {styled} from '@mui/material/styles';
-import FormattedText from './FormattedText';
-import EventPoster from './EventPoster';
 import TileContent from './TileContent';
 
+import { GrFormPreviousLink } from "react-icons/gr";
+import { GrFormNextLink } from "react-icons/gr";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -88,6 +82,10 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
                 formatDay={(locale,date) => ''}
                 formatMonthYear={(locale,date) => formatMonthYear(date)}
                 onActiveStartDateChange={handleActiveStartDateChanged}
+                nextLabel={<GrFormNextLink />}
+                next2Label={null}
+                prevLabel={<GrFormPreviousLink />}
+                prev2Label={null}
             />
         </Box>
     )
