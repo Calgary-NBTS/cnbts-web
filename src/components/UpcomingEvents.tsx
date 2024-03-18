@@ -53,6 +53,8 @@ const UpcomingEvents = async () => {
         return `${hour}:${min} ${ampm}`;
     }
     
+    const opts = {timeZone:'America/Edmonton'}
+
     return (
         <Box padding={{xxs:2, md:3, xl:5}}>
             <Masonry columns={{xxs: 1, md: 2}} spacing={{xxs:2, md:4, xl:5}}>
@@ -76,8 +78,8 @@ const UpcomingEvents = async () => {
                             <Typography component='h3' variant='h5'>
                                 {event.name}
                             </Typography>
-                            <Typography variant='subtitle1'>
-                                {`${niceDay(event.time)}`} at {`${niceTime(event.time)} - ${niceTime(event.timeend)}`}
+                            <Typography variant='subtitle1'>    
+                                {`${new Date(event.time).toLocaleDateString('en-CA', {...opts, dateStyle: 'medium'})}`} at {`${new Date(event.time).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})} - ${new Date(event.timeend).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})}`}
                             </Typography>
                             <Typography><MaterialLink href={event.url} target='_blank' color='primary'>{event.locationname}</MaterialLink></Typography>
                             <FormattedText value={event.content} />
