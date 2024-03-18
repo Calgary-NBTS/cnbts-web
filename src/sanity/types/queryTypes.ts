@@ -30,9 +30,13 @@ export type Event = {
     time: Date;
     timeend: Date;
     image: string;
-    imgAlt: string;
+    imageAlt: string;
     imageWidth: number;
     imageHeight: number;
+    posterImage: string;
+    posterImageAlt: string;
+    posterImageWidth: number;
+    posterImageHeight: number;
     url: string;
     content: PortableTextBlock[];
 }

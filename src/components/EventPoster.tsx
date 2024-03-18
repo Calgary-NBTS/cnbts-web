@@ -23,7 +23,7 @@ const EventPoster = ({event}: Props) => {
                     src={event.image}
                     width={event.imageWidth}
                     height={event.imageHeight}
-                    alt={event.imgAlt}
+                    alt={event.imageAlt}
                     sizes='(max-width: 600px) 100vh, (max-width: 1200px) 50vh, 33vh'
                     style={{
                         width: '100%',
