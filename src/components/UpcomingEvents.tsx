@@ -54,8 +54,8 @@ const UpcomingEvents = async () => {
     }
     
     return (
-        <Box padding={2}>
-            <Masonry columns={{xxs: 1, md: 2}} spacing={2}>
+        <Box padding={{xxs:2, md:3, xl:5}}>
+            <Masonry columns={{xxs: 1, md: 2}} spacing={{xxs:2, md:4, xl:5}}>
                 {events.map(event => (
                     <Paper key={event._id} elevation={4} sx={{borderRadius: '1em'}}>
                         <Image
