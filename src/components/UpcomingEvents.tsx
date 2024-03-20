@@ -12,7 +12,7 @@ import MaterialLink from '@mui/material/Link';
 import { MdExpandMore } from "react-icons/md";
 import Image from "next/image";
 import FormattedText from "./FormattedText";
-
+import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 export const revalidate = 3600;
 const UpcomingEvents = async () => {
     const events = await getUpcomingEvents();
@@ -61,7 +61,7 @@ const UpcomingEvents = async () => {
                 {events.map(event => (
                     <Paper key={event._id} elevation={4} sx={{borderRadius: '1em'}}>
                         <Image
-                            src={event.posterImage}
+                            src={event.posterImage ? event.posterImage : RainbowHeart}
                             width={event.posterImageWidth}
                             height={event.posterImageHeight}
                             alt={event.posterImageAlt}
@@ -79,7 +79,7 @@ const UpcomingEvents = async () => {
                                 {event.name}
                             </Typography>
                             <Typography variant='subtitle1'>    
-                                {`${new Date(event.time).toLocaleDateString('en-CA', {...opts, dateStyle: 'medium'})}`} at {`${new Date(event.time).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})} - ${new Date(event.timeend).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})}`}
+                                {`${new Date(event.time).toLocaleDateString('en-CA', {...opts, dateStyle: 'long'})} at ${new Date(event.time).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})} - ${new Date(event.timeend).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})}`}
                             </Typography>
                             <Typography><MaterialLink href={event.url} target='_blank' color='primary'>{event.locationname}</MaterialLink></Typography>
                             <FormattedText value={event.content} />
