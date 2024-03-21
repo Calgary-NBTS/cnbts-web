@@ -1,6 +1,7 @@
 'use client';
 import {Roboto} from 'next/font/google';
 import {createTheme} from '@mui/material/styles';
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -8,7 +9,7 @@ const roboto = Roboto({
     display: 'swap',
 });
 
-const theme = createTheme({
+const theme = extendTheme({
     components: {
         MuiUseMediaQuery: {
             defaultProps: {
@@ -16,20 +17,41 @@ const theme = createTheme({
             },
         },
     },
-    palette: {
-        primary: {
-          main: '#4fc3f7',
-          light: '#b3e5fc',
-          dark: '#039be5',
-          contrastText: '#000000',
-        },
-        secondary: {
-          main: '#f50057',
-        },
-        background: {
-          default: 'transparent',
+    colorSchemes: {
+      light: {
+        palette: {
+          primary: {
+            main: '#4fc3f7',
+            light: '#b3e5fc',
+            dark: '#039be5',
+            contrastText: '#000000',
+          },
+          secondary: {
+            main: '#f50057',
+          },
+          background: {
+            default: 'transparent',
+          },
         },
       },
+      dark: {
+        palette: {
+          
+          primary: {
+            main: '#000000',
+            light: '#b3e5fc',
+            dark: '#039be5',
+            contrastText: '#ffffff',
+          },
+          secondary: {
+            main: '#f50057',
+          },
+          background: {
+            default: 'transparent',
+          },
+        },
+      },
+    },
     typography: {
         fontFamily: roboto.style.fontFamily,
     },

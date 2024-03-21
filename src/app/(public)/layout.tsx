@@ -6,6 +6,7 @@ import Header from '@/components/HeaderNew'
 import BackgroundImage from '@/components/BackgroundGradiant';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
@@ -58,7 +59,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body style={{position: 'relative', minHeight:'100vh'}}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <CssVarsProvider theme={theme}>
             <CssBaseline />
             <BackgroundImage />
             <Header />
@@ -69,7 +70,7 @@ export default function RootLayout({
             <Suspense>
               <Footer />
             </Suspense>
-          </ThemeProvider>
+          </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
