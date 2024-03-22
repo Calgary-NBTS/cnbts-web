@@ -16,6 +16,13 @@ const theme = extendTheme({
                 noSsr: true,
             },
         },
+        // MuiAppBar: {
+        //   styleOverrides: {
+        //     root: ({theme, ownerState}) => ({
+        //       theme.vars.
+        //     })
+        //   }
+        // }
     },
     colorSchemes: {
       light: {

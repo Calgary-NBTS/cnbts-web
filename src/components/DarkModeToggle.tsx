@@ -22,9 +22,11 @@ const DarkModeToggle = () => {
     // for server-side rendering
     // learn more at https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
     if (!mounted) {
-        // return (
-        //     <Skeleton variant="rectangular" width={50} height={50} />
-        // )
+        return (
+            <IconButton disableRipple disabled>
+                <Skeleton variant="rectangular" width={25} height={15} sx={{display: 'inline-block'}} />
+            </IconButton>
+        )
         return null;
     }
 
@@ -35,8 +37,8 @@ const DarkModeToggle = () => {
             height={480}
             alt={mode === 'light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
             style={{
-                height: '30px',
-                width: '50px',
+                height: '15px',
+                width: '25px',
             }}
         />
 

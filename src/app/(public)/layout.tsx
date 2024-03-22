@@ -1,15 +1,14 @@
-
-import type { Metadata, ResolvingMetadata } from 'next';
-import Footer from '@/components/Footer';
 import { Suspense } from 'react';
-import Header from '@/components/HeaderNew'
-import BackgroundImage from '@/components/BackgroundGradiant';
+import type { Metadata, ResolvingMetadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
+import BackgroundImage from '@/components/BackgroundGradiant';
+import Header from '@/components/HeaderNew'
+import Footer from '@/components/Footer';
+
+import theme from '../theme'; 
 
 export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
