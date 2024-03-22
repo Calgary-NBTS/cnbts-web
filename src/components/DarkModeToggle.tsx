@@ -6,14 +6,13 @@ import { useTheme, useColorScheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
-// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+import Image from 'next/image';
+import NBFlag from '@/../public/images/pride/flags/NonbinaryFlag.svg';
+import TransFlag from '@/../public/images/pride/flags/TransgenderFlag.svg';
 
 const DarkModeToggle = () => {
     const {mode, setMode} = useColorScheme();
     const [mounted, setMounted] = React.useState(false);
-
-    // const colorMode = React.useContext(ColorModeContext);
 
     React.useEffect(() => {
         setMounted(true);
@@ -23,9 +22,21 @@ const DarkModeToggle = () => {
     // learn more at https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
     if (!mounted) return null; 
 
+    const flag = 
+        <Image
+            src={mode==='light' ? NBFlag : TransFlag}
+            width={800}
+            height={480}
+            alt={mode==='light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
+            style={{
+                height: '35px',
+                width: 'auto',
+            }}
+        />
+
     return (
-        <Button
-            variant='outlined'
+        <IconButton
+            disableRipple
             onClick={() => {
                 if (mode === 'light') {
                     setMode('dark');
@@ -34,8 +45,8 @@ const DarkModeToggle = () => {
                 }
             }}
         >
-            {mode === 'light' ? 'Dark' : 'Light'}
-        </Button>
+            {flag}
+        </IconButton>
     )
 }
 
