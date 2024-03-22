@@ -45,7 +45,8 @@ export default defineType({
                 {
                     name: 'alt',
                     title: 'Alt',
-                    type: 'string'
+                    type: 'string',
+                    // validation: rule => rule.required().warning('You need to have an alternative text for the image.')
                 }
             ]
         }),
@@ -58,7 +59,8 @@ export default defineType({
                 {
                     name: 'alt',
                     title: 'Alt',
-                    type: 'string'
+                    type: 'string',
+                    validation: rule => rule.required().min(1).error('You need to have an alternative text for the image.')
                 }
             ]
         }),
