@@ -64,7 +64,7 @@ const UpcomingEvents = async () => {
                             src={event.posterImage ? event.posterImage : RainbowHeart}
                             width={event.posterImageWidth}
                             height={event.posterImageHeight}
-                            alt={event.posterImageAlt}
+                            alt={event.posterImageAlt ? event.posterImageAlt : event.name}
                             sizes='(max-width: 900px) 95vw, (max-width: 1200px) 50vw, 33vw'
                             style={{
                                 width: '100%',
