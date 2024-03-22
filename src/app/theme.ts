@@ -30,7 +30,7 @@ const theme = extendTheme({
             main: '#f50057',
           },
           background: {
-            default: 'transparent',
+            default: '#fff',
           },
         },
       },
@@ -47,7 +47,7 @@ const theme = extendTheme({
             main: '#f50057',
           },
           background: {
-            default: 'transparent',
+            default: '#000',
           },
         },
       },

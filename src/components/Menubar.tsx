@@ -18,6 +18,7 @@ import useTheme from '@mui/material/styles/useTheme';
 import { IoClose, IoMenu } from "react-icons/io5";
 import navItem from '@/sanity/schemas/objects/navItem';
 import Link from 'next/link';
+import DarkModeToggle from './DarkModeToggle';
 
 const drawerWidth=240;
 
@@ -73,6 +74,9 @@ const Menubar = () => {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                    <ListItem disablePadding>
+                        <DarkModeToggle />
+                    </ListItem>
             </List>
         </Box>
     )
@@ -128,7 +132,7 @@ return (
                             {item.title}
                         </Button>
                     ))}
-
+                            <DarkModeToggle />
                 </Box>
             </Toolbar>
         </AppBar>

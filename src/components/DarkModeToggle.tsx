@@ -1,19 +1,41 @@
 
-import { useContext, createContext } from 'react';
+import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import { useTheme, useColorScheme } from '@mui/material/styles';
 
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-const ColorModeContext = createContext({ toggleColorMode: () => {} });
+// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const DarkModeToggle = () => {
-    const theme = useTheme();
-    const colorMode = useContext(ColorModeContext);
+    const {mode, setMode} = useColorScheme();
+    const [mounted, setMounted] = React.useState(false);
+
+    // const colorMode = React.useContext(ColorModeContext);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // for server-side rendering
+    // learn more at https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
+    if (!mounted) return null; 
 
     return (
-        <Box></Box>
+        <Button
+            variant='outlined'
+            onClick={() => {
+                if (mode === 'light') {
+                    setMode('dark');
+                } else {
+                    setMode('light');
+                }
+            }}
+        >
+            {mode === 'light' ? 'Dark' : 'Light'}
+        </Button>
     )
 }
 
