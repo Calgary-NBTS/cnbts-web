@@ -74,7 +74,7 @@ const Menubar = () => {
                         </ListItemButton>
                     </ListItem>
                 ))}
-                    <ListItem disablePadding>
+                    <ListItem disablePadding sx={{justifyContent:'center'}}>
                         <DarkModeToggle />
                     </ListItem>
             </List>
@@ -132,7 +132,7 @@ return (
                             {item.title}
                         </Button>
                     ))}
-                            <DarkModeToggle />
+                        <DarkModeToggle />
                 </Box>
             </Toolbar>
         </AppBar>

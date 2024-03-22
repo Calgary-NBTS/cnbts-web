@@ -4,8 +4,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme, useColorScheme } from '@mui/material/styles';
 
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Skeleton from '@mui/material/Skeleton';
+
 import Image from 'next/image';
 import NBFlag from '@/../public/images/pride/flags/NonbinaryFlag.svg';
 import TransFlag from '@/../public/images/pride/flags/TransgenderFlag.svg';
@@ -20,33 +21,40 @@ const DarkModeToggle = () => {
 
     // for server-side rendering
     // learn more at https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
-    if (!mounted) return null; 
+    if (!mounted) {
+        // return (
+        //     <Skeleton variant="rectangular" width={50} height={50} />
+        // )
+        return null;
+    }
 
     const flag = 
         <Image
-            src={mode==='light' ? NBFlag : TransFlag}
+            src={mode === 'light' ? NBFlag : TransFlag}
             width={800}
             height={480}
-            alt={mode==='light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
+            alt={mode === 'light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
             style={{
-                height: '35px',
-                width: 'auto',
+                height: '30px',
+                width: '50px',
             }}
         />
 
     return (
-        <IconButton
-            disableRipple
-            onClick={() => {
-                if (mode === 'light') {
-                    setMode('dark');
-                } else {
-                    setMode('light');
-                }
-            }}
-        >
-            {flag}
-        </IconButton>
+        <Tooltip title={mode === 'light' ? 'Dark mode' : 'Light mode'}>
+            <IconButton
+                disableRipple
+                onClick={() => {
+                    if (mode === 'light') {
+                        setMode('dark');
+                    } else {
+                        setMode('light');
+                    }
+                }}
+            >
+                {flag}
+            </IconButton>
+        </Tooltip>
     )
 }
 
