@@ -2,6 +2,8 @@
 import {Roboto} from 'next/font/google';
 import {createTheme} from '@mui/material/styles';
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import { Theme } from '@mui/material';
+import { purple, yellow} from '@mui/material/colors';
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -16,13 +18,15 @@ const theme = extendTheme({
                 noSsr: true,
             },
         },
-        // MuiAppBar: {
-        //   styleOverrides: {
-        //     root: ({theme, ownerState}) => ({
-        //       theme.vars.
-        //     })
-        //   }
-        // }
+        MuiAppBar: {
+          styleOverrides: {
+            root: ({theme}: {theme:Theme;}) => ({
+              color: theme.palette.primary.contrastText,
+              background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"), linear-gradient(180deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 46%, ${theme.palette.primary.dark} 100%)`,
+              
+            })
+          }
+        }
     },
     colorSchemes: {
       light: {
@@ -31,10 +35,11 @@ const theme = extendTheme({
             main: '#4fc3f7',
             light: '#b3e5fc',
             dark: '#039be5',
-            contrastText: '#000000',
+            contrastText: 'black',
           },
           secondary: {
-            main: '#f50057',
+            main: '#EA80FC',
+            contrastText: 'black',
           },
           background: {
             default: '#fff',
@@ -45,13 +50,14 @@ const theme = extendTheme({
         palette: {
           
           primary: {
-            main: '#000000',
-            light: '#b3e5fc',
-            dark: '#039be5',
+            main: purple[800],
+            light: purple[700],
+            dark: purple[900],
             contrastText: '#ffffff',
           },
           secondary: {
-            main: '#f50057',
+            main: yellow[500],
+            contrastText: 'black',
           },
           background: {
             default: '#000',

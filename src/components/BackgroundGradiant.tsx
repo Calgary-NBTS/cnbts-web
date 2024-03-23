@@ -1,5 +1,10 @@
+'use client'
+
+import {useTheme} from '@mui/material/styles'
 
 const BackgroundImage = () => {
+    const theme = useTheme();
+
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -14,8 +19,8 @@ const BackgroundImage = () => {
             <rect fill='#ffffff' width='24' height='24'/>
             <defs>
                 <linearGradient id='a' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(129,0.5,0.5)'>
-                    <stop offset='0'  stopColor='#4FC3F7'/>
-                    <stop offset='1'  stopColor='#EA80FC'/>
+                    <stop offset='0'  stopColor={theme.vars.palette.primary.main} />
+                    <stop offset='1'  stopColor={theme.vars.palette.secondary.main} />
                 </linearGradient>
             </defs>
             <pattern id='b'  width='20' height='20' patternUnits='userSpaceOnUse'>
