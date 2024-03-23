@@ -10,7 +10,7 @@ async function _getStaff(): Promise<Staff[]> {
             _createAt,
             name,
             "slug": slug.current,
-            "image": image.asset->url,
+            image,
             "imageWidth": image.asset->metadata.dimensions.width,
             "imageHeight": image.asset->metadata.dimensions.height,
             "imgAlt": image.alt,
