@@ -38,7 +38,7 @@ const components: PortableTextComponents = {
     listItem: {
         bullet: ({children}) => <li className='ml-6'>{children}</li>,
         number: ({children}) => <li className='ml-4'>{children}</li>,
-    }
+    },
 }
 
 const FormattedText = ({value}: {value: PortableTextBlock[];}) => {

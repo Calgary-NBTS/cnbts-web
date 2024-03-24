@@ -9,10 +9,10 @@ import Popover from '@mui/material/Popover';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
-import FormattedText from './FormattedText';
+import FormattedText from '../primative/FormattedText';
 import { Event } from '@/sanity/types/queryTypes';
 
-import EventPoster from './EventPoster';
+import EventPoster from '@/components/common/EventPoster';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];

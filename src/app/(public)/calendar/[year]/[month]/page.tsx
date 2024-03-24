@@ -1,4 +1,4 @@
-import CalendarPage from '@/components/CalendarPage'
+import CalendarPage from '@/components/calendar/CalendarPage';
 
 import getAllEvents  from '@/sanity/queries/getAllEvents';
 import getFirstEventTime from '@/sanity/queries/getFirstEventTime';

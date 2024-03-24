@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -13,12 +13,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
 import useTheme from '@mui/material/styles/useTheme';
-import { IoClose, IoMenu } from "react-icons/io5";
-import navItem from '@/sanity/schemas/objects/navItem';
+import { IoClose, IoMenu } from 'react-icons/io5';
 import Link from 'next/link';
 import DarkModeToggle from './DarkModeToggle';
+
+import { styled } from '@mui/material/styles';
 
 const drawerWidth=240;
 
@@ -50,6 +50,16 @@ const navItems = [
     }
 ]
 
+const DrawerStyle = styled('div')(({ theme }) => ({
+    minHeight: '100%',
+    textAlign: 'center',
+    color: theme.vars.palette.primary.contrastText,
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"), linear-gradient(180deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 46%, ${theme.vars.palette.primary.dark} 100%)`,
+    [theme.getColorSchemeSelector('dark')]: {
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"), linear-gradient(180deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 46%, ${theme.vars.palette.primary.dark} 100%)`,
+    }
+}));
+
 const Menubar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -59,16 +69,8 @@ const Menubar = () => {
         setMobileOpen((prevState => !prevState));
     }
 
-
     const drawer = (
-        <Box 
-            onClick={handleDrawerToggle} 
-            sx={{
-                minHeight: '100%',
-                textAlign: 'center',
-                color: theme.vars.palette.primary.contrastText,
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"), linear-gradient(180deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 46%, ${theme.vars.palette.primary.dark} 100%)`,
-            }}>
+        <DrawerStyle onClick={handleDrawerToggle}>
             <Typography variant="h6" sx={{my:2}}>
                 Calgary NBTS
             </Typography>
@@ -85,9 +87,8 @@ const Menubar = () => {
                         <DarkModeToggle />
                     </ListItem>
             </List>
-        </Box>
-    )
-    // const container = window !== undefined ? () => window.document.body : undefined;
+        </DrawerStyle>
+    );
 
 return (
     <>
@@ -166,7 +167,7 @@ return (
             </Drawer>
         </nav>
     </>
-    )
+    );
 }
 
 export default Menubar;

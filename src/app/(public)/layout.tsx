@@ -4,9 +4,9 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
-import BackgroundImage from '@/components/BackgroundGradiant';
-import Menubar from '@/components/Menubar';
-import Footer from '@/components/Footer';
+import BackgroundImage from '@/components/common/BackgroundGradiant';
+import Menubar from '@/components/common/Menubar';
+import Footer from '@/components/common/Footer';
 import theme from '../theme'; 
 
 export const revalidate = 3600;

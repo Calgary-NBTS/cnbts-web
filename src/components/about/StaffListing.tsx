@@ -1,9 +1,9 @@
 import client from '@/sanity/sanityClient';
-import Image, { ImageLoaderProps } from "next/image";
-import { PortableTextBlock } from "sanity";
+import Image, { ImageLoaderProps } from 'next/image';
+import { PortableTextBlock } from 'sanity';
 import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 import imageUrlBuilder from '@sanity/image-url';
-import FormattedText from './FormattedText';
+import FormattedText from '../primative/FormattedText';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';

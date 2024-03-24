@@ -1,12 +1,11 @@
-import StaffList from './StaffList';
+import Staff from '@/components/about/Staff';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 const AboutPage = () => {
+
     return (
-        <Box paddingY={2} component='section'>
-            <StaffList />
-        </Box>
+        <Staff />
     )
 }
 

@@ -11,7 +11,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import MaterialLink from '@mui/material/Link';
 import { MdExpandMore } from "react-icons/md";
 import Image from "next/image";
-import FormattedText from "./FormattedText";
+import FormattedText from "../primative/FormattedText";
 import RainbowHeart from '@/../public/images/RainbowHeart.svg'
 export const revalidate = 3600;
 const UpcomingEvents = async () => {

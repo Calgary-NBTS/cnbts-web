@@ -1,9 +1,9 @@
 import { getAllPages } from "@/sanity/queries";
 import {getPage} from '@/sanity/queries';
-import Hero from "./Hero";
-import TextBlock from "./TextBlock";
-import Gallery from './Gallery';
-import TextWithIllustration from "./TextWithIllustration";
+import Hero from "./home/Hero";
+import TextBlock from "./primative/TextBlock";
+import Gallery from './primative/Gallery';
+import TextWithIllustration from "./primative/TextWithIllustration";
 import { HeroType, TextBlockType, ImageGalleryType, TextWithIllustrationType, PageType } from "@/sanity/types/queryTypes";
 import { notFound } from "next/navigation";
 

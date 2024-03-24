@@ -1,4 +1,4 @@
-import NewsletterPage from '@/components/NewsletterPage';
+import NewsletterPage from '@/components/newsletter/NewsletterPage';
 import getAllNewsLetterSlugs from '@/sanity/queries/getAllNewsletterSlugs';
 
 export async function generateStaticParams() {

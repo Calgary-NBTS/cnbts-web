@@ -1,6 +1,6 @@
 'use client'
 import { PortableTextBlock } from "sanity";
-import FormattedText from "./FormattedText";
+import FormattedText from "../primative/FormattedText";
 
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
