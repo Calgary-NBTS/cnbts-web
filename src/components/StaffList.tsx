@@ -2,6 +2,7 @@ import getStaff from '@/sanity/queries/getStaff';
 import StaffListing from './StaffListing';
 
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import Masonry from '@mui/lab/Masonry';
@@ -19,18 +20,16 @@ const StaffList = async () => {
             >
                 Our Amazing Team
             </Typography>
-            <Grid container spacing={2}>
+            <Masonry columns={{xxs:1, md:2, xl:3}} spacing={2}>
             {staff.map((member, i) => (
-                <Grid key={member._id} xs={12} md={6} lg={4} xl={3}>
                 <StaffListing
+                    key={member._id}
                     name={member.name}
                     image={member.image} 
                     bio={member.bio} 
                     pronouns={member.pronouns}
                     first={!Boolean(i)}
                 />
-                </Grid>
-                
             ))}
             </Masonry>
         </Container>
