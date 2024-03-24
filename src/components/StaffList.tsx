@@ -4,6 +4,7 @@ import StaffListing from './StaffListing';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+import Masonry from '@mui/lab/Masonry';
 
 export const revalidate = 3600;
 const StaffList = async () => {
@@ -31,9 +32,9 @@ const StaffList = async () => {
                 </Grid>
                 
             ))}
-            </Grid>
+            </Masonry>
         </Container>
-    )
+    );
 }
 
 export default StaffList;

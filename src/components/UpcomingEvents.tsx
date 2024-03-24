@@ -57,14 +57,14 @@ const UpcomingEvents = async () => {
 
     return (
         <Box padding={{xxs:2, md:3, xl:5}}>
-            <Masonry columns={{xxs: 1, md: 2}} spacing={{xxs:2, md:4, xl:5}}>
+            <Masonry columns={{xxs: 1, md: 2, lg:3, xl:4}} spacing={{xxs:2, md:4, xl:5}}>
                 {events.map(event => (
                     <Paper key={event._id} elevation={4} sx={{borderRadius: '1em'}}>
                         <Image
                             src={event.posterImage ? event.posterImage : RainbowHeart}
                             width={event.posterImageWidth}
                             height={event.posterImageHeight}
-                            alt={event.posterImageAlt}
+                            alt={event.posterImageAlt ? event.posterImageAlt : event.name}
                             sizes='(max-width: 900px) 95vw, (max-width: 1200px) 50vw, 33vw'
                             style={{
                                 width: '100%',
