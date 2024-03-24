@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Popover from '@mui/material/Popover';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import {styled} from '@mui/material/styles';
+import useTheme from '@mui/material/styles/useTheme';
 import FormattedText from './FormattedText';
 import { Event } from '@/sanity/types/queryTypes';
 
@@ -21,8 +22,8 @@ type Props = {
     event: Event | undefined;
 }
 
-const TileContent = ({date, event}: Props) => {
-
+const CalendarTileContent = ({date, event}: Props) => {
+    const theme = useTheme();
     const day = date.getDate();
 
     const TooltipContent = ({event}: {event: Event}) => {
@@ -41,8 +42,8 @@ const TileContent = ({date, event}: Props) => {
         <Tooltip enterTouchDelay={200} {...props} classes={{ popper: className }} />
       ))(({ theme }) => ({
         [`& .${tooltipClasses.tooltip}`]: {
-          backgroundColor: '#f5f5f9',
-          color: 'rgba(0, 0, 0, 0.87)',
+          backgroundColor: theme.vars.palette.background.default,
+          color: theme.vars.palette.primary.contrastText,
           maxWidth: 220,
           fontSize: theme.typography.pxToRem(12),
           border: '1px solid #dadde9',
@@ -51,8 +52,18 @@ const TileContent = ({date, event}: Props) => {
 
     return (
         <Box 
-            className="react-calendar__tile__tileContent"
-            sx={{position:'relative'}}
+            // className="react-calendar__tile__tileContent"
+            sx={{
+                position:'relative',
+                height:'100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignContent: 'flex-start',
+                borderRadius: '0.75rem',
+                padding: '0 0.2rem',
+                color: theme.vars.palette.primary.contrastText,
+                backgroundColor: theme.vars.palette.background.paper,
+            }}
         >
             <Box
                 sx={{
@@ -102,4 +113,4 @@ const TileContent = ({date, event}: Props) => {
     )
 }
 
-export default TileContent;
+export default CalendarTileContent;

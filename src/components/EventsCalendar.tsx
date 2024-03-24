@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { Event } from '@/sanity/types/queryTypes';
 import Calendar, { OnArgs, TileArgs } from 'react-calendar';
 import './css/Calendar.css';
+import useTheme from '@mui/material/styles/useTheme';
 
 import Box from '@mui/material/Box';
-import TileContent from './TileContent';
+import CalendarTileContent from './CalendarTileContent';
 
 import { GrFormPreviousLink } from "react-icons/gr";
 import { GrFormNextLink } from "react-icons/gr";
@@ -38,7 +39,7 @@ export default function EventsCalendar({events, activeMonth, activeYear, first, 
         })
 
         return (
-            <TileContent date={date} event={todays[0]} /> // TODO: What if there's more than one event in the day? This should be a swiper card then
+            <CalendarTileContent date={date} event={todays[0]} /> // TODO: What if there's more than one event in the day? This should be a swiper card then
         );
     }
     
