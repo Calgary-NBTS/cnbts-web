@@ -13,6 +13,9 @@ import { MdExpandMore } from "react-icons/md";
 import Image from "next/image";
 import FormattedText from "../primative/FormattedText";
 import RainbowHeart from '@/../public/images/RainbowHeart.svg'
+import { FaExternalLinkAlt } from "react-icons/fa";
+
+
 export const revalidate = 3600;
 const UpcomingEvents = async () => {
     const events = await getUpcomingEvents();
@@ -81,7 +84,9 @@ const UpcomingEvents = async () => {
                             <Typography variant='subtitle1'>    
                                 {`${new Date(event.time).toLocaleDateString('en-CA', {...opts, dateStyle: 'long'})} at ${new Date(event.time).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})} - ${new Date(event.timeend).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})}`}
                             </Typography>
-                            <Typography><MaterialLink href={event.url} target='_blank' color='primary'>{event.locationname}</MaterialLink></Typography>
+                            <MaterialLink href={event.url} target='_blank' color='primary'>
+                                {event.locationname} <Typography fontSize='small' display='inline'><FaExternalLinkAlt /></Typography>
+                            </MaterialLink>
                             <FormattedText value={event.content} />
                         </Box>
                     </Paper>

@@ -1,6 +1,9 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { PortableTextBlock } from "sanity";
 import Link from "next/link";
+import MaterialLink from '@mui/material/Link';
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 
 const components: PortableTextComponents = {
     types: {
@@ -13,9 +16,14 @@ const components: PortableTextComponents = {
             const rel = !value.href.startsWith('/') ? 'noreferer noopener' : undefined;
 
             if (rel)
-                return <a className='text-blue-600 hover:text-blue-400' href={value.href} target='_blank' rel={rel}>{children}</a>
+                return (
+                    <MaterialLink component='a' href={value.href} target='_blank' rel={rel}>
+                        {children}<FaExternalLinkAlt />
+                    </MaterialLink>
+                )
             else
-                return <Link className='text-blue-600 hover:text-blue-400' href={value.href}>{children}</Link>
+                return <MaterialLink component={Link} href={value.href}>{children}<FaExternalLinkAlt />
+                </MaterialLink>
         }
     },
     block: {

@@ -42,7 +42,7 @@ const CalendarTileContent = ({date, event}: Props) => {
         <Tooltip enterTouchDelay={200} {...props} classes={{ popper: className }} />
       ))(({ theme }) => ({
         [`& .${tooltipClasses.tooltip}`]: {
-          backgroundColor: theme.vars.palette.background.default,
+          backgroundColor: theme.vars.palette.background.paper,
           color: theme.vars.palette.primary.contrastText,
           maxWidth: 220,
           fontSize: theme.typography.pxToRem(12),

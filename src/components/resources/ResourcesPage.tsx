@@ -3,6 +3,8 @@ import Container from '@mui/material/Container';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import { MdExpandMore } from "react-icons/md";
+
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
@@ -12,7 +14,7 @@ const ResourcesPage = () => {
             <Container>
                 <Box paddingY={2}>
                     <Accordion defaultExpanded>
-                        <AccordionSummary>
+                        <AccordionSummary expandIcon={<MdExpandMore />}>
                             <Typography>Emergency Contancts</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -21,15 +23,21 @@ const ResourcesPage = () => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion>
-                        <AccordionSummary>Mental Health Supports</AccordionSummary>
+                        <AccordionSummary expandIcon={<MdExpandMore />}>
+                            Mental Health Supports
+                        </AccordionSummary>
                         <AccordionDetails>List here</AccordionDetails>
                     </Accordion>
                     <Accordion>
-                        <AccordionSummary>Pride Organizations</AccordionSummary>
+                        <AccordionSummary expandIcon={<MdExpandMore />}>
+                            Pride Organizations
+                        </AccordionSummary>
                         <AccordionDetails>List here</AccordionDetails>
                     </Accordion>
                     <Accordion>
-                        <AccordionSummary>Social Support Groups</AccordionSummary>
+                        <AccordionSummary expandIcon={<MdExpandMore />}>
+                            Social Support Groups
+                        </AccordionSummary>
                         <AccordionDetails>List here</AccordionDetails>
                     </Accordion>
                 </Box>

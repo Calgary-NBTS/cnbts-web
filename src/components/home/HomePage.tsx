@@ -2,7 +2,7 @@ import Hero from './Hero';
 import UpcomingEvents from './UpcomingEvents';
 import getLatestNewsletter from '@/sanity/queries/getLatestNewsletter';
 import Newsletter from '@/components/newsletter/Newsletter';
-import EnbyDragon from '@/../public/images/logos/EnbyDragon.png';
+import EnbyDragon from '@/../public/images/logos/EnbyDragonMatched.png';
 import TransDragon from '@/../public/images/logos/TransDragon.png';
 
 export const revalidate = 3600;

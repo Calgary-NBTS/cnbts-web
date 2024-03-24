@@ -4,10 +4,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { styled, useColorScheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-import EnbyDragon from '@/../public/images/logos/EnbyDragonMatched.png';
-import TransDragon from '@/../public/images/logos/TransDragon.png';
 
 type HeroProps = {
     heading: string;
@@ -30,7 +28,6 @@ const HeroWrap = styled('section')(({ theme }) => ({
 }));
 
 const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps) => {
-    const { mode } = useColorScheme();
     return (
         <HeroWrap>
             <Container sx={{display: 'flex', justifyContent: 'space-between',flex:'1 1 0px'}}>
@@ -71,7 +68,7 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
                 </Box>
                 <Box sx={{flexGrow: 1, width: 0}}>
                     <Image
-                        src={(mode === 'light' ? TransDragon : EnbyDragon)}
+                        src={image}
                         width={imageWidth}
                         height={imageHeight}
                         alt={alt}
