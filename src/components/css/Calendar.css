@@ -246,7 +246,7 @@
   background-color: #e6e6e6;
 } */
 
-.react-calendar__tile__tileContent {
+/* .react-calendar__tile__tileContent {
   height:100%;
   display: flex;
   flex-direction: column;
@@ -254,4 +254,4 @@
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 0.75rem;
   padding: 0 0.2rem;
-}
+} */

@@ -1,14 +1,13 @@
-
-import type { Metadata, ResolvingMetadata } from 'next';
-import Footer from '@/components/Footer';
 import { Suspense } from 'react';
-import Header from '@/components/HeaderNew'
-import BackgroundImage from '@/components/BackgroundGradiant';
+import type { Metadata, ResolvingMetadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from '../theme';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
+import BackgroundImage from '@/components/BackgroundGradiant';
+import Menubar from '@/components/Menubar';
+import Footer from '@/components/Footer';
+import theme from '../theme'; 
 
 export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
@@ -58,10 +57,10 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body style={{position: 'relative', minHeight:'100vh'}}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <CssVarsProvider theme={theme}>
             <CssBaseline />
             <BackgroundImage />
-            <Header />
+            <Menubar />
             {/* <div className="header-height">&nbsp;</div> */}
             <main>
               {children}
@@ -69,7 +68,7 @@ export default function RootLayout({
             <Suspense>
               <Footer />
             </Suspense>
-          </ThemeProvider>
+          </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
