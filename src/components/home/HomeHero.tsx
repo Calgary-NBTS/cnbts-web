@@ -1,4 +1,5 @@
 'use client'
+import * as React from 'react';
 import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -27,7 +28,14 @@ const HeroWrap = styled('section')(({ theme }) => ({
 }));
 
 const HomeHero = ({heading, tagline, alt}: HeroProps) => {
-    const { mode } = useColorScheme();
+    const { mode, systemMode } = useColorScheme();
+    const [mounted, setMounted] = React.useState(false);
+    const calculatedMode = (mode === 'system') ? systemMode : mode;
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <HeroWrap>
             <Container sx={{display: 'flex', justifyContent: 'space-between',flex:'1 1 0px'}}>
@@ -68,7 +76,7 @@ const HomeHero = ({heading, tagline, alt}: HeroProps) => {
                 </Box>
                 <Box sx={{flexGrow: 1, width: 0}}>
                     <Image
-                        src={(mode === 'light' ? TransDragon : EnbyDragon)}
+                        src={mounted ? ((calculatedMode === 'light') ? TransDragon : EnbyDragon) : TransDragon}
                         alt={alt}
                         priority
                         style={{

@@ -12,8 +12,9 @@ import NBFlag from '@/../public/images/pride/flags/NonbinaryFlag.svg';
 import TransFlag from '@/../public/images/pride/flags/TransgenderFlag.svg';
 
 const DarkModeToggle = () => {
-    const {mode, setMode} = useColorScheme();
+    const {mode, setMode, systemMode} = useColorScheme();
     const [mounted, setMounted] = React.useState(false);
+    const calculatedMode = (mode === 'system') ? systemMode : mode;
 
     React.useEffect(() => {
         setMounted(true);
@@ -35,7 +36,7 @@ const DarkModeToggle = () => {
             src={mode === 'light' ? NBFlag : TransFlag}
             width={800}
             height={480}
-            alt={mode === 'light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
+            alt={calculatedMode === 'light' ? 'Non-Binary flag as toggle to dark mode' : 'Transgender flag as toggle to light mode'}
             style={{
                 height: '15px',
                 width: '25px',
