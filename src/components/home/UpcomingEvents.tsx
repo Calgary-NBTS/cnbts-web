@@ -23,7 +23,7 @@ const UpcomingEvents = async () => {
     const opts = {timeZone:'America/Edmonton'}
 
     return (
-        <Box padding={{xxs:2, md:3, xl:5}}>
+        <Box padding={{xxs:1, xs: 2, md:3, xl:4}}>
             <Masonry columns={{xxs: 1, md: 2, xl:4}} spacing={{xxs:2, md:4, xl:5}}>
                 {events.map(event => (
                     <Paper key={event._id} elevation={4} sx={{borderRadius: '1em'}}>
@@ -49,7 +49,7 @@ const UpcomingEvents = async () => {
                                 {`${new Date(event.time).toLocaleDateString('en-CA', {...opts, dateStyle: 'long'})} at ${new Date(event.time).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})} - ${new Date(event.timeend).toLocaleTimeString('en-CA', {...opts, timeStyle:'short'})}`}
                             </Typography>
                             <MaterialLink href={event.url} target='_blank' color='primary'>
-                                {event.locationname} <Typography fontSize='small' display='inline'><FaExternalLinkAlt /></Typography>
+                                {event.locationname} <Typography component='span' fontSize='small'><FaExternalLinkAlt /></Typography>
                             </MaterialLink>
                             <FormattedText value={event.content} />
                         </Box>

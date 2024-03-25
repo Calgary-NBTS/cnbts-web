@@ -35,6 +35,7 @@ There are many things to do in this project. The list will probably always be in
 
 ### Calendar/Events
 
+- Fix Layout Shift
 - **IN PROGRESS** Calendar Makeover, maybe done or always in progress now, main stuff was done?
 - **CANCEL** Change the calendar nav elements to Mui Button- if possible -- NOT
 - **DONE** Remove unclickable arrows on calendar

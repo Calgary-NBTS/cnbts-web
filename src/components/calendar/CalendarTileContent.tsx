@@ -50,21 +50,24 @@ const CalendarTileContent = ({date, event}: Props) => {
         },
       }));
 
+    const StyledTile = styled('div')(({ theme }) => ({
+        position:'relative',
+        height:'100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'flex-start',
+        borderRadius: '0.75rem',
+        padding: '0 0.2rem',
+        color: theme.vars.palette.primary.contrastText,
+        backgroundColor: theme.vars.palette.background.paper,
+        boxShadow: '2px 2px 5px 2px rgba(0,0,0,0.2)',
+        [theme.getColorSchemeSelector('dark')]: {
+            boxShadow: '1px 1px 5px 2px rgba(0,0,0,0.3)'
+        }
+    }))
+
     return (
-        <Box 
-            // className="react-calendar__tile__tileContent"
-            sx={{
-                position:'relative',
-                height:'100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignContent: 'flex-start',
-                borderRadius: '0.75rem',
-                padding: '0 0.2rem',
-                color: theme.vars.palette.primary.contrastText,
-                backgroundColor: theme.vars.palette.background.paper,
-            }}
-        >
+        <StyledTile>
             <Box
                 sx={{
                     position: 'absolute',
@@ -109,7 +112,7 @@ const CalendarTileContent = ({date, event}: Props) => {
                         </>
                     }
                 </Box>
-            </Box>
+            </StyledTile>
     )
 }
 

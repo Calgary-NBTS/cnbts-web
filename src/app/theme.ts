@@ -1,8 +1,6 @@
-'use client';
+'use client'
 import {Roboto} from 'next/font/google';
-import {createTheme} from '@mui/material/styles';
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
-// import { Theme } from '@mui/material';
 import { purple, yellow, grey } from '@mui/material/colors';
 import type {} from '@mui/material/themeCssVarsAugmentation';
 
@@ -57,6 +55,7 @@ const theme = extendTheme({
           },
           background: {
             default: '#fff',
+            paper: '#f3f3f3',
           },
         },
       },
