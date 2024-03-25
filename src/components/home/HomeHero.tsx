@@ -12,10 +12,7 @@ import TransDragon from '@/../public/images/logos/TransDragon.png';
 type HeroProps = {
     heading: string;
     tagline: string;
-    image: string | StaticImport;
     alt: string;
-    imageWidth: number;
-    imageHeight: number;
 }
 
 const HeroWrap = styled('section')(({ theme }) => ({
@@ -29,7 +26,7 @@ const HeroWrap = styled('section')(({ theme }) => ({
 
 }));
 
-const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps) => {
+const HomeHero = ({heading, tagline, alt}: HeroProps) => {
     const { mode } = useColorScheme();
     return (
         <HeroWrap>
@@ -72,8 +69,6 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
                 <Box sx={{flexGrow: 1, width: 0}}>
                     <Image
                         src={(mode === 'light' ? TransDragon : EnbyDragon)}
-                        width={imageWidth}
-                        height={imageHeight}
                         alt={alt}
                         priority
                         style={{
@@ -88,4 +83,4 @@ const Hero = ({heading, tagline, image, imageWidth, imageHeight, alt}: HeroProps
     )
 }
 
-export default Hero;
+export default HomeHero;

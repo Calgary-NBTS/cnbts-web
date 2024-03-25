@@ -1,6 +1,6 @@
 import { getAllPages } from "@/sanity/queries";
 import {getPage} from '@/sanity/queries';
-import Hero from "./home/Hero";
+import Hero from "@/components/primative/Hero";
 import TextBlock from "./primative/TextBlock";
 import Gallery from './primative/Gallery';
 import TextWithIllustration from "./primative/TextWithIllustration";
