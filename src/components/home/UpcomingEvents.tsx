@@ -20,47 +20,11 @@ export const revalidate = 3600;
 const UpcomingEvents = async () => {
     const events = await getUpcomingEvents();
 
-    const niceDay = (date:Date) => {
-        const d = new Date(date);
-        const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        const month = d.getMonth();
-        const dayW = d.getDay();
-        const day = d.getDate();
-
-        return `${days[dayW]} ${months[month]} ${day}`;
-    }
-
-    const niceTime = (time:Date) => {
-        const d = new Date(time);
-        const h = d.getHours();
-        const m = d.getMinutes();
-        let ampm = 'AM';
-        let hour;
-        if (h>=12) {
-            ampm = 'PM'
-            hour = h-12;
-        }
-        else if (h === 0) {
-            hour = 12;
-        }
-
-        let min;
-
-        if (m<10) {
-            min = `0${m}`
-        } else {
-            min = m;
-        }
-
-        return `${hour}:${min} ${ampm}`;
-    }
-    
     const opts = {timeZone:'America/Edmonton'}
 
     return (
         <Box padding={{xxs:2, md:3, xl:5}}>
-            <Masonry columns={{xxs: 1, md: 2, lg:3, xl:4}} spacing={{xxs:2, md:4, xl:5}}>
+            <Masonry columns={{xxs: 1, md: 2, xl:4}} spacing={{xxs:2, md:4, xl:5}}>
                 {events.map(event => (
                     <Paper key={event._id} elevation={4} sx={{borderRadius: '1em'}}>
                         <Image
