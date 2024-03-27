@@ -5,7 +5,7 @@ import {cache } from 'react';
 
 async function _getAllNewsletterHeadings(): Promise<Newsletter[]> {
     return client.fetch(
-        groq`*[_type=="newsletter" && active && dateTime(now()) > dateTime(published)] | order(published desc) {
+        groq`*[_type=="newsletter" && active==true && dateTime(now()) > dateTime(published)] | order(published desc) {
             _id,
             title,
             "slug": slug.current,

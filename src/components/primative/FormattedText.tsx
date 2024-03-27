@@ -4,7 +4,7 @@ import Link from 'next/link';
 import MaterialLink from '@mui/material/Link';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import Typography from '@mui/material/Typography';
-
+import { StyledLink } from './TextStyles';
 
 const components: PortableTextComponents = {
     types: {
@@ -14,17 +14,17 @@ const components: PortableTextComponents = {
         em: ({ children }) => <em className='italic'>{children}</em>,
         strong: ({ children }) => <strong className='font-semibold'>{children}</strong>,
         link: ({ children, value }) => {
-            const rel = !value.href.startsWith('/') ? 'noreferer noopener' : undefined;
+            return <StyledLink href={value.href}>{children}</StyledLink>
+            // const rel = !value.href.startsWith('/') ? 'noreferer noopener' : undefined;
 
-            if (rel)
-                return (
-                    <MaterialLink component='a' href={value.href} target='_blank' rel={rel}>
-                        {children} <Typography component='span' sx={{fontSize: 'xx-small'}}><FaExternalLinkAlt /></Typography>
-                    </MaterialLink>
-                )
-            else
-                return <MaterialLink component={Link} href={value.href}>{children}<FaExternalLinkAlt />
-                </MaterialLink>
+            // if (rel)
+            //     return (
+            //         <MaterialLink component='a' href={value.href} target='_blank' rel={rel}>
+            //             {children} <Typography component='span' sx={{fontSize: 'xx-small'}}><FaExternalLinkAlt /></Typography>
+            //         </MaterialLink>
+            //     )
+            // else
+            //     return <MaterialLink component={Link} href={value.href}>{children}</MaterialLink>
         }
     },
     block: {
@@ -35,12 +35,12 @@ const components: PortableTextComponents = {
         blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     },
     list: {
-        bullet: ({ children }) => <ul className='mt-4 list-disc'>{children}</ul>,
-        number: ({ children }) => <ol className='mt-3 list-decimal'>{children}</ol>,
+        bullet: ({ children }) => <ul>{children}</ul>,
+        number: ({ children }) => <ol>{children}</ol>,
     },
     listItem: {
-        bullet: ({ children }) => <li className='ml-6'>{children}</li>,
-        number: ({ children }) => <li className='ml-4'>{children}</li>,
+        bullet: ({ children }) => <li>{children}</li>,
+        number: ({ children }) => <li>{children}</li>,
     },
 }
 

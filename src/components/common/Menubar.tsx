@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import * as React from 'react';
 import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,12 +17,21 @@ import useTheme from '@mui/material/styles/useTheme';
 import { IoClose, IoMenu } from 'react-icons/io5';
 import Link from 'next/link';
 import DarkModeToggle from './DarkModeToggle';
+import { Newsletter } from '@/sanity/types/queryTypes';
 
 import { styled } from '@mui/material/styles';
 
 const drawerWidth=240;
 
-const navItems = [
+type NavItem = {
+    title: string;
+    link: string;
+    menu?: string;
+    target?: string;
+}
+
+
+const navItems: NavItem[] = [
     {
         title: 'Home',
         link: '/'
@@ -34,6 +43,7 @@ const navItems = [
     {
         title: 'News',
         link: '/newsletter',
+        menu: 'eventPopper',
     },
     {
         title: 'Resources',
@@ -43,11 +53,11 @@ const navItems = [
         title: 'About',
         link: '/about',
     },
-    {
-        title: 'Admin',
-        link: '/admin',
-        target: '_blank',
-    }
+    // {
+    //     title: 'Admin',
+    //     link: '/admin',
+    //     target: '_blank',
+    // }
 ]
 
 const DrawerStyle = styled('div')(({ theme }) => ({
@@ -60,14 +70,30 @@ const DrawerStyle = styled('div')(({ theme }) => ({
     }
 }));
 
-const Menubar = () => {
-    const [mobileOpen, setMobileOpen] = useState(false);
+type Props = {
+    newsletters: Newsletter[];
+}
 
+const Menubar = () => {
+    // const Menubar = ({newsletters}:Props) => {
     const theme = useTheme();
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState => !prevState));
     }
+
+    // const newsComponents = (
+    //     <List>
+    //         {newsletters?.map((newsletter) => (
+    //             <ListItem key={newsletter._id} disablePadding>
+    //                 <ListItemButton component={Link} href={`/newsletter/${newsletter.slug}`}>
+    //                     <ListItemText primary={newsletter.title} />
+    //                 </ListItemButton>
+    //             </ListItem>
+    //         ))}
+    //     </List>
+    // )
 
     const drawer = (
         <DrawerStyle onClick={handleDrawerToggle}>
@@ -99,7 +125,6 @@ return (
                 // bgcolor: 'primary.main', 
                 // color: 'primary.contrastText',
                 // backgroundColor: '#DFDBE5',
-                // backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(233,233,233,1) 0%, rgba(137,213,246,1) 0%, rgba(79,195,247,1) 46%, rgba(83,164,200,1) 100%, rgba(215,215,215,1) 100%)",
                 color: theme.vars.palette.primary.contrastText,
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"), linear-gradient(180deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 46%, ${theme.vars.palette.primary.dark} 100%)`,
   
@@ -121,21 +146,24 @@ return (
                     component="div"
                     sx={{
                         flexGrow: 1,
+                        // color: 'primary.contrastText',
                         // display: { xs: 'none', sm: 'block', md: 'block'},
-                        typography: {xxs: 'subtitle2', xs: 'subtitle1', sm: 'h6', lg: 'h5', xl: 'h4'},
+                        typography: {xxs: 'subtitle2', xs: 'subtitle2', sm: 'subtitle1', lg: 'h5', xl: 'h4'},
                         
                     }}
                 >
                     Calgary Non-Binary and Transgender Society
                 </Typography>
                 <Box sx={{  display: { xxs: 'none', xs: 'none', sm: 'none', md: 'block'}}}>
-
                     { navItems.map((item) => (
                         <Button 
+                            // onMouseOver={item.popper ? handleClick : undefined}
+                            // onMouseLeave={item.popper ? handleClose : undefined}
+                            // aria-describedby={id}
                             variant='text'
                             component={Link} 
                             href={item.link} 
-                            key={item.title} 
+                            key={item.title}
                             target={item.target ? item.target : '_self'} 
                             sx={{ 
                                 color: 'primary.contrastText',
