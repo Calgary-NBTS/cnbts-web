@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Menubar from "./Menubar";
 
 const Header = async () => {
-    const newsLetters = await getAllNewsletterHeadings();
+    const newsletters = await getAllNewsletterHeadings();
 
     return (
-        <Menubar />
+        <Menubar newsletters={newsletters} />
     )
 }
 
