@@ -10,6 +10,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -20,6 +22,8 @@ import DarkModeToggle from './DarkModeToggle';
 import { Newsletter } from '@/sanity/types/queryTypes';
 
 import { styled } from '@mui/material/styles';
+
+import MenuComponent, {MenuComponentProps} from './MenuComponent';
 
 const drawerWidth=240;
 
@@ -74,8 +78,7 @@ type Props = {
     newsletters: Newsletter[];
 }
 
-const Menubar = () => {
-    // const Menubar = ({newsletters}:Props) => {
+const Menubar = ({newsletters}:Props) => {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -83,17 +86,14 @@ const Menubar = () => {
         setMobileOpen((prevState => !prevState));
     }
 
-    // const newsComponents = (
-    //     <List>
-    //         {newsletters?.map((newsletter) => (
-    //             <ListItem key={newsletter._id} disablePadding>
-    //                 <ListItemButton component={Link} href={`/newsletter/${newsletter.slug}`}>
-    //                     <ListItemText primary={newsletter.title} />
-    //                 </ListItemButton>
-    //             </ListItem>
-    //         ))}
-    //     </List>
-    // )
+    const newsComponents = newsletters?.map((newsletter) => {
+        return {
+            title: newsletter.title,
+            href: '/newsletter/' + newsletter.slug,
+            target: '_self',
+        }
+    })
+    
 
     const drawer = (
         <DrawerStyle onClick={handleDrawerToggle}>
@@ -104,9 +104,7 @@ const Menubar = () => {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.title} disablePadding>
-                        <ListItemButton component={Link} target={item.target ? item.target : '_self'} href={item.link} sx={{textAlign: 'center'}}>
                             <ListItemText primary={item.title} />
-                        </ListItemButton>
                     </ListItem>
                 ))}
                     <ListItem disablePadding sx={{justifyContent:'center'}}>
@@ -161,7 +159,7 @@ return (
                             // onMouseLeave={item.popper ? handleClose : undefined}
                             // aria-describedby={id}
                             variant='text'
-                            component={Link} 
+                            LinkComponent={Link} 
                             href={item.link} 
                             key={item.title}
                             target={item.target ? item.target : '_self'} 
@@ -173,6 +171,7 @@ return (
                             {item.title}
                         </Button>
                     ))}
+                        <MenuComponent title='Events' submenu={newsComponents} />
                         <DarkModeToggle />
                 </Box>
             </Toolbar>
