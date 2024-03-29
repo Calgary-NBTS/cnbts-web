@@ -18,16 +18,17 @@ There are many things to do in this project. The list will probably always be in
 
 ### General
 
-- Dark Mode
 - Find some environment/build variable with the github actions to enable/disable the admin link in the menubar based on if it's built to the beta/staging or production site Obviously we want to disable the admin link for the production site.
 - Live editor page builder/editor
 - More admin pane QOL, groupings, sort order, better previews
+- **DONE** Dark Mode
 - **DONE** Image optimization. Use the sizes prop.
 - **DONE** Image optimizations: Pull the image size data from Sanity. (If needed because of:),
 - **DONE** Figure that image-url hotspot shit, Get it figured!! Update 3, wft?!? why no work?!
 
 ### Homepage
 
+- Feedback form
 - Make hero more reactive, but tagline below header and title in mobile espcially for if title wraps. (CSS Grid?)
 - **IN PROGRESS** Upcoming Events: Style nicer, or complete makeover
 - **DONE**  Upcoming events to tiles with poster for image, responsive 1x, 2x maybe 3x across?
