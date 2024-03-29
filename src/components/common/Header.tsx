@@ -15,6 +15,8 @@ const Header = async () => {
         }
     })
 
+    newsItems.unshift({title:'Latest Newsletter',href:baseNewsUrl})
+
     const navItems: MenuComponentProps[] = [
         {
             title: 'Home',
@@ -26,7 +28,7 @@ const Header = async () => {
         },
         {
             title: 'News',
-            href: '/newsletter',
+            // href: '/newsletter',
             submenu: newsItems,
         },
         {

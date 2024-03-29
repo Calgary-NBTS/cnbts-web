@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-export type MenuComponentProps = {
+export interface MenuComponentProps {
     title: string;
     href?: string;
     target?: string;
