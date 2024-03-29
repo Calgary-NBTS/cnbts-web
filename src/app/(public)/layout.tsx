@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import getSiteSettings from '@/sanity/queries/getSiteSettings';
 import BackgroundImage from '@/components/common/BackgroundGradiant';
 // import Header from '@/components/common/Header';
-import Header from '@/components/common/Menubar';
+import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import theme from '../theme'; 
 
@@ -61,7 +61,9 @@ export default function RootLayout({
           <CssVarsProvider theme={theme}>
             <CssBaseline />
             <BackgroundImage />
-            <Header />
+            <Suspense>
+              <Header />
+            </Suspense>
             {/* <div className="header-height">&nbsp;</div> */}
             <main>
               {children}
