@@ -12,13 +12,13 @@ type Props = {
 
 export const revalidate = 3600;
 const NewsletterPage = async ({slug}: Props) => {
-    const newsletterData = slug ? getNewsletter({slug}) : getLatestNewsletter();
-    const newsHeadingsData = getAllNewsletterHeadings();
-    const [newsletter, newsHeadings] = await Promise.all([newsletterData, newsHeadingsData]);
+    const _newsletter = slug ? getNewsletter({slug}) : getLatestNewsletter();
+    const _newsLetterHeadings = getAllNewsletterHeadings();
+    const [newsletter, newsLetterHeadings] = await Promise.all([_newsletter, _newsLetterHeadings]);
     
     return (
     <Box sx={{display: 'flex'}}>
-        <NewsletterList newsletters={newsHeadings}/>
+        {/* <NewsletterList newsletters={newsLetterHeadings}/> */}
         {!newsletter && notFound()}
         {newsletter &&
             <Newsletter title={newsletter.title} content={newsletter.body} />

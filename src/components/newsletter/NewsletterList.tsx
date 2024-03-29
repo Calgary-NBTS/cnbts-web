@@ -24,7 +24,7 @@ const NewsletterList = ({newsletters}:Props) => {
     const useLg = useMediaQuery(theme.breakpoints.up('lg'));
 
     return (
-        <List>
+        <List sx={{display:{xxs: 'none', xs: 'none', md: 'none', lg: 'block'}}}>
         {newsletters.map((nl) => (
             <ListItem key={nl.title}>
                 <ListItemButton component={Link} href={`/newsletter/${nl.slug}`}>
