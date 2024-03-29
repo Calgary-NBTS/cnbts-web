@@ -52,21 +52,19 @@ const DrawerMenuItem = ({item}: {item:MenuComponentProps}) => {
                     onClick={handleClick}
                 >
                     <ListItemText primary={item?.title ? item.title : ''} />
-                    {item?.submenu && open ? <MdExpandLess /> : <MdExpandMore />}
+                    {item?.submenu && (open ? <MdExpandLess /> : <MdExpandMore />)}
                 </ListItemButton>
             </ListItem>
             {item?.submenu && 
                 <Collapse in={open} timeout='auto' unmountOnExit>
                     <List component='div' disablePadding>
-                        {item.submenu.map((subItem) => (DrawerMenuItem(subItem)))}
+                        {item.submenu.map((subItem) => (<DrawerMenuItem key={subItem.title+'subItem'}  item={subItem} />))}
                     </List>
                 </Collapse>
             }
         </>
     )
 }
-
-
 
 type Props = {
     menu: MenuComponentProps[];
@@ -90,16 +88,6 @@ const Menubar = ({menu}:Props) => {
                 {menu.map((item) => (
                     <DrawerMenuItem key={item.title+'list'} item={item} />
                 ))}
-                {/* {menu.map((item) => (
-                    <ListItem key={item.title} disablePadding>
-                        <ListItemButton
-                            LinkComponent={Link}
-                            href={item.href ? item.href : ''}
-                        >
-                            <ListItemText primary={item.title} />
-                        </ListItemButton>
-                    </ListItem>
-                ))} */}
                     <ListItem disablePadding sx={{justifyContent:'center'}}>
                         <DarkModeToggle />
                     </ListItem>
