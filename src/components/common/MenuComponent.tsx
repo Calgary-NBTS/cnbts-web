@@ -1,6 +1,7 @@
 'use client'
 import * as React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -17,6 +18,7 @@ function toId(str: string) {
 }
 
 const MenuComponent = ({title,href,target,submenu}: MenuComponentProps) => {
+    const router = useRouter();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
@@ -44,9 +46,14 @@ const MenuComponent = ({title,href,target,submenu}: MenuComponentProps) => {
         {submenu && Array.isArray(submenu) && submenu.map((item) => (
             <MenuItem 
                 key={toId(item.title)}
-                // component={Link}
-                // href={item.href}
-                onClick={handleClose}
+                LinkComponent={Link}
+                href={item.title}
+                target={item.target ? item.target : '_self'}
+                onClick={() => {
+                    if(!item.href) return;
+                    router.push(item.href);
+                    handleClose()
+                }}
                 dense
             >
                 {item.title}
@@ -64,6 +71,8 @@ const MenuComponent = ({title,href,target,submenu}: MenuComponentProps) => {
             aria-haspopup='true'
             aria-expanded={open ? 'true' : undefined}
             onMouseOver={submenu ? handleClick : undefined}
+            LinkComponent={Link}
+            href={href}
             sx={{color: 'primary.contrastText'}}
         >
             {title}

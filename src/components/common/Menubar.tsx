@@ -10,8 +10,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import Collapse from '@mui/material/Collapse';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -19,50 +18,13 @@ import useTheme from '@mui/material/styles/useTheme';
 import { IoClose, IoMenu } from 'react-icons/io5';
 import Link from 'next/link';
 import DarkModeToggle from './DarkModeToggle';
-import { Newsletter } from '@/sanity/types/queryTypes';
 
 import { styled } from '@mui/material/styles';
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 import MenuComponent, {MenuComponentProps} from './MenuComponent';
 
 const drawerWidth=240;
-
-type NavItem = {
-    title: string;
-    link: string;
-    menu?: string;
-    target?: string;
-}
-
-
-const navItems: NavItem[] = [
-    {
-        title: 'Home',
-        link: '/'
-    },
-    {
-        title: 'Calendar',
-        link: '/calendar',
-    },
-    {
-        title: 'News',
-        link: '/newsletter',
-        menu: 'eventPopper',
-    },
-    {
-        title: 'Resources',
-        link: '/resources',
-    },
-    {
-        title: 'About',
-        link: '/about',
-    },
-    // {
-    //     title: 'Admin',
-    //     link: '/admin',
-    //     target: '_blank',
-    // }
-]
 
 const DrawerStyle = styled('div')(({ theme }) => ({
     minHeight: '100%',
@@ -74,26 +36,49 @@ const DrawerStyle = styled('div')(({ theme }) => ({
     }
 }));
 
-type Props = {
-    newsletters: Newsletter[];
+const DrawerMenuItem = ({item}: {item:MenuComponentProps}) => {
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(last => !last);
+    }
+
+    return (
+        <>
+            <ListItem disablePadding>
+                <ListItemButton
+                    LinkComponent={Link}
+                    href={item?.href ? item.href : ''}
+                    onClick={handleClick}
+                >
+                    <ListItemText primary={item?.title ? item.title : ''} />
+                    {item?.submenu && open ? <MdExpandLess /> : <MdExpandMore />}
+                </ListItemButton>
+            </ListItem>
+            {item?.submenu && 
+                <Collapse in={open} timeout='auto' unmountOnExit>
+                    <List component='div' disablePadding>
+                        {item.submenu.map((subItem) => (DrawerMenuItem(subItem)))}
+                    </List>
+                </Collapse>
+            }
+        </>
+    )
 }
 
-const Menubar = ({newsletters}:Props) => {
+
+
+type Props = {
+    menu: MenuComponentProps[];
+}
+
+const Menubar = ({menu}:Props) => {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState => !prevState));
     }
-
-    const newsComponents = newsletters?.map((newsletter) => {
-        return {
-            title: newsletter.title,
-            href: '/newsletter/' + newsletter.slug,
-            target: '_self',
-        }
-    })
-    
 
     const drawer = (
         <DrawerStyle onClick={handleDrawerToggle}>
@@ -102,11 +87,19 @@ const Menubar = ({newsletters}:Props) => {
             </Typography>
             <Divider />
             <List>
-                {navItems.map((item) => (
-                    <ListItem key={item.title} disablePadding>
-                            <ListItemText primary={item.title} />
-                    </ListItem>
+                {menu.map((item) => (
+                    <DrawerMenuItem key={item.title+'list'} item={item} />
                 ))}
+                {/* {menu.map((item) => (
+                    <ListItem key={item.title} disablePadding>
+                        <ListItemButton
+                            LinkComponent={Link}
+                            href={item.href ? item.href : ''}
+                        >
+                            <ListItemText primary={item.title} />
+                        </ListItemButton>
+                    </ListItem>
+                ))} */}
                     <ListItem disablePadding sx={{justifyContent:'center'}}>
                         <DarkModeToggle />
                     </ListItem>
@@ -153,25 +146,15 @@ return (
                     Calgary Non-Binary and Transgender Society
                 </Typography>
                 <Box sx={{  display: { xxs: 'none', xs: 'none', sm: 'none', md: 'block'}}}>
-                    { navItems.map((item) => (
-                        <Button 
-                            // onMouseOver={item.popper ? handleClick : undefined}
-                            // onMouseLeave={item.popper ? handleClose : undefined}
-                            // aria-describedby={id}
-                            variant='text'
-                            LinkComponent={Link} 
-                            href={item.link} 
-                            key={item.title}
-                            target={item.target ? item.target : '_self'} 
-                            sx={{ 
-                                color: 'primary.contrastText',
-                                
-                            }}
-                        >
-                            {item.title}
-                        </Button>
+                    { menu.map((item) => (
+                        <MenuComponent 
+                            key={item.title} 
+                            title={item.title} 
+                            href={item.href} 
+                            target={item.target}
+                            submenu={item.submenu} 
+                        />
                     ))}
-                        <MenuComponent title='Events' submenu={newsComponents} />
                         <DarkModeToggle />
                 </Box>
             </Toolbar>
