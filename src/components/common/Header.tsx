@@ -1,7 +1,7 @@
 import { getAllNewsletterHeadings } from "@/sanity/queries";
 import Box from '@mui/material/Box';
 import Menubar from "./Menubar";
-import { MenuComponentProps } from "./MenuComponent";
+import { MenuComponentProps } from "./Menubar";
 
 const baseNewsUrl = '/newsletter/';
 

@@ -10,9 +10,17 @@ const Staff = async () => {
 
     return (
         <Container>
-             <StaffTitle>
+             <Typography
+                component='div'
+                variant='h2'
+                sx={{
+                    typography: {xxs: 'h4', xs: 'h4', sm: 'h3', md: 'h2'},
+                    py:2,
+                }}
+            >
                  Our Amazing Team
-             </StaffTitle>
+             </Typography>
+
              <Masonry columns={{xxs:1, md:2, xl:3}} spacing={2}>
              {staff.map((member, i) => (
                  <StaffListing

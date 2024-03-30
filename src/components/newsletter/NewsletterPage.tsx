@@ -17,7 +17,7 @@ const NewsletterPage = async ({slug}: Props) => {
     const [newsletter, newsLetterHeadings] = await Promise.all([_newsletter, _newsLetterHeadings]);
     
     return (
-    <Box sx={{display: 'flex'}}>
+    <Box>
         {/* <NewsletterList newsletters={newsLetterHeadings}/> */}
         {!newsletter && notFound()}
         {newsletter &&
