@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Masonry from '@mui/lab/Masonry';
 import StaffListing from './StaffListing';
-import StaffTitle from './StaffTitle';
 
 const Staff = async () => {
     const staff = await getStaff();
