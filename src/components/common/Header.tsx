@@ -26,11 +26,11 @@ const Header = async () => {
       title: "Calendar",
       href: "/calendar",
     },
-    {
+    /*     {
       title: "News",
       // href: '/newsletter',
       submenu: newsItems,
-    },
+    }, */
     /*         {
             title: 'Resources',
             href: '/resources',
