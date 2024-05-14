@@ -6,9 +6,17 @@ export default defineType({
     type: 'document',
     fields: [
         defineField({
+            name: 'title',
+            title: 'Title',
+            type: 'string'
+        }),
+        defineField({
             name: 'name',
             title: 'Name',
-            type: 'string'
+            type: 'string',
+            deprecated: {
+                reason: 'Use the Title field instead for database naming consistency',
+            },
         }),
         defineField({
             name: 'slug',
@@ -83,14 +91,15 @@ export default defineType({
     ],
     preview: {
         select: {
-            title: 'name',
+            title: 'title',
+            name: 'name',
             date: 'time',
             image: 'image'
         },
         prepare(selection) {
-            const {title, date, image} = selection;
+            const {title, name, date, image} = selection;
             return {
-                title: title,
+                title: title || name,
                 subtitle: new Date(date).toDateString(),
                 media: image
             };

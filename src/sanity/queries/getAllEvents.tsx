@@ -24,11 +24,12 @@ async function _getAllEvents({year,month,day}: Props={}): Promise<Event[]> {
         groq`*[_type=="event" && active==true]{
             _id,
             _createAt,
-            name,
+            title,
+            name, // deprecated
             "slug": slug.current,
             locationname,
             location,
-            "image": image.asset->url,
+            image,
             "imageWidth": image.asset->metadata.dimensions.width,
             "imageHeight": image.asset->metadata.dimensions.height,
             "imageAlt": image.alt,

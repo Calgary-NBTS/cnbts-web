@@ -19,7 +19,8 @@ async function _getAllEventsByMonth({year,month}: Props): Promise<Event[]> {
         groq`*[_type=="event" && active==true && dateTime(time) >= dateTime("${start.toISOString()}") && dateTime(time) <= dateTime("${end.toISOString()}")]{
             _id,
             _createAt,
-            name,
+            title,
+            name, // deprecated
             "slug": slug.current,
             locationname,
             location,

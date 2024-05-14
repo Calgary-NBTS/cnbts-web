@@ -23,6 +23,7 @@ export type PageQuery = {
 export type Event = {
     _id: string;
     _createdAt: Date;
+    title: string;
     name: string;
     slug: string;
     locationname: string;
