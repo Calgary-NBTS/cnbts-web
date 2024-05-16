@@ -15,6 +15,7 @@
     "@mui/lab": "5.0.0-alpha.170",
     "@mui/material": "^5.15.17",
     "@mui/material-nextjs": "^5.15.11",
+    "@next/third-parties": "^14.2.3",
     "@portabletext/react": "^3.0.18",
     "@sanity/color-input": "^3.1.1",
     "@sanity/icons": "^2.11.8",

@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Suspense } from "react";
 import type { Metadata, ResolvingMetadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
@@ -64,6 +65,7 @@ export default function RootLayout({
             </Suspense>
             {/* <div className="header-height">&nbsp;</div> */}
             <main>{children}</main>
+            <GoogleAnalytics gaId='G-3FC7P80G8W'/>
             <Suspense>
               <Footer />
             </Suspense>
