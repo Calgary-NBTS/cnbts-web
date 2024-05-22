@@ -9,6 +9,7 @@ import { MdExpandMore } from 'react-icons/md';
 import Image from 'next/image';
 import FormattedText from '../primative/FormattedText';
 import RainbowHeart from '@/../public/images/RainbowHeart.svg';
+import FillerHeart from '@/components/primative/FillerHeart';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export const revalidate = 3600;
@@ -30,22 +31,36 @@ const UpcomingEvents = async () => {
             elevation={4}
             sx={{ borderRadius: '1em' }}
           >
-            <Image
-              src={event.posterImage ? event.posterImage : RainbowHeart}
-              width={event.posterImageWidth}
-              height={event.posterImageHeight}
-              alt={event.posterImageAlt ? event.posterImageAlt : event.name}
-              sizes="(max-width: 900px) 95vw, (max-width: 1200px) 50vw, 33vw"
-              style={{
-                width: '100%',
-                height: 'auto',
-                borderTopLeftRadius: '1em',
-                borderTopRightRadius: '1em',
-              }}
-            />
+            {event.posterImage ? (
+              <Image
+                src={event.posterImage}
+                width={event.posterImageWidth}
+                height={event.posterImageHeight}
+                alt={
+                  event.posterImageAlt
+                    ? event.posterImageAlt
+                    : event.title
+                      ? event.title
+                      : 'Missing Alt Text'
+                }
+                sizes="(max-width: 900px) 95vw, (max-width: 1200px) 50vw, 33vw"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderTopLeftRadius: '1em',
+                  borderTopRightRadius: '1em',
+                }}
+              />
+            ) : (
+              <FillerHeart />
+            )}
             <Box padding={1}>
               <Typography component="h3" variant="h5">
-                {event.name}
+                {event.title
+                  ? event.title
+                  : event.name
+                    ? event.name
+                    : 'Missing Title'}
               </Typography>
               <Typography variant="subtitle1">
                 {`${new Date(event.time).toLocaleDateString('en-CA', { ...opts, dateStyle: 'long' })} at ${new Date(event.time).toLocaleTimeString('en-CA', { ...opts, timeStyle: 'short' })} - ${new Date(event.timeend).toLocaleTimeString('en-CA', { ...opts, timeStyle: 'short' })}`}

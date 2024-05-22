@@ -13,7 +13,11 @@ const EventPoster = ({ event }: Props) => {
     <Box>
       <Box>
         <Typography component="h3" variant="h3">
-          {event.name}
+          {event.title
+            ? event.title
+            : event.name
+              ? event.name
+              : 'Missing Title'}
         </Typography>
       </Box>
       <Box>

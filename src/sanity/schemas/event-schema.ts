@@ -11,14 +11,6 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-      deprecated: {
-        reason: 'Use the Title field instead for database naming consistency',
-      },
-    }),
-    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -57,6 +49,14 @@ export default defineType({
           // validation: rule => rule.required().warning('You need to have an alternative text for the image.')
         },
       ],
+    }),
+    defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      deprecated: {
+        reason: 'Use the Title field instead for database naming consistency',
+      },
     }),
     defineField({
       name: 'posterImage',

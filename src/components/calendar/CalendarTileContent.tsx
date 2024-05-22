@@ -11,8 +11,7 @@ import { styled } from '@mui/material/styles';
 // import useTheme from "@mui/material/styles/useTheme";
 import FormattedText from '../primative/FormattedText';
 import { Event } from '@/sanity/types/queryTypes';
-import RainbowHeart from '@/../public/images/RainbowHeart.svg';
-
+import FillerHeart from '@/components/primative/FillerHeart';
 import EventPoster from '@/components/common/EventPoster';
 
 type ValuePiece = Date | null;
@@ -31,7 +30,13 @@ const CalendarTileContent = ({ date, event }: Props) => {
     if (!event) return;
     return (
       <Box>
-        <Typography className="text-xl">{event.name}</Typography>
+        <Typography className="text-xl">
+          {event.title
+            ? event.title
+            : event.name
+              ? event.name
+              : 'Missing Title'}
+        </Typography>
         <p>
           From: {new Date(event.time).toLocaleTimeString('en-CA')} to{' '}
           {new Date(event.timeend).toLocaleTimeString('en-CA')}
@@ -105,17 +110,27 @@ const CalendarTileContent = ({ date, event }: Props) => {
                   position: 'relative',
                 }}
               >
-                <Image
-                  src={event.image ? event.image : RainbowHeart}
-                  width={event.imageWidth}
-                  height={event.imageHeight}
-                  alt={event.name ? event.name : ''}
-                  sizes="(max-width: 1200px) 15vw, 10vw"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
+                {event.image ? (
+                  <Image
+                    src={event.image}
+                    width={event.imageWidth}
+                    height={event.imageHeight}
+                    alt={
+                      event.imageAlt
+                        ? event.imageAlt
+                        : event.title
+                          ? event.title
+                          : 'Missing Alt Text'
+                    }
+                    sizes="(max-width: 1200px) 15vw, 10vw"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                ) : (
+                  <FillerHeart />
+                )}
               </Box>
             </HtmlTooltip>
             <Popover open={false}>
