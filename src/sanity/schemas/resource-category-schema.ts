@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'resource-category',
@@ -16,4 +16,4 @@ export default defineType({
       type: 'blockContent',
     }),
   ],
-})
+});

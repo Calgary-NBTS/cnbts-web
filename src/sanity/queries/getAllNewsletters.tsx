@@ -1,11 +1,11 @@
 import client from '@/sanity/sanityClient';
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity';
 import { Newsletter } from '@/sanity/types/queryTypes';
-import {cache } from 'react';
+import { cache } from 'react';
 
 async function _getAllNewsletters(): Promise<Newsletter[]> {
-    return client.fetch(
-        groq`*[_type=="newsletter" && active && dateTime(now()) > dateTime(published)] | order(published desc) {
+  return client.fetch(
+    groq`*[_type=="newsletter" && active && dateTime(now()) > dateTime(published)] | order(published desc) {
             _id,
             _createAt,
             active,
@@ -18,13 +18,12 @@ async function _getAllNewsletters(): Promise<Newsletter[]> {
             "imgAlt": image.alt,
             published,
             body
-        }}`
-    )
+        }}`,
+  );
 }
 
 const getAllNewsletters = cache(async () => {
-    return await _getAllNewsletters();
-})
+  return await _getAllNewsletters();
+});
 
 export default getAllNewsletters;
-

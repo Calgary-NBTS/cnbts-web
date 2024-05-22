@@ -1,5 +1,5 @@
-import { TextIcon } from '@sanity/icons'
-import {defineField, defineType} from 'sanity'
+import { TextIcon } from '@sanity/icons';
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'textblock',
@@ -22,12 +22,12 @@ export default defineType({
     select: {
       title: 'title',
     },
-    prepare({title}) {
-        return {
-            title: title || 'Untitled',
-            subtitle: 'Text Block',
-            media: TextIcon,
-        }
+    prepare({ title }) {
+      return {
+        title: title || 'Untitled',
+        subtitle: 'Text Block',
+        media: TextIcon,
+      };
     },
   },
-})
+});

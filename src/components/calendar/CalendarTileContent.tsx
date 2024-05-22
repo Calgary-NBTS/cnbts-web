@@ -1,19 +1,19 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+'use client';
+// import { useRouter } from "next/navigation";
+// import { useState } from "react";
 
-import Image from "next/image";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Popover from "@mui/material/Popover";
-import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
-import { styled } from "@mui/material/styles";
-import useTheme from "@mui/material/styles/useTheme";
-import FormattedText from "../primative/FormattedText";
-import { Event } from "@/sanity/types/queryTypes";
-import RainbowHeart from "@/../public/images/RainbowHeart.svg";
+import Image from 'next/image';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Popover from '@mui/material/Popover';
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+// import useTheme from "@mui/material/styles/useTheme";
+import FormattedText from '../primative/FormattedText';
+import { Event } from '@/sanity/types/queryTypes';
+import RainbowHeart from '@/../public/images/RainbowHeart.svg';
 
-import EventPoster from "@/components/common/EventPoster";
+import EventPoster from '@/components/common/EventPoster';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -24,7 +24,7 @@ type Props = {
 };
 
 const CalendarTileContent = ({ date, event }: Props) => {
-  const theme = useTheme();
+  //   const theme = useTheme();
   const day = date.getDate();
 
   const TooltipContent = ({ event }: { event: Event }) => {
@@ -33,10 +33,10 @@ const CalendarTileContent = ({ date, event }: Props) => {
       <Box>
         <Typography className="text-xl">{event.name}</Typography>
         <p>
-          From: {new Date(event.time).toLocaleTimeString("en-CA")} to{" "}
-          {new Date(event.timeend).toLocaleTimeString("en-CA")}
+          From: {new Date(event.time).toLocaleTimeString('en-CA')} to{' '}
+          {new Date(event.timeend).toLocaleTimeString('en-CA')}
         </p>
-        <p>Location: {event.location || "Unknown"}</p>
+        <p>Location: {event.location || 'Unknown'}</p>
         <div>
           <FormattedText value={event.content} />
         </div>
@@ -52,23 +52,23 @@ const CalendarTileContent = ({ date, event }: Props) => {
       color: theme.vars.palette.primary.contrastText,
       maxWidth: 220,
       fontSize: theme.typography.pxToRem(12),
-      border: "1px solid #dadde9",
+      border: '1px solid #dadde9',
     },
   }));
 
-  const StyledTile = styled("div")(({ theme }) => ({
-    position: "relative",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "flex-start",
-    borderRadius: "0.75rem",
-    padding: "0 0.2rem",
+  const StyledTile = styled('div')(({ theme }) => ({
+    position: 'relative',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'flex-start',
+    borderRadius: '0.75rem',
+    padding: '0 0.2rem',
     color: theme.vars.palette.primary.contrastText,
     backgroundColor: theme.vars.palette.background.paper,
-    boxShadow: "2px 2px 5px 2px rgba(0,0,0,0.2)",
-    [theme.getColorSchemeSelector("dark")]: {
-      boxShadow: "1px 1px 5px 2px rgba(0,0,0,0.3)",
+    boxShadow: '2px 2px 5px 2px rgba(0,0,0,0.2)',
+    [theme.getColorSchemeSelector('dark')]: {
+      boxShadow: '1px 1px 5px 2px rgba(0,0,0,0.3)',
     },
   }));
 
@@ -76,7 +76,7 @@ const CalendarTileContent = ({ date, event }: Props) => {
     <StyledTile>
       <Box
         sx={{
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
@@ -88,11 +88,11 @@ const CalendarTileContent = ({ date, event }: Props) => {
       </Box>
       <Box
         sx={{
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingTop: { xxs: "1rem", xs: "1rem", sm: "1rem", md: "0" },
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: { xxs: '1rem', xs: '1rem', sm: '1rem', md: '0' },
         }}
       >
         {event && (
@@ -100,20 +100,20 @@ const CalendarTileContent = ({ date, event }: Props) => {
             <HtmlTooltip title={<TooltipContent event={event} />}>
               <Box
                 sx={{
-                  maxHeight: "60px",
-                  maxWidth: "60px",
-                  position: "relative",
+                  maxHeight: '60px',
+                  maxWidth: '60px',
+                  position: 'relative',
                 }}
               >
                 <Image
                   src={event.image ? event.image : RainbowHeart}
                   width={event.imageWidth}
                   height={event.imageHeight}
-                  alt={event.name ? event.name : ""}
+                  alt={event.name ? event.name : ''}
                   sizes="(max-width: 1200px) 15vw, 10vw"
                   style={{
-                    width: "100%",
-                    height: "auto",
+                    width: '100%',
+                    height: 'auto',
                   }}
                 />
               </Box>

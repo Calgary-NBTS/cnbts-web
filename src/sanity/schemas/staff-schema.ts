@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'staff',
@@ -18,12 +18,13 @@ export default defineType({
         source: 'name',
         maxLength: 96,
       },
-      description: 'This field is the unique identifier for the record. It must not contain any spaces or special characters except -  Use the "Generate" button to create one based on your name.',
+      description:
+        'This field is the unique identifier for the record. It must not contain any spaces or special characters except -  Use the "Generate" button to create one based on your name.',
     }),
     defineField({
       name: 'joined',
       title: 'Joined',
-      type: 'datetime'
+      type: 'datetime',
     }),
 
     defineField({
@@ -37,22 +38,22 @@ export default defineType({
     defineField({
       name: 'bio',
       title: 'Bio',
-      type: 'blockContent'
+      type: 'blockContent',
     }),
     defineField({
       name: 'birthday',
       title: 'Birthday',
-      type: 'date'
+      type: 'date',
     }),
     defineField({
       name: 'order',
       title: 'Order',
-      type: 'number'
+      type: 'number',
     }),
     defineField({
       name: 'email',
       title: 'Email',
-      type: 'string'
+      type: 'string',
     }),
     defineField({
       name: 'active',
@@ -64,7 +65,7 @@ export default defineType({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'staffcategory'}}],
+      of: [{ type: 'reference', to: { type: 'staffcategory' } }],
     }),
     defineField({
       name: 'pronouns',
@@ -78,4 +79,4 @@ export default defineType({
       media: 'image',
     },
   },
-})
+});

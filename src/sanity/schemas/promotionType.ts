@@ -1,5 +1,5 @@
 import { StarIcon } from '@sanity/icons';
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'promotion',
@@ -17,15 +17,15 @@ export default defineType({
   ],
   icon: StarIcon,
   preview: {
-      select: {
-          title: 'title',
-      },
-      prepare({title}) {
-          return {
-              title: title || 'Untitled',
-              subtitle: 'Promotion',
-              media: StarIcon,
-          }
-      },
+    select: {
+      title: 'title',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Untitled',
+        subtitle: 'Promotion',
+        media: StarIcon,
+      };
+    },
   },
 });

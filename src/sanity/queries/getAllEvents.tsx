@@ -1,27 +1,29 @@
 import client from '@/sanity/sanityClient';
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity';
 import { Event } from '@/sanity/types/queryTypes';
 import { cache } from 'react';
 
 type Props = {
-    year?: string;
-    month?: string;
-    day?: string
-}
+  year?: string;
+  month?: string;
+  day?: string;
+};
 
-async function _getAllEvents({year,month,day}: Props={}): Promise<Event[]> {
-    const now = new Date();
-    const yearNow = now.getFullYear();
-    const monthNow = now.getMonth();
-    const dayNow = now.getDate();
+async function _getAllEvents({ year, month, day }: Props = {}): Promise<
+  Event[]
+> {
+  const now = new Date();
+  const yearNow = now.getFullYear();
+  const monthNow = now.getMonth();
+  const dayNow = now.getDate();
 
-    let when;
-    if (year&&month) {
-        when = new Date(Number(year), Number(month), day ? Number(day) : undefined)
-    }
-    
-    return client.fetch(
-        groq`*[_type=="event" && active==true]{
+  let when;
+  if (year && month) {
+    when = new Date(Number(year), Number(month), day ? Number(day) : undefined);
+  }
+
+  return client.fetch(
+    groq`*[_type=="event" && active==true]{
             _id,
             _createAt,
             title,
@@ -41,14 +43,13 @@ async function _getAllEvents({year,month,day}: Props={}): Promise<Event[]> {
             time,
             timeend,
             content
-        }`
-    )
+        }`,
+  );
 }
 
 const getAllEvents = cache(async () => {
-    const item = await _getAllEvents();
-    return item;
-})
+  const item = await _getAllEvents();
+  return item;
+});
 
 export default getAllEvents;
-

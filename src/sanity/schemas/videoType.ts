@@ -1,5 +1,5 @@
 import { DocumentVideoIcon } from '@sanity/icons';
-import {defineField, defineType} from 'sanity';
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'video',
@@ -17,15 +17,15 @@ export default defineType({
   ],
   icon: DocumentVideoIcon,
   preview: {
-      select: {
-          title: 'videoLabel',
-      },
-      prepare({title}) {
-          return {
-              title: title || 'Untitled',
-              subtitle: 'Video',
-              media: DocumentVideoIcon,
-          }
-      },
+    select: {
+      title: 'videoLabel',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Untitled',
+        subtitle: 'Video',
+        media: DocumentVideoIcon,
+      };
+    },
   },
 });

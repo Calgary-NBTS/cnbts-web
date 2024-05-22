@@ -3,10 +3,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 const AboutPage = () => {
-
-    return (
-        <Staff />
-    )
-}
+  return <Staff />;
+};
 
 export default AboutPage;

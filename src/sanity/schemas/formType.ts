@@ -1,5 +1,5 @@
 import { EnvelopeIcon } from '@sanity/icons';
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'form',
@@ -28,12 +28,14 @@ export default defineType({
       heading: 'heading',
       form: 'form',
     },
-    prepare({heading, form}) {
+    prepare({ heading, form }) {
       return {
         title: heading || 'Untitled',
-        subtitle: form ? `${form.charAt(0).toUpperCase() + form.slice(1)} form` : 'Form',
+        subtitle: form
+          ? `${form.charAt(0).toUpperCase() + form.slice(1)} form`
+          : 'Form',
         media: EnvelopeIcon,
-      }
+      };
     },
   },
 });

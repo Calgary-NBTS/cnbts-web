@@ -1,5 +1,5 @@
 import { ImagesIcon } from '@sanity/icons';
-import {defineField, defineType} from 'sanity';
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'gallery',
@@ -17,7 +17,7 @@ export default defineType({
         defineField({
           name: 'image',
           type: 'image',
-          options: {hotspot: true},
+          options: { hotspot: true },
           fields: [
             {
               name: 'alt',
@@ -34,17 +34,17 @@ export default defineType({
   ],
   icon: ImagesIcon,
   preview: {
-      select: {
-          images: 'images',
-      },
-      prepare({images}) {
-          return {
-              title: images
-                ? `${images.length === 1 ? `1 image` : `${images.length} images`} `
-                : 'No Images',
-              subtitle: 'Gallery',
-              media: images ? images[0] : ImagesIcon,
-          }
-      },
+    select: {
+      images: 'images',
+    },
+    prepare({ images }) {
+      return {
+        title: images
+          ? `${images.length === 1 ? `1 image` : `${images.length} images`} `
+          : 'No Images',
+        subtitle: 'Gallery',
+        media: images ? images[0] : ImagesIcon,
+      };
+    },
   },
 });

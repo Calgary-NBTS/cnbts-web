@@ -17,20 +17,18 @@ import getLatestNewsletter from './getLatestNewsletter';
 import getAllNewsletterHeadings from './getAllNewsletterHeadings';
 
 export {
-    getPage, 
-    getAllPages, 
-    getAllPageSlugs, 
-
-    getAllEvents,
-    getAllEventsByMonth,
-    getFirstEventTime,
-    getLastEventTime,
-    getUpcomingEvents, 
-    
-    getStaff,
-    getNewsletter,
-    getAllNewsletters,
-    getAllNewsletterSlugs,
-    getLatestNewsletter,
-    getAllNewsletterHeadings,
+  getPage,
+  getAllPages,
+  getAllPageSlugs,
+  getAllEvents,
+  getAllEventsByMonth,
+  getFirstEventTime,
+  getLastEventTime,
+  getUpcomingEvents,
+  getStaff,
+  getNewsletter,
+  getAllNewsletters,
+  getAllNewsletterSlugs,
+  getLatestNewsletter,
+  getAllNewsletterHeadings,
 };

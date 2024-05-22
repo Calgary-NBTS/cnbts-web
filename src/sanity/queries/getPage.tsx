@@ -1,15 +1,15 @@
 import client from '@/sanity/sanityClient';
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity';
 import { PageType } from '@/sanity/types/queryTypes';
 import { cache } from 'react';
 
 type Props = {
-    slug: string;
-}
+  slug: string;
+};
 
-async function _getPage({slug}: Props): Promise<PageType> {
-    return client.fetch(
-        groq`*[_type=="page" && slug.current=="${slug}"] [0] {
+async function _getPage({ slug }: Props): Promise<PageType> {
+  return client.fetch(
+    groq`*[_type=="page" && slug.current=="${slug}"] [0] {
             _id,
             title,
             "slug": slug.current,
@@ -65,13 +65,12 @@ async function _getPage({slug}: Props): Promise<PageType> {
                     url,
                 }
             }
-        }`
-    )
+        }`,
+  );
 }
 
-const getPage = cache(async (props:Props) => {
-    return await _getPage({...props});
-})
+const getPage = cache(async (props: Props) => {
+  return await _getPage({ ...props });
+});
 
 export default getPage;
-

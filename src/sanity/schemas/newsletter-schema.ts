@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity';
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'newsletter',
@@ -38,7 +38,7 @@ export default defineType({
           type: 'string',
           title: 'Alternative text',
         },
-      ]
+      ],
     }),
     defineField({
       name: 'published',
@@ -56,7 +56,7 @@ export default defineType({
       title: 'Active',
       type: 'boolean',
       initialValue: true,
-    })
+    }),
   ],
 
   preview: {
@@ -66,8 +66,8 @@ export default defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
     },
   },
-})
+});

@@ -1,11 +1,11 @@
 import client from '@/sanity/sanityClient';
-import { groq } from "next-sanity";
+import { groq } from 'next-sanity';
 import { Event } from '@/sanity/types/queryTypes';
 import { cache } from 'react';
 
 async function _getUpcomingEvents(): Promise<Event[]> {
-    return client.fetch(
-        groq`*[_type=="event" && active==true && dateTime(time) > dateTime(now())] | order(time asc) [0...4] {
+  return client.fetch(
+    groq`*[_type=="event" && active==true && dateTime(time) > dateTime(now())] | order(time asc) [0...4] {
             _id,
             _createAt,
             name,
@@ -24,13 +24,12 @@ async function _getUpcomingEvents(): Promise<Event[]> {
             time,
             timeend,
             content
-        }`
-    )
+        }`,
+  );
 }
 
 const getUpcomingEvents = cache(async () => {
-    return await _getUpcomingEvents();
-})
+  return await _getUpcomingEvents();
+});
 
 export default getUpcomingEvents;
-

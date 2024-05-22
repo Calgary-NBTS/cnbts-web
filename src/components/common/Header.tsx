@@ -1,9 +1,8 @@
-import { getAllNewsletterHeadings } from "@/sanity/queries";
-import Box from "@mui/material/Box";
-import Menubar from "./Menubar";
-import { MenuComponentProps } from "./Menubar";
+import { getAllNewsletterHeadings } from '@/sanity/queries';
+import Menubar from './Menubar';
+import { MenuComponentProps } from './Menubar';
 
-const baseNewsUrl = "/newsletter/";
+const baseNewsUrl = '/newsletter/';
 
 const Header = async () => {
   const newsletters = await getAllNewsletterHeadings();
@@ -15,16 +14,16 @@ const Header = async () => {
     };
   });
 
-  newsItems.unshift({ title: "Latest Newsletter", href: baseNewsUrl });
+  newsItems.unshift({ title: 'Latest Newsletter', href: baseNewsUrl });
 
   const navItems: MenuComponentProps[] = [
     {
-      title: "Home",
-      href: "/",
+      title: 'Home',
+      href: '/',
     },
     {
-      title: "Calendar",
-      href: "/calendar",
+      title: 'Calendar',
+      href: '/calendar',
     },
     /*     {
       title: "News",
@@ -36,8 +35,8 @@ const Header = async () => {
             href: '/resources',
         }, */
     {
-      title: "About",
-      href: "/about",
+      title: 'About',
+      href: '/about',
     },
     /*         {
             title: 'Admin',
