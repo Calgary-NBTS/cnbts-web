@@ -1,14 +1,11 @@
 import { getUpcomingEvents } from '@/sanity/queries';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Masonry from '@mui/lab/Masonry';
 import MaterialLink from '@mui/material/Link';
-import { MdExpandMore } from 'react-icons/md';
 import Image from 'next/image';
 import FormattedText from '../primative/FormattedText';
-import RainbowHeart from '@/../public/images/RainbowHeart.svg';
 import FillerHeart from '@/components/primative/FillerHeart';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 

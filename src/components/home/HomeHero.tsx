@@ -93,7 +93,9 @@ const HomeHero = ({ heading, tagline, alt }: HeroProps) => {
                     /> */}
           <Image
             src={YYCNBTSLogo}
-            alt={alt}
+            alt={
+              'Blue/black outer ring with pink/violet second ring with white  then pink and yellow circles. Grey mountains with the Calgary skyline in the foreground.'
+            }
             priority
             style={{
               width: '100%',

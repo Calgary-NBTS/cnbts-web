@@ -2,8 +2,7 @@ import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'event',
-  title: 'Events',
-  type: 'document',
+  title: 'Events',  type: 'document',
   fields: [
     defineField({
       name: 'title',
@@ -23,7 +22,7 @@ export default defineType({
     }),
     defineField({
       name: 'location',
-      title: 'Location',
+      title: 'Location Address',
       type: 'string',
     }),
     defineField({
@@ -49,14 +48,6 @@ export default defineType({
           // validation: rule => rule.required().warning('You need to have an alternative text for the image.')
         },
       ],
-    }),
-    defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-      deprecated: {
-        reason: 'Use the Title field instead for database naming consistency',
-      },
     }),
     defineField({
       name: 'posterImage',
@@ -91,6 +82,14 @@ export default defineType({
       title: 'Active',
       type: 'boolean',
       initialValue: true,
+    }),
+    defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      deprecated: {
+        reason: 'Use the Title field instead for database naming consistency',
+      },
     }),
   ],
   preview: {
