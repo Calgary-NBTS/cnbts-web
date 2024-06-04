@@ -8,7 +8,8 @@ async function _getUpcomingEvents(): Promise<Event[]> {
     groq`*[_type=="event" && active==true && dateTime(time) > dateTime(now())] | order(time asc) [0...4] {
             _id,
             _createAt,
-            name,
+            title,
+            name, // deprecated - replaced by title
             "slug": slug.current,
             locationname,
             location,

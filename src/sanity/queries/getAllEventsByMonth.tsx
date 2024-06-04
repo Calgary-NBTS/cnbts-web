@@ -18,7 +18,7 @@ async function _getAllEventsByMonth({ year, month }: Props): Promise<Event[]> {
             _id,
             _createAt,
             title,
-            name, // deprecated
+            name, // deprecated - replaced by title
             "slug": slug.current,
             locationname,
             location,

@@ -27,7 +27,7 @@ async function _getAllEvents({ year, month, day }: Props = {}): Promise<
             _id,
             _createAt,
             title,
-            name, // deprecated
+            name, // deprecated - replaced by title
             "slug": slug.current,
             locationname,
             location,
