@@ -10,16 +10,10 @@ export const addFeedback = async (formData: FormData) => {
   const message = formData.get('message');
 
   const header = headers();
-  // const ip = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
-  // const ip = header.get('x-forwarded-for') ;
+  const ip = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
 
- header.forEach((value, key) => {
-  console.log(key, value)
- })
+  const supabase = createClient();
 
-
-  // const supabase = createClient();
-
-  // const { error } = await supabase.from('feedback').insert(({email, name, ip, message}))
+  return await supabase.from('feedback').insert(({email, name, ip, message}))
 
 }
