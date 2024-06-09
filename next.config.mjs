@@ -20,7 +20,7 @@ const nextConfig = {
     ],
     minimumCacheTTL: 60 * 60 * 24, // 1 day
   },
-  assetPrefix: isProd ? 'https://cdn.calgarynbts.ca' : undefined,
+  // assetPrefix: isProd ? 'https://cdn.calgarynbts.ca' : undefined,
 };
 
 export default nextConfig;
