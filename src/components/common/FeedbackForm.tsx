@@ -98,6 +98,7 @@ const FeedbackForm = () => {
           action={async (formData) => {
             const token = await reRef.current?.executeAsync();
             reRef.current?.reset();
+            console.log('Clienttoken', token);
             formData.append('token', token || '');
             const { error } = await addFeedback(formData);
             if (error) {
@@ -141,13 +142,11 @@ const FeedbackForm = () => {
                 sx={{ marginY: 1 }}
               />
             </Box>
-            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                size="invisible"
-                ref={reRef}
-              />
-            )}
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              size="invisible"
+              ref={reRef}
+            />
             <Box sx={{}}>
               <SubmitFeedbackButton />
             </Box>
