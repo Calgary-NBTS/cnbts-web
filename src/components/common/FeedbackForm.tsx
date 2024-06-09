@@ -142,11 +142,14 @@ const FeedbackForm = () => {
                 sx={{ marginY: 1 }}
               />
             </Box>
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-              size="invisible"
-              ref={reRef}
-            />
+            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                size="invisible"
+                ref={reRef}
+              />
+            )}
+
             <Box sx={{}}>
               <SubmitFeedbackButton />
             </Box>
