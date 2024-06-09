@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { /* useTheme,  */ styled } from '@mui/material/styles';
 import ContactIcons from './ContactIcons';
-import FeedbackForm from './FeedbackForm';
 
 const FooterWrap = styled('footer')(({ theme }) => ({
   backgroundColor: theme.vars.palette.primary.main,
@@ -21,7 +20,6 @@ const Footer = () => {
     <FooterWrap>
       <Container>
         <ContactIcons />
-        <FeedbackForm />
       </Container>
     </FooterWrap>
   );

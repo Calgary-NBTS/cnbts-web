@@ -1,8 +1,10 @@
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { MdOutlineAlternateEmail } from 'react-icons/md';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { FaFacebook, FaDiscord, FaSquareInstagram } from 'react-icons/fa6';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import FeedbackForm from './FeedbackForm';
 
 const ContactIcons = () => {
   return (
@@ -13,62 +15,71 @@ const ContactIcons = () => {
         </Typography>
       </Box>
       <Box>
-        <Button
-          component="a"
-          href="https://www.facebook.com/groups/1494690848018790"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-        >
-          <Typography
-            variant="h3"
-            component="h4"
-            sx={{ color: 'primary.contrastText' }}
+        <Tooltip title="Facebook">
+          <Button
+            component="a"
+            href="https://www.facebook.com/groups/1494690848018790"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
           >
-            <FaFacebook />
-          </Typography>
-        </Button>
-        <Button
-          component="a"
-          href="https://discord.gg/t7a9xFmfcA"
-          rel="noopener noreferrer"
-          aria-label="Discord"
-        >
-          <Typography
-            variant="h3"
-            component="h4"
-            sx={{ color: 'primary.contrastText' }}
+            <Typography
+              variant="h3"
+              component="h4"
+              sx={{ color: 'primary.contrastText' }}
+            >
+              <FaFacebook />
+            </Typography>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Discord">
+          <Button
+            component="a"
+            href="https://discord.gg/t7a9xFmfcA"
+            rel="noopener noreferrer"
+            aria-label="Discord"
           >
-            <FaDiscord />
-          </Typography>
-        </Button>
-        <Button
-          component="a"
-          href="https://www.instagram.com/calgary_enby_trans_society?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <Typography
-            variant="h3"
-            component="h4"
-            sx={{ color: 'primary.contrastText' }}
+            <Typography
+              variant="h3"
+              component="h4"
+              sx={{ color: 'primary.contrastText' }}
+            >
+              <FaDiscord />
+            </Typography>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Instagram">
+          <Button
+            component="a"
+            href="https://www.instagram.com/calgary_enby_trans_society?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            rel="noopener noreferrer"
+            aria-label="Instagram"
           >
-            <FaSquareInstagram />
-          </Typography>
-        </Button>
-        <Button
-          component="a"
-          href="mailto:calgarynbts@gmail.com"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <Typography
-            variant="h3"
-            component="h4"
-            sx={{ color: 'primary.contrastText' }}
+            <Typography
+              variant="h3"
+              component="h4"
+              sx={{ color: 'primary.contrastText' }}
+            >
+              <FaSquareInstagram />
+            </Typography>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Email">
+          <Button
+            component="a"
+            href="mailto:calgarynbts@gmail.com"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
           >
-            <MdOutlineAlternateEmail />
-          </Typography>
-        </Button>
+            <Typography
+              variant="h3"
+              component="h4"
+              sx={{ color: 'primary.contrastText' }}
+            >
+              <MdOutlineAlternateEmail />
+            </Typography>
+          </Button>
+        </Tooltip>
+        <FeedbackForm />
       </Box>
     </Box>
   );
