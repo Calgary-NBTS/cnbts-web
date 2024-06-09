@@ -15,11 +15,22 @@ import { MdClose } from 'react-icons/md';
 import { FaPenFancy } from 'react-icons/fa6';
 import { addFeedback } from '@/actions/addFeedbackAction';
 import SubmitFeedbackButton from './SubmitFeedbackButton';
+import { TransitionProps } from '@mui/material/transitions';
+import Slide from '@mui/material/Slide';
 
 interface SnackState extends SnackbarOrigin {
   open?: boolean;
   text?: string;
 }
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const FeedbackForm = () => {
   const theme = useTheme();
@@ -44,7 +55,6 @@ const FeedbackForm = () => {
   };
 
   const handleFormOpen = () => {
-    console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     setFormOpen(true);
   };
 
@@ -69,6 +79,7 @@ const FeedbackForm = () => {
         open={formOpen}
         fullScreen={fullScreen}
         onClose={handleFormClose}
+        TransitionComponent={Transition}
         aria-labelledby="form to submit feeback"
         PaperProps={{
           sx: {
@@ -99,7 +110,6 @@ const FeedbackForm = () => {
           action={async (formData) => {
             const token = await reRef.current?.executeAsync();
             reRef.current?.reset();
-            console.log('Clienttoken', token);
             formData.append('token', token || '');
             const { error } = await addFeedback(formData);
             if (error) {
