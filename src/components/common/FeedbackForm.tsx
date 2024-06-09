@@ -44,6 +44,7 @@ const FeedbackForm = () => {
   };
 
   const handleFormOpen = () => {
+    console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     setFormOpen(true);
   };
 
