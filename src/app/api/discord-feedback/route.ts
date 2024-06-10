@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
 
   console.log('request', request)
-
+  console.log(await request.json())
   return new Response('Hello World!', {
     status: 200,
     headers: {
