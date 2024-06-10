@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      content: `**${data.name}** (${data.email}) says:\n ${data.message}`,
+      content: `**${data.record.name}** (${data.record.email}) says:\n ${data.record.message}`,
     }),
   })
 
