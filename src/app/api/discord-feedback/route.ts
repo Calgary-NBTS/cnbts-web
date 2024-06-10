@@ -1,18 +1,18 @@
-export const dynamic = 'force-dynamic' // defaults to auto
+export const dynamic = 'force-dynamic'; // defaults to auto
 
-export async function GET(request: Request) {
-  return new Response('Hello World!', {
-    status: 200,
-    headers: {
-      'content-type': 'text/plain',
-    },
-  })
-}
+// export async function GET(request: Request) {
+//   return new Response('Hello World!', {
+//     status: 200,
+//     headers: {
+//       'content-type': 'text/plain',
+//     },
+//   })
+// }
 
 export async function POST(request: Request) {
   const data = await request.json();
 
-  const discordCall = await fetch (process.env.DISCORD_WEBHOOK_URL as string, {
+  const discordCall = await fetch(process.env.DISCORD_WEBHOOK_URL as string, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,16 +20,15 @@ export async function POST(request: Request) {
     body: JSON.stringify({
       content: `**${data.record.name}** (${data.record.email}) says:\n ${data.record.message}`,
     }),
-  })
+  });
 
   return new Response('Success', {
     status: 200,
     headers: {
       'content-type': 'text/plain',
     },
-  })
+  });
 }
-
 
 /*
 {
