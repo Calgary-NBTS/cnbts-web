@@ -46,10 +46,25 @@ export async function GET(request: Request) {
       description: toMarkdown(event.content),
       url: 'https://www.calgarynbts.ca',
       color: 10685835,
-      // fields: {
-      //   name: 'Starts at',
-      //   value: event.time.toLocaleTimeString(),
-      // },
+      fields: [{
+        name: 'Starts at',
+        value: event.time.toLocaleTimeString(),
+        inline: true,
+        },
+        {
+          name: 'Ends at',
+          value: event.timeend.toLocaleTimeString(),
+          inline: true,
+        },
+        {
+          name: 'Location',
+          value: event.locationname,
+        },
+        {
+          name: 'Address',
+          value: event.location,
+        }
+      ],
       image: {
         url: event.posterImage
       }
