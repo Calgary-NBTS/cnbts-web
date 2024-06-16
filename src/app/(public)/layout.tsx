@@ -65,9 +65,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <PHProvider>
-        <body style={{ position: 'relative', minHeight: '100vh' }}>
-          <AppRouterCacheProvider>
+      <body style={{ position: 'relative', minHeight: '100vh' }}>
+        <AppRouterCacheProvider>
+          <PHProvider>
             <CssVarsProvider theme={theme}>
               <CssBaseline />
               <BackgroundImage />
@@ -84,9 +84,9 @@ export default function RootLayout({
                 <Footer />
               </Suspense>
             </CssVarsProvider>
-          </AppRouterCacheProvider>
-        </body>
-      </PHProvider>
+          </PHProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
