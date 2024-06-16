@@ -1,5 +1,8 @@
 import { Suspense } from 'react';
-import { Analytics } from '@vercel/analytics/react';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
@@ -11,6 +14,12 @@ import BackgroundImage from '@/components/common/BackgroundGradiant';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import theme from '../theme';
+import { PHProvider } from '../providers';
+import dynamic from 'next/dynamic';
+
+const PostHogPageView = dynamic(() => import('@/app/PostHogPageView'), {
+  ssr: false,
+});
 
 export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
@@ -56,24 +65,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ position: 'relative', minHeight: '100vh' }}>
-        <AppRouterCacheProvider>
-          <CssVarsProvider theme={theme}>
-            <CssBaseline />
-            <BackgroundImage />
-            <Suspense>
-              <Header />
-            </Suspense>
-            {/* <div className="header-height">&nbsp;</div> */}
-            <main>{children}</main>
-            <Analytics />
-            <SpeedInsights />
-            <Suspense>
-              <Footer />
-            </Suspense>
-          </CssVarsProvider>
-        </AppRouterCacheProvider>
-      </body>
+      <PHProvider>
+        <body style={{ position: 'relative', minHeight: '100vh' }}>
+          <AppRouterCacheProvider>
+            <CssVarsProvider theme={theme}>
+              <CssBaseline />
+              <BackgroundImage />
+              <Suspense>
+                <Header />
+              </Suspense>
+              {/* <div className="header-height">&nbsp;</div> */}
+              <main>
+                <PostHogPageView />
+                {children}
+              </main>
+              <SpeedInsights />
+              <Suspense>
+                <Footer />
+              </Suspense>
+            </CssVarsProvider>
+          </AppRouterCacheProvider>
+        </body>
+      </PHProvider>
     </html>
   );
 }

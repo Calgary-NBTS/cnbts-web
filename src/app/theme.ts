@@ -4,12 +4,6 @@ import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import { purple, yellow, grey } from '@mui/material/colors';
 import type {} from '@mui/material/themeCssVarsAugmentation';
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 const theme = extendTheme({
   components: {
     MuiUseMediaQuery: {
@@ -78,9 +72,9 @@ const theme = extendTheme({
       },
     },
   },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
+  // typography: {
+  //   fontFamily: roboto.style.fontFamily,
+  // },
   breakpoints: {
     values: {
       xxs: 0,
