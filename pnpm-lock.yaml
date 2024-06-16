@@ -17,6 +17,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
+      '@fontsource/roboto':
+        specifier: ^5.0.13
+        version: 5.0.13
       '@mui/lab':
         specifier: 5.0.0-alpha.170
         version: 5.0.0-alpha.170(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.19(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -71,6 +74,9 @@ importers:
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
+      posthog-js:
+        specifier: ^1.139.2
+        version: 1.139.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2494,6 +2500,9 @@ packages:
 
   '@floating-ui/utils@0.2.2':
     resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
+
+  '@fontsource/roboto@5.0.13':
+    resolution: {integrity: sha512-j61DHjsdUCKMXSdNLTOxcG701FWnF0jcqNNQi2iPCDxU8seN/sMxeh62dC++UiagCWq9ghTypX+Pcy7kX+QOeQ==}
 
   '@graphql-tools/executor@0.0.18':
     resolution: {integrity: sha512-xZC0C+/npXoSHBB5bsJdwxDLgtl1Gu4fL9J2TPQmXoZC3L2N506KJoppf9LgWdHU/xK04luJrhP6WjhfkIN0pQ==}
@@ -5192,6 +5201,9 @@ packages:
   fd-slicer@1.1.0:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
 
+  fflate@0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+
   file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -6776,6 +6788,12 @@ packages:
   postcss@8.4.38:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
+
+  posthog-js@1.139.2:
+    resolution: {integrity: sha512-myyuOADqZvYwgqmriwlKDEUDwLhscivFLh67UWBj4Wt9kOlmklvJb36W0ES2GAS6IdojbnGZGH5lF3heqreLWQ==}
+
+  preact@10.22.0:
+    resolution: {integrity: sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw==}
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -11606,6 +11624,8 @@ snapshots:
 
   '@floating-ui/utils@0.2.2': {}
 
+  '@fontsource/roboto@5.0.13': {}
+
   '@graphql-tools/executor@0.0.18(graphql@16.8.1)':
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
@@ -15309,6 +15329,8 @@ snapshots:
     dependencies:
       pend: 1.2.0
 
+  fflate@0.4.8: {}
+
   file-entry-cache@6.0.1:
     dependencies:
       flat-cache: 3.2.0
@@ -16960,6 +16982,13 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+
+  posthog-js@1.139.2:
+    dependencies:
+      fflate: 0.4.8
+      preact: 10.22.0
+
+  preact@10.22.0: {}
 
   prelude-ls@1.2.1: {}
 
