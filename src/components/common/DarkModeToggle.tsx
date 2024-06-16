@@ -2,7 +2,7 @@
 import * as React from 'react';
 // import useMediaQuery from '@mui/material/useMediaQuery';
 import { /* useTheme, */ useColorScheme } from '@mui/material/styles';
-
+import { usePostHog } from 'posthog-js/react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Skeleton from '@mui/material/Skeleton';
@@ -12,6 +12,7 @@ import NBFlag from '@/../public/images/pride/flags/NonbinaryFlag.svg';
 import TransFlag from '@/../public/images/pride/flags/TransgenderFlag.svg';
 
 const DarkModeToggle = () => {
+  const posthog = usePostHog();
   const { mode, setMode, systemMode } = useColorScheme();
   const [mounted, setMounted] = React.useState(false);
   const calculatedMode = mode === 'system' ? systemMode : mode;
@@ -19,6 +20,10 @@ const DarkModeToggle = () => {
   React.useEffect(() => {
     setMounted(true);
   }, []);
+
+  React.useEffect(() => {
+    posthog?.capture('Theme Toggled', { theme: mode });
+  }, [mode, posthog]);
 
   // for server-side rendering
   // learn more at https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
