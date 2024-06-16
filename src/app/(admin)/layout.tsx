@@ -1,4 +1,10 @@
 import type { Metadata } from 'next';
+import { PHProvider } from '../providers';
+import dynamic from 'next/dynamic';
+
+const PostHogPageView = dynamic(() => import('@/app/PostHogPageView'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Admin Panel - Calgary Non-Binary and Transgender Society',
@@ -38,7 +44,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <PHProvider>
+        <body>
+          <PostHogPageView />
+          {children}
+        </body>
+      </PHProvider>
     </html>
   );
 }
