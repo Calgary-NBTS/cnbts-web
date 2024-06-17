@@ -5,7 +5,7 @@
 import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Popover from '@mui/material/Popover';
+import Dialog from '@mui/material/Dialog';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
 // import useTheme from "@mui/material/styles/useTheme";
@@ -13,6 +13,9 @@ import FormattedText from '../primative/FormattedText';
 import { Event } from '@/sanity/types/queryTypes';
 import FillerHeart from '@/components/primative/FillerHeart';
 import EventPoster from '@/components/common/EventPoster';
+import React from 'react';
+import { MdClose } from 'react-icons/md';
+import IconButton from '@mui/material/IconButton';
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -23,6 +26,7 @@ type Props = {
 };
 
 const CalendarTileContent = ({ date, event }: Props) => {
+  const [popoverOpen, setPopoverOpen] = React.useState(false);
   //   const theme = useTheme();
   const day = date.getDate();
 
@@ -77,6 +81,14 @@ const CalendarTileContent = ({ date, event }: Props) => {
     },
   }));
 
+  const handleClick = () => {
+    setPopoverOpen(true);
+  };
+
+  const handleClose = () => {
+    setPopoverOpen(false);
+  };
+
   return (
     <StyledTile>
       <Box
@@ -102,40 +114,49 @@ const CalendarTileContent = ({ date, event }: Props) => {
       >
         {event && (
           <>
-            <HtmlTooltip title={<TooltipContent event={event} />}>
-              <Box
-                sx={{
-                  maxHeight: '60px',
-                  maxWidth: '60px',
-                  position: 'relative',
-                }}
-              >
-                {event.image ? (
-                  <Image
-                    src={event.image}
-                    width={event.imageWidth}
-                    height={event.imageHeight}
-                    alt={
-                      event.imageAlt
-                        ? event.imageAlt
-                        : event.title
-                          ? event.title
-                          : 'Missing Alt Text'
-                    }
-                    sizes="(max-width: 1200px) 15vw, 10vw"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                ) : (
-                  <FillerHeart />
-                )}
+            <Box onClick={handleClick}>
+              <HtmlTooltip title={<TooltipContent event={event} />}>
+                <Box
+                  sx={{
+                    maxHeight: '60px',
+                    maxWidth: '60px',
+                    position: 'relative',
+                  }}
+                >
+                  {event.image ? (
+                    <Image
+                      src={event.image}
+                      width={event.imageWidth}
+                      height={event.imageHeight}
+                      alt={
+                        event.imageAlt
+                          ? event.imageAlt
+                          : event.title
+                            ? event.title
+                            : 'Missing Alt Text'
+                      }
+                      sizes="(max-width: 1200px) 15vw, 10vw"
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                    />
+                  ) : (
+                    <FillerHeart />
+                  )}
+                </Box>
+              </HtmlTooltip>
+            </Box>
+            <Dialog open={popoverOpen} onClose={handleClose}>
+              <Box>
+                <Box>
+                  <IconButton onClick={handleClose}>
+                    <MdClose />
+                  </IconButton>
+                </Box>
+                <EventPoster event={event} />
               </Box>
-            </HtmlTooltip>
-            <Popover open={false}>
-              <EventPoster event={event} />
-            </Popover>
+            </Dialog>
           </>
         )}
       </Box>

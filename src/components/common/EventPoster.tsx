@@ -22,10 +22,10 @@ const EventPoster = ({ event }: Props) => {
       </Box>
       <Box>
         <Image
-          src={event.image}
-          width={event.imageWidth}
-          height={event.imageHeight}
-          alt={event.imageAlt}
+          src={event.posterImage}
+          width={event.posterImageHeight}
+          height={event.posterImageWidth}
+          alt={event.posterImageAlt}
           sizes="(max-width: 600px) 100vh, (max-width: 1200px) 50vh, 33vh"
           style={{
             width: '100%',
