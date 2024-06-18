@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+export const dynamic = 'force-dynamic'; // defaults to auto
 import getTodaysEvents from '@/sanity/queries/getTodaysEvents';
 // import {toMarkdown} from '@sanity/block-content-to-markdown'
 import { portableTextToMarkdown } from '@/util/utils';
