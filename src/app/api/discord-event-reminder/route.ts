@@ -35,8 +35,8 @@ export async function GET(request: Request) {
   });
 
   if (todaysEvents.length === 0) {
-    return new Response(JSON.stringify(todaysEvents), {
-      status: 200,
+    return new Response(JSON.stringify(null), {
+      status: 204,
       headers: { 'Content-Type': 'application/json' },
     });
   };
