@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/discord-event-reminder",
-      "schedule": "0 8 * * *"
+      "schedule": "0 6 * * *"
     }
   ]
 }
