@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 import getTodaysEvents from '@/sanity/queries/getTodaysEvents';
-import {toMarkdown} from '@sanity/block-content-to-markdown'
+// import {toMarkdown} from '@sanity/block-content-to-markdown'
+import { portableTextToMarkdown } from '@/util/utils';
 
 interface Field {
   name: string;
@@ -43,17 +44,17 @@ export async function GET(request: Request) {
   const embeds: Embed[] = todaysEvents.map((event) => {
     return {
       title: event.name,
-      description: toMarkdown(event.content),
+      description: portableTextToMarkdown(event.content),
       url: 'https://www.calgarynbts.ca',
       color: 10685835,
       fields: [{
         name: 'Starts at',
-        value: event.time.toLocaleTimeString(),
+        value: new Date(event.time).toLocaleTimeString(),
         inline: true,
         },
         {
           name: 'Ends at',
-          value: event.timeend.toLocaleTimeString(),
+          value: new Date(event.timeend).toLocaleTimeString(),
           inline: true,
         },
         {
@@ -77,11 +78,22 @@ export async function GET(request: Request) {
     username: 'Event Reminder',
   };
 
-  console.log(todaysEvents);
+  const discordCall = await fetch(process.env.DISCORD_EVENT_URL!, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(discordPost),
+  });
+
+  console.log(discordCall.status)
+  // console.log(todaysEvents);
   // we will post a reminder at 8:00am
 
-  return new Response(JSON.stringify(todaysEvents), {
-    status: 200,
+
+  // JSON.stringify(discordPost)
+  return new Response(null, {
+    status: 204,
     headers: { 'Content-Type': 'application/json' },
   });
 }

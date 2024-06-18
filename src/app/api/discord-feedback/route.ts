@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'; // defaults to auto
 export async function POST(request: Request) {
   const data = await request.json();
 
-  const discordCall = await fetch(process.env.DISCORD_WEBHOOK_URL as string, {
+  const discordCall = await fetch(process.env.DISCORD_EVENT_WEBHOOK_URL as string, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
