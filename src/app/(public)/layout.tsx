@@ -14,12 +14,15 @@ import BackgroundImage from '@/components/common/BackgroundGradiant';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import theme from '../theme';
-import { PHProvider } from '../providers';
+import { PHProvider } from '../../components/PostHog/PostHogProvider';
 import dynamic from 'next/dynamic';
 
-const PostHogPageView = dynamic(() => import('@/app/PostHogPageView'), {
-  ssr: false,
-});
+const PostHogPageView = dynamic(
+  () => import('@/components/PostHog/PostHogPageView'),
+  {
+    ssr: false,
+  },
+);
 
 export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {

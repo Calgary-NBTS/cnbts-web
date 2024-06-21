@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
-import { PHProvider } from '../providers';
+import { PHProvider } from '../../components/PostHog/PostHogProvider';
 import dynamic from 'next/dynamic';
 
-const PostHogPageView = dynamic(() => import('@/app/PostHogPageView'), {
-  ssr: false,
-});
+const PostHogPageView = dynamic(
+  () => import('@/components/PostHog/PostHogPageView'),
+  {
+    ssr: false,
+  },
+);
 
 export const metadata: Metadata = {
   title: 'Admin Panel - Calgary Non-Binary and Transgender Society',
