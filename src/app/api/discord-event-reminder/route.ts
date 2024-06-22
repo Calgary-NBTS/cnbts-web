@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic'; // defaults to auto
 import getTodaysEvents from '@/sanity/queries/getTodaysEvents';
 // import {toMarkdown} from '@sanity/block-content-to-markdown'
-import { portableTextToMarkdown } from '@/util/utils';
+import { convertTZ, portableTextToMarkdown } from '@/util/utils';
 
 interface Field {
   name: string;
@@ -27,11 +27,11 @@ interface DiscordPostType {
 }
 
 export async function GET(request: Request) {
-  const now = new Date();
+  const nowInCalgary = convertTZ(new Date(), 'America/Edmonton');
   const todaysEvents = await getTodaysEvents({
-    year: now.getFullYear(),
-    month: now.getMonth(),
-    day: now.getDate(),
+    year: nowInCalgary.getFullYear(),
+    month: nowInCalgary.getMonth(),
+    day: nowInCalgary.getDate(),
   });
 
   if (todaysEvents.length === 0) {
@@ -62,12 +62,12 @@ export async function GET(request: Request) {
       fields: [
         {
           name: 'Starts at',
-          value: new Date(event.time||null).toLocaleTimeString('en-CA', {timeStyle: 'short'}),
+          value: new Date(event.time||null).toLocaleTimeString('en-CA', {timeStyle: 'short', timeZone: 'America/Edmonton'}),
           inline: true,
         },
         {
           name: 'Ends at',
-          value: new Date(event.timeend||undefined).toLocaleTimeString('en-CA', {timeStyle: 'short'}),
+          value: new Date(event.timeend||undefined).toLocaleTimeString('en-CA', {timeStyle: 'short', timeZone: 'America/Edmonton'}),
           inline: true,
         },
         {
