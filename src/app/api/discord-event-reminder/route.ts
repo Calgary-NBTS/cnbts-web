@@ -35,18 +35,18 @@ export async function GET(request: Request) {
   });
 
   if (todaysEvents.length === 0) {
-    const nothingPost = {
-      content: 'No events today',
-      username: 'Event Reminder',
-    };
+    // const nothingPost = {
+    //   content: 'No events today',
+    //   username: 'Event Reminder',
+    // };
 
-    const discordCall = await fetch(process.env.DISCORD_EVENT_WEBHOOK_URL!, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(nothingPost),
-    });
+    // const discordCall = await fetch(process.env.DISCORD_EVENT_WEBHOOK_URL!, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(nothingPost),
+    // });
 
     return new Response(null, {
       status: 204,
