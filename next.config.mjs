@@ -21,6 +21,19 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24, // 1 day
   },
   // assetPrefix: isProd ? 'https://cdn.calgarynbts.ca' : undefined,
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assests.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
+      },
+    ];
+  },
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
