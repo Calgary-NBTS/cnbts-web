@@ -62,12 +62,18 @@ export async function GET(request: Request) {
       fields: [
         {
           name: 'Starts at',
-          value: new Date(event.time||null).toLocaleTimeString('en-CA', {timeStyle: 'short', timeZone: 'America/Edmonton'}),
+          value: new Date(event.time || null).toLocaleTimeString('en-CA', {
+            timeStyle: 'short',
+            timeZone: 'America/Edmonton',
+          }),
           inline: true,
         },
         {
           name: 'Ends at',
-          value: new Date(event.timeend||undefined).toLocaleTimeString('en-CA', {timeStyle: 'short', timeZone: 'America/Edmonton'}),
+          value: new Date(event.timeend || undefined).toLocaleTimeString(
+            'en-CA',
+            { timeStyle: 'short', timeZone: 'America/Edmonton' },
+          ),
           inline: true,
         },
         {
@@ -80,7 +86,9 @@ export async function GET(request: Request) {
         },
       ],
       image: {
-        url: event.posterImage || 'https://www.calgarynbts.ca/android-chrome-512x512.png',
+        url:
+          event.posterImage ||
+          'https://www.calgarynbts.ca/android-chrome-512x512.png',
       },
     };
   }) as Embed[];

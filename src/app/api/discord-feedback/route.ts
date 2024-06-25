@@ -12,15 +12,18 @@ export const dynamic = 'force-dynamic'; // defaults to auto
 export async function POST(request: Request) {
   const data = await request.json();
 
-  const discordCall = await fetch(process.env.DISCORD_EVENT_WEBHOOK_URL as string, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  const discordCall = await fetch(
+    process.env.DISCORD_EVENT_WEBHOOK_URL as string,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content: `**${data.record.name}** (${data.record.email}) says:\n ${data.record.message}`,
+      }),
     },
-    body: JSON.stringify({
-      content: `**${data.record.name}** (${data.record.email}) says:\n ${data.record.message}`,
-    }),
-  });
+  );
 
   return new Response('Success', {
     status: 200,
